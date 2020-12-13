@@ -1693,7 +1693,7 @@ const armorAbilityTable = [
     mediumMax: 100,
     majorMin: 100,
     majorMax: 100,
-    itemType: "",
+    itemType: "Roll ability twice",
     type: "ability++",
     value: 0,
     enhancement: 0,
@@ -2081,7 +2081,7 @@ const shieldAbilityTable = [
     mediumMax: 100,
     majorMin: 100,
     majorMax: 100,
-    itemType: "",
+    itemType: "Roll ability twice",
     type: "ability++",
     value: 0,
     enhancement: 0,
@@ -2524,7 +2524,6 @@ const MagicItemTable = [
   },
 ];
 
-//TODO: fix Specific ability, currently rolled in wrong order, item -> ability, should be ability->item
 //TODO: add Specific shield
 //TODO: add Specific armor
 function rollMagicItem(table, grade, prefix = "", testRolls = []) {
@@ -2543,7 +2542,9 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   } else {
     prefix = "";
   }
-  console.log("magicItemRoll: " + magicItemRoll + " " + prefix);
+  console.debug(
+    "magicItemRoll: " + magicItemRoll + " " + magicItemData.itemType
+  );
   let result = {
     value: 0,
     enhancement: 0,
@@ -2556,30 +2557,26 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   try {
     switch (magicItemData.type) {
       case "item":
-        Object.assign(result, {
-          value: magicItemData.value || 0,
-        });
-
-        //ability roll
-        roll = rollMagicItem(
-          magicItemData.table,
-          grade,
-          magicItemData.itemType,
-          testRolls
-        );
-        // console.log(roll)
-        for (let ability of roll) {
-          Object.assign(result, {
-            value: result.value + ability.value,
-            valueBonus: result.valueBonus + ability.enhancement,
-            // ability: result.ability.concat(roll.ability),
-          });
-          abilities.push(ability.itemType);
-        }
+        // //ability roll
+        // roll = rollMagicItem(
+        //   magicItemData.table,
+        //   grade,
+        //   magicItemData.itemType,
+        //   testRolls
+        // );
+        // // console.log(roll)
+        // for (let ability of roll) {
+        //   Object.assign(result, {
+        //     value: result.value + ability.value,
+        //     valueBonus: result.valueBonus + ability.enhancement,
+        //     // ability: result.ability.concat(roll.ability),
+        //   });
+        //   abilities.push(ability.itemType);
+        // }
         // console.log(result)
         Object.assign(result, {
           type: magicItemData.itemType.trim(),
-          ability: abilities,
+          value: magicItemData.value || 0,
         });
         return result;
       case "roll":
@@ -2596,10 +2593,10 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
 
         let valueBonus = 0;
         if (roll.valueBonus > 0) {
-          console.log("adding bonus value");
           valueBonus =
-            Math.pow(result.enhancement + roll.valueBonus, 2) -
-            Math.pow(result.enhancement, 2);
+            Math.pow(roll.enhancement + roll.valueBonus, 2) -
+            Math.pow(roll.enhancement, 2);
+          console.log("adding bonus value " + valueBonus);
         }
 
         Object.assign(result, {
@@ -2611,22 +2608,29 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
 
         return result;
       case "roll+":
-        console.error("unimplemented");
-      // roll = rollMagicItem(
-      //   magicItemData.table,
-      //   grade,
-      //   (prefix + " " + magicItemData.itemType).trim(),
-      //   testRolls
-      // );
+        //ability roll
+        roll = rollMagicItem(magicItemData.table, grade, "", testRolls);
 
-      // //reroll
-      // roll = rollMagicItem(table, grade, prefix, testRolls);
-      // if (Array.isArray(roll[0])) {
-      //   result = result.concat(roll);
-      // } else {
-      //   result.push(roll);
-      // }
-      // return result;
+        for (let ability of roll) {
+          Object.assign(result, {
+            value: result.value + ability.value,
+            valueBonus: result.valueBonus + ability.enhancement,
+          });
+          abilities.push(ability.itemType);
+        }
+
+        //item roll
+        roll = rollMagicItem(table, grade, prefix, testRolls);
+        Object.assign(result, {
+          value: result.value + roll.value,
+          enhancement: result.enhancement + roll.enhancement,
+          type: prefix + " " + roll.type,
+          ability: abilities,
+        });
+
+        // console.log(roll);
+        // console.log(result);
+        return result;
       case "ability++":
         roll = rollMagicItem(table, grade, prefix, testRolls);
         // Object.assign(result, roll);
@@ -2642,18 +2646,8 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
             abilities.push(ability);
           }
         }
-        // Object.assign(result, {
-        //   value: result.value + roll.value,
-        //   valueBonus: result.enhancement + roll.enhancement,
-        //   ability: result.ability.concat(roll.ability),
-        // });
         return abilities;
       case "ability":
-        // Object.assign(result, {
-        //   value: magicItemData.value,
-        //   valueBonus: magicItemData.enhancement,
-        //   ability: [magicItemData.itemType],
-        // });
         abilities.push(magicItemData);
         return abilities;
     }
@@ -2811,13 +2805,14 @@ if (
                 type,
               } = rollMagicItem(MagicItemTable, itemsResult.type, "", [
                 2,
-                61,
-                44,
+                95,
                 100,
                 94,
                 100,
                 63,
                 96,
+                61,
+                43,
               ]);
               treasure.items.push({
                 value: value,
@@ -2916,3 +2911,4 @@ if (
   //  console.log(TreasureString);
   ChatMessage.create({ content: TreasureString });
 }
+
