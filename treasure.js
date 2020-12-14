@@ -2150,7 +2150,7 @@ const armorTypeTable = [
   },
   {
     Min: 2,
-    Max: 1,
+    Max: 2,
     itemType: "Leather",
     type: "item",
     table: armorAbilityTable,
@@ -2408,7 +2408,6 @@ const armorAndShieldsTable = [
     itemType: "Specific ability",
     value: 25000,
     type: "roll+",
-    table: armorAbilityTable,
   },
 ];
 
@@ -2528,9 +2527,12 @@ const MagicItemTable = [
 //TODO: add Specific armor
 function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   let magicItemRoll = new Roll("1d100").roll().total;
-  if (testRolls.length > 0) {
+  //TODO disable in production, automated testing purpose only
+  if (testRolls && testRolls.length > 0) {
     magicItemRoll = testRolls.shift();
+    // console.log("fudged dice roll = " + magicItemRoll)
   }
+
   let magicItemData = table.find(
     (r) =>
       r[grade + "Min"] <= magicItemRoll && r[grade + "Max"] >= magicItemRoll
@@ -2542,9 +2544,9 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   } else {
     prefix = "";
   }
-  console.debug(
-    "magicItemRoll: " + magicItemRoll + " " + magicItemData.itemType
-  );
+  // console.debug(
+  //   "magicItemRoll: " + magicItemRoll + " " + magicItemData.itemType
+  // );
   let result = {
     value: 0,
     enhancement: 0,
@@ -2557,61 +2559,42 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   try {
     switch (magicItemData.type) {
       case "item":
-        // //ability roll
-        // roll = rollMagicItem(
-        //   magicItemData.table,
-        //   grade,
-        //   magicItemData.itemType,
-        //   testRolls
-        // );
-        // // console.log(roll)
-        // for (let ability of roll) {
-        //   Object.assign(result, {
-        //     value: result.value + ability.value,
-        //     valueBonus: result.valueBonus + ability.enhancement,
-        //     // ability: result.ability.concat(roll.ability),
-        //   });
-        //   abilities.push(ability.itemType);
-        // }
-        // console.log(result)
         Object.assign(result, {
           type: magicItemData.itemType.trim(),
           value: magicItemData.value || 0,
+          table: magicItemData.table,
         });
         return result;
       case "roll":
-        Object.assign(result, {
-          value: magicItemData.value || 0 + result.value,
-          enhancement: magicItemData.enhancement || 0 + result.value,
-        });
         roll = rollMagicItem(
           magicItemData.table,
           grade,
           (prefix + " " + magicItemData.itemType).trim(),
           testRolls
         );
-
+        Object.assign(result, roll);
         let valueBonus = 0;
         if (roll.valueBonus > 0) {
           valueBonus =
             Math.pow(roll.enhancement + roll.valueBonus, 2) -
             Math.pow(roll.enhancement, 2);
-          console.log("adding bonus value " + valueBonus);
+          // console.log("adding bonus value " + valueBonus);
         }
 
         Object.assign(result, {
-          value: result.value + roll.value + valueBonus * 1000,
-          type: roll.type,
-          enhancement: result.enhancement + roll.enhancement,
-          ability: result.ability.concat(roll.ability),
+          value: result.value + magicItemData.value + valueBonus * 1000,
+          enhancement: result.enhancement || 0 + magicItemData.enhancement,
         });
 
         return result;
       case "roll+":
+        //item roll
+        roll = rollMagicItem(table, grade, prefix, testRolls);
+        // console.log(roll)
         //ability roll
-        roll = rollMagicItem(magicItemData.table, grade, "", testRolls);
+        let abilityRoll = rollMagicItem(roll.table, grade, "", testRolls);
 
-        for (let ability of roll) {
+        for (let ability of abilityRoll) {
           Object.assign(result, {
             value: result.value + ability.value,
             valueBonus: result.valueBonus + ability.enhancement,
@@ -2619,8 +2602,6 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
           abilities.push(ability.itemType);
         }
 
-        //item roll
-        roll = rollMagicItem(table, grade, prefix, testRolls);
         Object.assign(result, {
           value: result.value + roll.value,
           enhancement: result.enhancement + roll.enhancement,
@@ -2628,8 +2609,6 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
           ability: abilities,
         });
 
-        // console.log(roll);
-        // console.log(result);
         return result;
       case "ability++":
         roll = rollMagicItem(table, grade, prefix, testRolls);
@@ -2652,17 +2631,24 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
         return abilities;
     }
   } catch (err) {
-    console.log("Error rollMagicItem, roll: " + magicItemRoll);
-    throw err;
+    // console.error(magicItemData)
+    err.message += ' ' + magicItemRoll
+    throw err 
   }
 }
 
-function rollMundaneItem(table, prefix = "") {
+function rollMundaneItem(table, prefix = "", testRolls) {
   let mundaneItemRoll = new Roll("1d100").roll().total;
+  //TODO disable in production, automated testing purpose only
+  if (testRolls && testRolls.length > 0) {
+    mundaneItemRoll = testRolls.shift();
+  }
   let mundaneItemData = table.find(
     (r) => r.min <= mundaneItemRoll && r.max >= mundaneItemRoll
   );
-  console.log("mundaneItemRoll: " + mundaneItemRoll + " " + prefix);
+  // console.debug(
+  //   "mundaneItemRoll: " + mundaneItemRoll + " " + mundaneItemData.itemType
+  // );
   let result = [];
   let roll = [];
   switch (mundaneItemData.type) {
@@ -2674,7 +2660,8 @@ function rollMundaneItem(table, prefix = "") {
     case "roll":
       roll = rollMundaneItem(
         mundaneItemData.table,
-        (prefix + " " + mundaneItemData.itemType).trim()
+        (prefix + " " + mundaneItemData.itemType).trim(),
+        testRolls
       );
       if (Array.isArray(roll[0])) {
         result = result.concat(roll);
@@ -2686,7 +2673,8 @@ function rollMundaneItem(table, prefix = "") {
     case "roll+":
       roll = rollMundaneItem(
         mundaneItemData.table,
-        (prefix + " " + mundaneItemData.itemType).trim()
+        (prefix + " " + mundaneItemData.itemType).trim(),
+        testRolls
       );
       if (Array.isArray(roll[0])) {
         result = result.concat(roll);
@@ -2694,7 +2682,7 @@ function rollMundaneItem(table, prefix = "") {
         result.push(roll);
       }
       //reroll
-      roll = rollMundaneItem(table, prefix);
+      roll = rollMundaneItem(table, prefix, testRolls);
       if (Array.isArray(roll[0])) {
         result = result.concat(roll);
       } else {
@@ -2705,115 +2693,125 @@ function rollMundaneItem(table, prefix = "") {
   }
 }
 
-if (
-  canvas.tokens.controlled.filter(
-    (t) => game.actors.get(t.data.actorId).data.type === "npc"
-  ).length !== 0
-) {
-  canvas.tokens.controlled.forEach((t) => {
-    let actor = game.actors.get(t.data.actorId);
-    if (actor.data.type === "npc") {
-      let cr = actor.data.data.details.cr;
-      let TreasureLevel = Math.min(Math.max(Math.floor(cr), 1), 30) - 1;
-      //console.log(TreasureLevel);
-      //let roll = game.tables.getName('Treasure').roll();
-      let treasureRow = TreasureTable[TreasureLevel];
-      // JSON.parse(
-      //   game.tables.getName("Treasure").data.results[TreasureLevel].text
-      // );
+function run() {
+  treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
+  if (
+    canvas.tokens.controlled.filter(
+      (t) => game.actors.get(t.data.actorId).data.type === "npc"
+    ).length !== 0
+  ) {
+    canvas.tokens.controlled.forEach((t) => {
+      let actor = game.actors.get(t.data.actorId);
+      if (actor.data.type === "npc") {
+        let cr = actor.data.data.details.cr;
+        let TreasureLevel = Math.min(Math.max(Math.floor(cr), 1), 30) - 1;
+        //console.log(TreasureLevel);
+        //let roll = game.tables.getName('Treasure').roll();
+        let treasureRow = TreasureTable[TreasureLevel];
+        // JSON.parse(
+        //   game.tables.getName("Treasure").data.results[TreasureLevel].text
+        // );
 
-      //Roll for money
-      let moneyRoll = new Roll("1d100").roll().total;
-      let moneyResult = treasureRow.money.find(
-        (r) => r.min <= moneyRoll && r.max >= moneyRoll
-      );
-      if (moneyResult.type !== "nothing") {
-        treasure[moneyResult.type] += new Roll(moneyResult.roll).roll().total;
-      }
+        //Roll for money
+        let moneyRoll = new Roll("1d100").roll().total;
+        let moneyResult = treasureRow.money.find(
+          (r) => r.min <= moneyRoll && r.max >= moneyRoll
+        );
 
-      //Roll for goods
-      let goodsRoll = new Roll("1d100").roll().total;
-      let goodsResult = treasureRow.goods.find(
-        (r) => r.min <= goodsRoll && r.max >= goodsRoll
-      );
-      let goodsNo = new Roll(goodsResult.roll).roll().total;
-      let goodsSteps = [...Array(goodsNo).keys()];
-      goodsSteps.forEach((step) => {
-        switch (goodsResult.type) {
-          case "nothing":
-            break;
-          case "gem":
-            console.log("gem");
-            // let gemData = JSON.parse(
-            //   game.tables.getName("Gems").roll().results[0].text
-            // );
-            let gemData =
-              GemsTable[Math.floor(Math.random() * GemsTable.length)];
-            let gemValue = new Roll(gemData.roll).roll().total;
-            let gemType =
-              gemData.type[Math.floor(Math.random() * gemData.type.length)];
-            treasure.gems.push({ value: gemValue, type: gemType });
-            break;
-          case "art":
-            console.log("art");
-            // let artData = JSON.parse(
-            //   game.tables.getName("Arts").roll().results[0].text
-            // );
-            let artData =
-              ArtsTable[Math.floor(Math.random() * ArtsTable.length)];
-            let artValue = new Roll(artData.roll).roll().total;
-            let artType =
-              artData.type[Math.floor(Math.random() * artData.type.length)];
-            treasure.arts.push({ value: artValue, type: artType });
-            break;
+        // console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
+
+        if (moneyResult.type !== "nothing") {
+          treasure[moneyResult.type] += new Roll(moneyResult.roll).roll().total;
         }
-      });
 
-      //Roll for items
-      console.log("debug");
-      let itemsRoll = new Roll("1d1 + 97").roll().total;
-      let itemsResult = treasureRow.items.find(
-        (r) => r.min <= itemsRoll && r.max >= itemsRoll
-      );
-      let itemsNo = new Roll(itemsResult.roll).roll().total;
-      let itemSteps = [...Array(itemsNo).keys()];
-      itemSteps.forEach((step) => {
-        switch (itemsResult.type) {
-          case "nothing":
-            break;
-          case "mundane":
-            rollMundaneItem(MundaneItemsTable).forEach(
-              ([mundaneItemValue, mundaneItemType, mundaneItemAmount]) =>
-                treasure.items.push({
-                  value: mundaneItemValue,
-                  type: mundaneItemType,
-                  amount: mundaneItemAmount,
-                  ability: [],
-                  enhancement: 0,
-                })
-            );
-            break;
-          case "minor":
-          case "medium":
-          case "major":
-            console.log("magic");
-            try {
-              let {
-                value,
-                enhancement,
-                ability,
-                type,
-              } = rollMagicItem(MagicItemTable, itemsResult.type, "", [
-                2,
-                95,
-                100,
-                94,
-                100,
-                63,
-                96,
-                61,
-                43,
-              ]);
+        //Roll for goods
+        let goodsRoll = new Roll("1d100").roll().total;
+        let goodsResult = treasureRow.goods.find(
+          (r) => r.min <= goodsRoll && r.max >= goodsRoll
+        );
+        let goodsNo = new Roll(goodsResult.roll).roll().total;
+        let goodsSteps = [...Array(goodsNo).keys()];
+        goodsSteps.forEach((step) => {
+          switch (goodsResult.type) {
+            case "nothing":
+              break;
+            case "gem":
+              let gemData =
+                GemsTable[Math.floor(Math.random() * GemsTable.length)];
+              let gemValue = new Roll(gemData.roll).roll().total;
+              let gemType =
+                gemData.type[Math.floor(Math.random() * gemData.type.length)];
+              treasure.gems.push({ value: gemValue, type: gemType });
+              // console.debug(
+              //   "goodsRoll: " +
+              //     goodsRoll +
+              //     " - " +
+              //     goodsResult.roll +
+              //     " - " +
+              //     gemType
+              // );
+              break;
+            case "art":
+              let artData =
+                ArtsTable[Math.floor(Math.random() * ArtsTable.length)];
+              let artValue = new Roll(artData.roll).roll().total;
+              let artType =
+                artData.type[Math.floor(Math.random() * artData.type.length)];
+              treasure.arts.push({ value: artValue, type: artType });
+              // console.debug(
+              //   "goodsRoll: " +
+              //     goodsRoll +
+              //     " - " +
+              //     goodsResult.roll +
+              //     " - " +
+              //     artType
+              // );
+              break;
+          }
+        });
+
+        //Roll for items
+        let itemsRoll = new Roll("1d100").roll().total;
+        //TODO disable in production, automated testing purpose only
+        if (window.ItemRollFudge) {
+          itemsRoll = window.ItemRollFudge.shift();
+          // console.debug("fudged Dice roll = " + itemsRoll);
+        }
+        let itemsResult = treasureRow.items.find(
+          (r) => r.min <= itemsRoll && r.max >= itemsRoll
+        );
+        let itemsNo = new Roll(itemsResult.roll).roll().total;
+        let itemSteps = [...Array(itemsNo).keys()];
+        itemSteps.forEach((step) => {
+          switch (itemsResult.type) {
+            case "nothing":
+              break;
+            case "mundane":
+              rollMundaneItem(
+                MundaneItemsTable,
+                "",
+                window.ItemRollFudge
+              ).forEach(
+                ([mundaneItemValue, mundaneItemType, mundaneItemAmount]) =>
+                  treasure.items.push({
+                    value: mundaneItemValue,
+                    type: mundaneItemType,
+                    amount: mundaneItemAmount,
+                    ability: [],
+                    enhancement: 0,
+                  })
+              );
+              break;
+            case "minor":
+            case "medium":
+            case "major":
+              //TODO remove fudged roll
+              let { value, enhancement, ability, type } = rollMagicItem(
+                MagicItemTable,
+                itemsResult.type,
+                "",
+                window.ItemRollFudge
+              );
               treasure.items.push({
                 value: value,
                 type: type,
@@ -2821,94 +2819,100 @@ if (
                 enhancement: enhancement,
                 amount: 1,
               });
-            } catch (err) {
-              console.log("Error rollMagicItem end");
-              throw err;
-            }
-            break;
-        }
-      });
-    }
-  });
-  console.log(treasure);
-  //var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
-  // var TreasureString =
-  //   '<div><p>Treasure:</p></div><div style="padding-left: 20px;"><p>';
-  var TreasureString = '<div class="D35E chat-card item-card">';
-  if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
-    TreasureString += `<header class="card-header flexrow">
+
+              break;
+          }
+        });
+      }
+    });
+
+    //CHAT MESSAGE
+    // console.log(treasure);
+    window.treasure = treasure;
+    //var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
+    // var TreasureString =
+    //   '<div><p>Treasure:</p></div><div style="padding-left: 20px;"><p>';
+    var TreasureString = '<div class="D35E chat-card item-card">';
+    if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
+      TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
     <h3 class="item-name">Money</h3>
   </header> <div><p>`;
-    if (treasure.cp > 0)
-      TreasureString +=
-        '<span class="fontstyle0">cp: ' + treasure.cp + "</span><br>";
-    if (treasure.sp > 0)
-      TreasureString +=
-        '<span class="fontstyle0">sp: ' + treasure.sp + "</span><br>";
-    if (treasure.gp > 0)
-      TreasureString +=
-        '<span class="fontstyle0">gp: ' + treasure.gp + "</span><br>";
-    if (treasure.pp > 0)
-      TreasureString += '<span class="fontstyle0">pp: ' + treasure.pp + "<br>";
+      if (treasure.cp > 0)
+        TreasureString +=
+          '<span class="fontstyle0">cp: ' + treasure.cp + "</span><br>";
+      if (treasure.sp > 0)
+        TreasureString +=
+          '<span class="fontstyle0">sp: ' + treasure.sp + "</span><br>";
+      if (treasure.gp > 0)
+        TreasureString +=
+          '<span class="fontstyle0">gp: ' + treasure.gp + "</span><br>";
+      if (treasure.pp > 0)
+        TreasureString +=
+          '<span class="fontstyle0">pp: ' + treasure.pp + "<br>";
 
-    TreasureString +=
-      '</p></div><hr><span class="fontstyle0"> total value = ' +
-      Math.floor(
-        treasure.cp / 100 + treasure.sp / 10 + treasure.gp + treasure.pp * 10
-      ) +
-      " gp</span>";
-  }
-  if (treasure.gems.length > 0) {
-    let totalValue = 0;
-    TreasureString += `<header class="card-header flexrow">
+      TreasureString +=
+        '</p></div><hr><span class="fontstyle0"> total value = ' +
+        Math.floor(
+          treasure.cp / 100 + treasure.sp / 10 + treasure.gp + treasure.pp * 10
+        ) +
+        " gp</span>";
+    }
+    if (treasure.gems.length > 0) {
+      let totalValue = 0;
+      TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
     <h3 class="item-name">Gems</h3>
   </header> <div><p>`;
-    treasure.gems.forEach((gem) => {
-      totalValue += gem.value;
-      TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`;
-    });
-    TreasureString +=
-      '</p></div><hr><span class="fontstyle0">total value = ' +
-      totalValue +
-      " gp</span>";
-  }
-  if (treasure.arts.length > 0) {
-    let totalValue = 0;
-    TreasureString += `<header class="card-header flexrow">
+      treasure.gems.forEach((gem) => {
+        totalValue += gem.value;
+        TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`;
+      });
+      TreasureString +=
+        '</p></div><hr><span class="fontstyle0">total value = ' +
+        totalValue +
+        " gp</span>";
+    }
+    if (treasure.arts.length > 0) {
+      let totalValue = 0;
+      TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
     <h3 class="item-name">Arts</h3>
   </header> <div><p>`;
-    treasure.arts.forEach((art) => {
-      totalValue += art.value;
-      TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`;
-    });
-    TreasureString +=
-      '</p></div><hr><span class="fontstyle0">total value = ' +
-      totalValue +
-      " gp</span>";
-  }
+      treasure.arts.forEach((art) => {
+        totalValue += art.value;
+        TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`;
+      });
+      TreasureString +=
+        '</p></div><hr><span class="fontstyle0">total value = ' +
+        totalValue +
+        " gp</span>";
+    }
 
-  if (treasure.items.length > 0) {
-    TreasureString += `<header class="card-header flexrow">
+    if (treasure.items.length > 0) {
+      TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
     <h3 class="item-name">Items</h3>
   </header> <div class="card-content"><p>`;
 
-    treasure.items.forEach((item) => {
-      TreasureString += `<span class="fontstyle0">${
-        (item.amount > 1 && item.amount + "x ") || ""
-      }${item.type} ${
-        (item.enhancement > 0 && "+" + item.enhancement) || ""
-      } [${item.ability.join(", ")}] (${
-        item.value
-      } gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`;
-    });
-    TreasureString += "</p></div>";
+      treasure.items.forEach((item) => {
+        TreasureString += `<span class="fontstyle0">${
+          (item.amount > 1 && item.amount + "x ") || ""
+        }${item.type} ${
+          (item.enhancement > 0 && "+" + item.enhancement) || ""
+        } `;
+        if (item.ability.length > 0)
+          TreasureString += `[${item.ability.join(", ")}]`;
+        TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`;
+      });
+      TreasureString += "</p></div>";
+    }
+    TreasureString += "</div>";
+    //  console.log(TreasureString);
+    ChatMessage.create({ content: TreasureString });
   }
-  TreasureString += "</div>";
-  //  console.log(TreasureString);
-  ChatMessage.create({ content: TreasureString });
 }
 
+run();
+
+window.rollTreasure = run;
