@@ -2238,6 +2238,273 @@ const armorTypeTable = [
   },
 ];
 
+// https://regex101.com/r/5PgyZw/2
+const specificArmorTable = [
+  {
+    minorMin: 1,
+    minorMax: 50,
+    mediumMin: 1,
+    mediumMax: 25,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Mithral shirt",
+    table: armorAbilityTable,
+    type: "item",
+    value: 1100,
+    enhancement: 0,
+  },
+  {
+    minorMin: 51,
+    minorMax: 80,
+    mediumMin: 26,
+    mediumMax: 45,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Dragonhide plate",
+    table: armorAbilityTable,
+    type: "item",
+    value: 3300,
+    enhancement: 0,
+  },
+  {
+    minorMin: 81,
+    minorMax: 100,
+    mediumMin: 46,
+    mediumMax: 57,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Elven chain",
+    table: armorAbilityTable,
+    type: "item",
+    value: 4150,
+    enhancement: 0,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 58,
+    mediumMax: 67,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Rhino hide",
+    table: armorAbilityTable,
+    type: "item",
+    value: 5165,
+    enhancement: 2,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 68,
+    mediumMax: 82,
+    majorMin: 1,
+    majorMax: 10,
+    itemType: "Adamantine breastplate",
+    table: armorAbilityTable,
+    type: "item",
+    value: 10200,
+    enhancement: 0,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 83,
+    mediumMax: 97,
+    majorMin: 11,
+    majorMax: 20,
+    itemType: "Dwarven plate",
+    table: armorAbilityTable,
+    type: "item",
+    value: 16500,
+    enhancement: 0,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 98,
+    mediumMax: 100,
+    majorMin: 21,
+    majorMax: 32,
+    itemType: "Banded mail of luck",
+    table: armorAbilityTable,
+    type: "item",
+    value: 18900,
+    enhancement: 3,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 0,
+    mediumMax: 0,
+    majorMin: 33,
+    majorMax: 50,
+    itemType: "Celestial armor",
+    table: armorAbilityTable,
+    type: "item",
+    value: 22400,
+    enhancement: 3,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 0,
+    mediumMax: 0,
+    majorMin: 51,
+    majorMax: 60,
+    itemType: "Plate armor of the deep",
+    table: armorAbilityTable,
+    type: "item",
+    value: 24650,
+    enhancement: 1,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 0,
+    mediumMax: 0,
+    majorMin: 61,
+    majorMax: 75,
+    itemType: "Breastplate of command",
+    table: armorAbilityTable,
+    type: "item",
+    value: 25400,
+    enhancement: 2,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 0,
+    mediumMax: 0,
+    majorMin: 76,
+    majorMax: 90,
+    itemType: "Mithral full plate of speed",
+    table: armorAbilityTable,
+    type: "item",
+    value: 26500,
+    enhancement: 1,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 0,
+    mediumMax: 0,
+    majorMin: 91,
+    majorMax: 100,
+    itemType: "Demon armor",
+    table: armorAbilityTable,
+    type: "item",
+    value: 52260,
+    enhancement: 4,
+  },
+];
+
+const specificShieldTable = [
+  {
+    minorMin: 1,
+    minorMax: 30,
+    mediumMin: 1,
+    mediumMax: 20,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Darkwood buckler",
+    table: shieldAbilityTable,
+    enhancement: 0,
+    type: "item",
+    value: 205,
+  },
+  {
+    minorMin: 31,
+    minorMax: 80,
+    mediumMin: 21,
+    mediumMax: 45,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Darkwood shield",
+    table: shieldAbilityTable,
+    enhancement: 0,
+    type: "item",
+    value: 257,
+  },
+  {
+    minorMin: 81,
+    minorMax: 95,
+    mediumMin: 46,
+    mediumMax: 70,
+    majorMin: 0,
+    majorMax: 0,
+    itemType: "Mithral heavy shield",
+    table: shieldAbilityTable,
+    enhancement: 0,
+    type: "item",
+    value: 1020,
+  },
+  {
+    minorMin: 96,
+    minorMax: 100,
+    mediumMin: 71,
+    mediumMax: 85,
+    majorMin: 1,
+    majorMax: 20,
+    itemType: "Caster’s shield",
+    table: shieldAbilityTable,
+    enhancement: 1,
+    type: "item",
+    value: 3153,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 86,
+    mediumMax: 90,
+    majorMin: 21,
+    majorMax: 40,
+    itemType: "Spined shield",
+    table: shieldAbilityTable,
+    enhancement: 1,
+    type: "item",
+    value: 5580,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 91,
+    mediumMax: 95,
+    majorMin: 41,
+    majorMax: 60,
+    itemType: "Lion’s shield",
+    table: shieldAbilityTable,
+    enhancement: 2,
+    type: "item",
+    value: 9170,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 96,
+    mediumMax: 100,
+    majorMin: 61,
+    majorMax: 90,
+    itemType: "Winged shield",
+    table: shieldAbilityTable,
+    enhancement: 3,
+    type: "item",
+    value: 17257,
+  },
+  {
+    minorMin: 0,
+    minorMax: 0,
+    mediumMin: 0,
+    mediumMax: 0,
+    majorMin: 91,
+    majorMax: 100,
+    itemType: "Absorbing shield",
+    table: shieldAbilityTable,
+    enhancement: 1,
+    type: "item",
+    value: 50170,
+  },
+];
+
 // https://regex101.com/r/mpV2EF/1
 const armorAndShieldsTable = [
   {
@@ -2380,9 +2647,9 @@ const armorAndShieldsTable = [
     majorMax: 60,
     enhancement: 0,
     itemType: "Specific armor",
-    value: 25000,
+    value: 0,
     type: "roll",
-    table: [],
+    table: specificArmorTable,
   },
   {
     minorMin: 90,
@@ -2393,9 +2660,9 @@ const armorAndShieldsTable = [
     majorMax: 63,
     enhancement: 0,
     itemType: "Specific shield",
-    value: 25000,
+    value: 0,
     type: "roll",
-    table: [],
+    table: specificShieldTable,
   },
   {
     minorMin: 92,
@@ -2406,7 +2673,7 @@ const armorAndShieldsTable = [
     majorMax: 10,
     enhancement: 0,
     itemType: "Specific ability",
-    value: 25000,
+    value: 0,
     type: "roll+",
   },
 ];
@@ -2523,8 +2790,6 @@ const MagicItemTable = [
   },
 ];
 
-//TODO: add Specific shield
-//TODO: add Specific armor
 function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   let magicItemRoll = new Roll("1d100").roll().total;
   //TODO disable in production, automated testing purpose only
@@ -2532,6 +2797,7 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
     magicItemRoll = testRolls.shift();
     // console.log("fudged dice roll = " + magicItemRoll)
   }
+
 
   let magicItemData = table.find(
     (r) =>
@@ -2544,6 +2810,9 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
   } else {
     prefix = "";
   }
+
+  window.rolls.push({roll:magicItemRoll, itemType:magicItemData.itemType || "none"})
+
   // console.debug(
   //   "magicItemRoll: " + magicItemRoll + " " + magicItemData.itemType
   // );
@@ -2583,7 +2852,7 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
 
         Object.assign(result, {
           value: result.value + magicItemData.value + valueBonus * 1000,
-          enhancement: result.enhancement || 0 + magicItemData.enhancement,
+          enhancement: result.enhancement || 0 + magicItemData.enhancement || 0,
         });
 
         return result;
@@ -2601,12 +2870,15 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
           });
           abilities.push(ability.itemType);
         }
+      
 
         Object.assign(result, {
           value: result.value + roll.value,
           enhancement: result.enhancement + roll.enhancement,
+          valueBonus: result.valueBonus + roll.valueBonus,
           type: prefix + " " + roll.type,
-          ability: abilities,
+          ability: abilities.concat(roll.ability),
+          table: roll.table
         });
 
         return result;
@@ -2632,8 +2904,8 @@ function rollMagicItem(table, grade, prefix = "", testRolls = []) {
     }
   } catch (err) {
     // console.error(magicItemData)
-    err.message += ' ' + magicItemRoll
-    throw err 
+    err.message += " " + magicItemRoll;
+    throw err;
   }
 }
 
@@ -2694,7 +2966,8 @@ function rollMundaneItem(table, prefix = "", testRolls) {
 }
 
 function run() {
-  treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
+  treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };  
+  window.rolls = []
   if (
     canvas.tokens.controlled.filter(
       (t) => game.actors.get(t.data.actorId).data.type === "npc"
@@ -2806,6 +3079,7 @@ function run() {
             case "medium":
             case "major":
               //TODO remove fudged roll
+              try{
               let { value, enhancement, ability, type } = rollMagicItem(
                 MagicItemTable,
                 itemsResult.type,
@@ -2819,6 +3093,11 @@ function run() {
                 enhancement: enhancement,
                 amount: 1,
               });
+            }catch(err){
+              err.message += ' --- ' +JSON.stringify(window.rolls)
+              console.error(window.rolls)
+              throw err
+            }
 
               break;
           }

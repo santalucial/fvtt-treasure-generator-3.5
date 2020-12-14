@@ -45,7 +45,7 @@ beforeEach(() => {
 });
 
 describe("Magic armor rolls", () => {
-  it("test roll 1", async () => {
+  it("test roll", async () => {
     window.ItemRollFudge = [98, 2, 95, 61, 43, 100, 94, 100, 63, 96];
     window.rollTreasure();
 
@@ -77,6 +77,61 @@ describe("Magic armor rolls", () => {
       }
     `);
   });
+
+  it("test double ability", async () => {
+    window.ItemRollFudge = [98, 2, 92, 60, 15, 100, 5, 30];
+    window.rollTreasure();
+
+    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+      Object {
+        "ability": Array [
+          "Arrow catching",
+          "Bashing",
+        ],
+        "amount": 1,
+        "enhancement": 1,
+        "type": " Shield, light, wooden",
+        "value": 9153,
+      }
+    `);
+  });
+
+  it("test double ability 2", async () => {
+    window.ItemRollFudge = [98, 2, 92, 92, 60, 15, 100, 5, 30, 70];
+    window.rollTreasure();
+
+    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+      Object {
+        "ability": Array [
+          "Fortification, light",
+          "Arrow catching",
+          "Bashing",
+        ],
+        "amount": 1,
+        "enhancement": 1,
+        "type": "  Shield, light, wooden",
+        "value": 16153,
+      }
+    `);
+  });
+
+  it("test double ability 3", async () => {
+    window.ItemRollFudge = [98, 2, 96, 100, 89, 59, 25, 70];
+    window.rollTreasure();
+    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+      Object {
+        "ability": Array [
+          "Shadow",
+          "Glamered",
+        ],
+        "amount": 1,
+        "enhancement": 0,
+        "type": "  Dragonhide plate",
+        "value": 9750,
+      }
+    `);
+  });
+
   it("full roll magic armor table", async () => {
     //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_2) => {
