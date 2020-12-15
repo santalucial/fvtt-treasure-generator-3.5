@@ -1,3 +1,4 @@
 {
-    "npm.packageManager": "yarn"
+    "npm.packageManager": "yarn",
+    "npm-scripts.showStartNotification": false
 }

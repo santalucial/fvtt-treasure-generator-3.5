@@ -162,3 +162,49 @@ describe("Magic armor rolls", () => {
   //   });
   // });
 });
+
+describe("Magic weapon rolls", () => {
+  it("test magic weapon with bane (fey)", async () => {
+    window.ItemRollFudge = [98, 5, 100, 1, 99, 1, 2, 26, 1, 28];
+    window.rollTreasure();
+    expect(window.treasure.items).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "ability": Array [],
+          "amount": 0,
+          "enhancement": 0,
+          "type": "Common ranged weapon Arrows (50)",
+          "value": 350,
+        },
+        Object {
+          "ability": Array [
+            "Bane, Fey",
+          ],
+          "amount": 1,
+          "enhancement": 0,
+          "type": " Crossbow, light",
+          "value": 3335,
+        },
+      ]
+    `);
+  });
+
+  it("full roll magic weapon table", async () => {
+    //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
+    Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
+      window.ItemRollFudge = [98, 5, t7_9];
+      window.rollTreasure(); 
+    });
+  });
+
+  // it("1000 full roll magic weapon table", async () => {
+  //   //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
+  //   Array.from({ length: 1000 }, (_, i) => i + 1).forEach((roll) => {
+  //     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
+  //       window.ItemRollFudge = [98, 5, t7_9];
+  //       window.rollTreasure();
+  //     });
+  //   });
+  // });
+
+});
