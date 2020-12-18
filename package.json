@@ -1,0 +1,41 @@
+{
+  "name": "fvtt-macros",
+  "version": "0.0.1",
+  "description": "fvtt macros",
+  "scripts": {
+    "test": "jest -o",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [],
+  "author": "Luca Santalucia",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.19",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^5.2.1",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-prettier": "^3.3.0",
+    "foundry-pc-types": "https://gitlab.com/foundry-projects/foundry-pc/foundry-pc-types.git",
+    "husky": "^3.0.2",
+    "jest": "^24.8.0",
+    "jest-chain": "^1.1.2",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cross-env lint-staged && yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {}
+}

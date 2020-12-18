@@ -1,55 +1,69 @@
 beforeAll(() => {
-  window.canvas = { tokens: { controlled: [{ data: { actorId: "0" } }] } };
+	window.canvas = { tokens: { controlled: [{ data: { actorId: '0' } }] } }
 
-  window.game = {
-    actors: new Map([
-      ["0", { data: { type: "npc", data: { details: { cr: 0 } } } }],
-    ]),
-    modules: { get: (arg) => {} },
-  };
-  class ChatMessage {
-    static create({ content }) {}
-  }
-  window.ChatMessage = ChatMessage;
+	window.game = {
+		actors: new Map([
+			['0', { data: { type: 'npc', data: { details: { cr: 0 } } } }],
+		]),
+		modules: { get: () => {} },
+	}
 
-  class Roll {
-    constructor(roll) {
-      // console.log(roll);
-      this.formula = roll;
-    }
-    roll() {
-      let diceNo = [...Array(parseInt(this.formula.split("d")[0])).keys()];
-      let diceSize = parseInt(
-        this.formula.split("d")[1].split("+")[0].split("*")[0]
-      );
+	window.CONFIG = { debug: {} }
+	class ChatMessage {
+		static create({}) {}
+	}
+	window.ChatMessage = ChatMessage
 
-      var result = 0;
-      diceNo.forEach((step) => {
-        result += Math.floor(Math.random() * diceSize) + 1;
-      });
-      if (this.formula.includes("+"))
-        result += parseInt(this.formula.split("d")[1].split("+")[1]);
-      if (this.formula.includes("*"))
-        result *= parseInt(this.formula.split("d")[1].split("*")[1]);
-      // result = Math.max(1, result);
+	class Roll {
+		constructor(roll) {
+			// console.log(roll);
+			this.formula = roll
+		}
+		roll() {
+			let diceNo = [...Array(parseInt(this.formula.split('d')[0])).keys()]
+			let diceSize = parseInt(
+				this.formula.split('d')[1].split('+')[0].split('*')[0]
+			)
 
-      // console.log(result);
-      return { total: result };
-    }
-  }
-  window.Roll = Roll;
-  require("./treasure.js");
-});
+			var result = 0
+			diceNo.forEach(() => {
+				result += Math.floor(Math.random() * diceSize) + 1
+			})
+			if (this.formula.includes('+')) {
+				result += parseInt(this.formula.split('d')[1].split('+')[1])
+			}
+			if (this.formula.includes('*')) {
+				result *= parseInt(this.formula.split('d')[1].split('*')[1])
+			} // result = Math.max(1, result);
+
+			// console.log(result);
+			return { total: result }
+		}
+	}
+	window.Roll = Roll
+	require('./treasure.js')
+})
 
 beforeEach(() => {
-  window.treasure = {};
-});
+	window.treasure = {}
+})
 
-describe("Magic armor rolls", () => {
-  it("test roll", async () => {
-    window.rollTreasure([98, 2, 95, 61, 43, 100, 94, 100, 63, 96]);
+describe('Magic armor rolls', () => {
+	it('test roll', async () => {
+		let treasure = window.rollTreasure([
+			98,
+			2,
+			95,
+			61,
+			43,
+			100,
+			94,
+			100,
+			63,
+			96,
+		])
 
-    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [
           "Spell resistance (13)",
@@ -61,13 +75,13 @@ describe("Magic armor rolls", () => {
         "type": " Scale mail",
         "value": 12950,
       }
-    `);
-  });
+    `)
+	})
 
-  it("test roll 2", async () => {
-    window.rollTreasure([98, 2, 62, 12]);
+	it('test roll 2', async () => {
+		let treasure = window.rollTreasure([98, 2, 62, 12])
 
-    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [],
         "amount": 1,
@@ -76,13 +90,13 @@ describe("Magic armor rolls", () => {
         "type": "Studded leather",
         "value": 1175,
       }
-    `);
-  });
+    `)
+	})
 
-  it("test double ability", async () => {
-    window.rollTreasure([98, 2, 92, 60, 15, 100, 5, 30]);
+	it('test double ability', async () => {
+		let treasure = window.rollTreasure([98, 2, 92, 60, 15, 100, 5, 30])
 
-    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [
           "Arrow catching",
@@ -94,13 +108,24 @@ describe("Magic armor rolls", () => {
         "type": " Shield, light, wooden",
         "value": 9153,
       }
-    `);
-  });
+    `)
+	})
 
-  it("test double ability 2", async () => {
-    window.rollTreasure([98, 2, 92, 92, 60, 15, 100, 5, 30, 70]);
+	it('test double ability 2', async () => {
+		let treasure = window.rollTreasure([
+			98,
+			2,
+			92,
+			92,
+			60,
+			15,
+			100,
+			5,
+			30,
+			70,
+		])
 
-    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [
           "Fortification, light",
@@ -113,12 +138,12 @@ describe("Magic armor rolls", () => {
         "type": "  Shield, light, wooden",
         "value": 16153,
       }
-    `);
-  });
+    `)
+	})
 
-  it("test double ability 3", async () => {
-    window.rollTreasure([98, 2, 96, 100, 89, 59, 25, 70]);
-    expect(window.treasure.items[0]).toMatchInlineSnapshot(`
+	it('test double ability 3', async () => {
+		let treasure = window.rollTreasure([98, 2, 96, 100, 89, 59, 25, 70])
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [
           "Shadow",
@@ -130,41 +155,41 @@ describe("Magic armor rolls", () => {
         "type": "  Dragonhide plate",
         "value": 9750,
       }
-    `);
-  });
+    `)
+	})
 
-  it("full roll magic armor table", async () => {
-    //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
-    Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_2) => {
-      window.rollTreasure([98, 2, t7_2]);
-    });
-  });
+	it('full roll magic armor table', async () => {
+		//Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
+		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_2) => {
+			window.rollTreasure([98, 2, t7_2])
+		})
+	})
 
-  it("full roll magic armor abilty table", async () => {
-    Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_5) => {
-      window.rollTreasure([98, 2, 100, 61, t7_5]);
-    });
-  });
+	it('full roll magic armor abilty table', async () => {
+		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_5) => {
+			window.rollTreasure([98, 2, 100, 61, t7_5])
+		})
+	})
 
-  it("full roll magic shield abilty table", async () => {
-    Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_6) => {
-      window.rollTreasure([98, 2, 100, 1, t7_6]);
-    });
-  });
+	it('full roll magic shield abilty table', async () => {
+		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_6) => {
+			window.rollTreasure([98, 2, 100, 1, t7_6])
+		})
+	})
 
-  // it("full roll magic weapon table", async () => {
-  //   //Array.from({length: 10}, (_, i) => i + 1).forEach(t7_2 =>{})
-  //   Array.from({ length: 10 }, (_, i) => i + 1).forEach((t7_2) => {
-  //     window.ItemRollFudge = [98, 2, t7_2];
-  //     window.rollTreasure();
-  //   });
-  // });
-});
+	// it("full roll magic weapon table", async () => {
+	//   //Array.from({length: 10}, (_, i) => i + 1).forEach(t7_2 =>{})
+	//   Array.from({ length: 10 }, (_, i) => i + 1).forEach((t7_2) => {
+	//     window.ItemRollFudge = [98, 2, t7_2];
+	//     window.rollTreasure();
+	//   });
+	// });
+})
 
-describe("Magic weapon rolls", () => {
-  it("test magic weapon with bane (fey)", async () => {
-    window.rollTreasure([98, 5, 100, 1, 99, 1, 2, 26, 1, 28]);
-    expect(window.treasure.items).toMatchInlineSnapshot(`
+describe('Magic weapon rolls', () => {
+	it('test magic weapon with bane (fey)', async () => {
+		let treasure = window.rollTreasure([98, 5, 100, 1, 99, 1, 2, 26, 1, 28])
+		expect(treasure.items).toMatchInlineSnapshot(`
       Array [
         Object {
           "ability": Array [],
@@ -185,23 +210,23 @@ describe("Magic weapon rolls", () => {
           "value": 8335,
         },
       ]
-    `);
-  });
+    `)
+	})
 
-  it("full roll magic weapon table", async () => {
-    //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
-    Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-      window.rollTreasure([98, 5, t7_9]);
-    });
-  });
+	it('full roll magic weapon table', async () => {
+		//Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
+		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
+			window.rollTreasure([98, 5, t7_9])
+		})
+	})
 
-  // it("1000 full roll magic weapon table", async () => {
-  //   //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
-  //   Array.from({ length: 1000 }, (_, i) => i + 1).forEach((roll) => {
-  //     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-  //       window.ItemRollFudge = [98, 5, t7_9];
-  //       window.rollTreasure();
-  //     });
-  //   });
-  // });
-});
+	// it("1000 full roll magic weapon table", async () => {
+	//   //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
+	//   Array.from({ length: 1000 }, (_, i) => i + 1).forEach((roll) => {
+	//     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
+	//       window.ItemRollFudge = [98, 5, t7_9];
+	//       window.rollTreasure();
+	//     });
+	//   });
+	// });
+})
