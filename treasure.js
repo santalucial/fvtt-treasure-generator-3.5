@@ -1094,6 +1094,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 302,
+    id: "D35E.weapons-and-ammo.fOSuWwRSZLTrROch",
   },
   {
     Min: 5,
@@ -1103,6 +1104,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 320,
+    id: "D35E.weapons-and-ammo.Wx22UaMqWgCrYi7r",
   },
   {
     Min: 15,
@@ -1112,6 +1114,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 350,
+    id: "D35E.weapons-and-ammo.oyUApQSVsAqzyjdz",
   },
   {
     Min: 25,
@@ -1121,6 +1124,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 302,
+    id: "D35E.weapons-and-ammo.ik99jFlELGHbSryg",
   },
   {
     Min: 29,
@@ -1130,6 +1134,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 315,
+    id: "D35E.weapons-and-ammo.zWRlna42PMJVX6un",
   },
   {
     Min: 42,
@@ -1139,6 +1144,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 305,
+    id: "D35E.weapons-and-ammo.Yeli1JRCgnmVyhWT",
   },
   {
     Min: 46,
@@ -1148,6 +1154,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 312,
+    id: "D35E.weapons-and-ammo.AbmnL8ilLH6r95Oa",
   },
   {
     Min: 51,
@@ -1157,6 +1164,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 302,
+    id: "D35E.weapons-and-ammo.Kn9rGMb1KReqJhc1",
   },
   {
     Min: 55,
@@ -1166,6 +1174,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 600,
+    id: "D35E.weapons-and-ammo.6eAg4BT0RM8tfyUN",
   },
   {
     Min: 58,
@@ -1175,6 +1184,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 320,
+    id: "D35E.weapons-and-ammo.LA6TC5679iOXDNwq",
   },
   {
     Min: 62,
@@ -1184,6 +1194,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 315,
+    id: "D35E.weapons-and-ammo.SjYkpvZqfgvh0EAd",
   },
   {
     Min: 67,
@@ -1193,6 +1204,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 302,
+    id: "D35E.weapons-and-ammo.N37FFAdWjVV6EolR",
   },
   {
     Min: 71,
@@ -1202,6 +1214,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 303,
+    id: "D35E.weapons-and-ammo.L4KYkvLrUYAQJcdl",
   },
   {
     Min: 75,
@@ -1211,6 +1224,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 335,
+    id: "D35E.weapons-and-ammo.KtgSPHGqIRTwhwZM",
   },
   {
     Min: 85,
@@ -1220,6 +1234,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 310,
+    id: "D35E.weapons-and-ammo.7tGcTtI2fEj1AFaT",
   },
   {
     Min: 90,
@@ -1229,6 +1244,7 @@ const CommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 330,
+    id: "D35E.weapons-and-ammo.NVmHsonsX3jF4ZUi",
   },
 ];
 
@@ -1241,6 +1257,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 660,
+    id: "D35E.weapons-and-ammo.PmiF2bF8uhzghtuz",
   },
   {
     Min: 4,
@@ -1250,6 +1267,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 310,
+    id: "D35E.weapons-and-ammo.JIljkqPWhmvAPYbI",
   },
   {
     Min: 8,
@@ -1259,6 +1277,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 325,
+    id: "D35E.weapons-and-ammo.u6Hv3AYMgkAtR7Jm",
   },
   {
     Min: 11,
@@ -1268,6 +1287,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 300,
+    id: "D35E.weapons-and-ammo.vu3N4zCRDTUJ5FW4",
   },
   {
     Min: 13,
@@ -1275,17 +1295,29 @@ const UncommonMeleeWeaponTable = [
     roll: "1d1",
     itemType: "Crossbow, hand",
     type: "item",
-    table: meleeWeaponsAbilityTable,
+    table: rangedWeaponsAbilityTable,
     value: 400,
+    id: "D35E.weapons-and-ammo.BgTqaNqyS3tnLGAg",
   },
   {
     Min: 17,
+    Max: 18,
+    roll: "1d1",
+    itemType: "Light crossbow, repeating",
+    type: "item",
+    table: rangedWeaponsAbilityTable,
+    value: 550,
+    id: "D35E.weapons-and-ammo.bnM8psLOFegcdWg1",
+  },
+  {
+    Min: 19,
     Max: 19,
     roll: "1d1",
-    itemType: "Crossbow, repeating",
+    itemType: "Heavy crossbow, repeating",
     type: "item",
-    table: meleeWeaponsAbilityTable,
+    table: rangedWeaponsAbilityTable,
     value: 550,
+    id: "D35E.weapons-and-ammo.iXpBlVYJXAeIxUhW",
   },
   {
     Min: 20,
@@ -1295,6 +1327,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 302,
+    id: "D35E.weapons-and-ammo.05NnBuNnkMsaNoXf",
   },
   {
     Min: 22,
@@ -1304,6 +1337,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 375,
+    id: "D35E.weapons-and-ammo.v8Ee5Iagp62xsUQZ",
   },
   {
     Min: 24,
@@ -1313,6 +1347,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 690,
+    id: "D35E.weapons-and-ammo.RY3sfrMSDs0OGLAH",
   },
   {
     Min: 27,
@@ -1322,6 +1357,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 315,
+    id: "D35E.weapons-and-ammo.IfotwHH89d60H3pR",
   },
   {
     Min: 32,
@@ -1331,6 +1367,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 308,
+    id: "D35E.weapons-and-ammo.BcY8IkVwo2hXC6ND",
   },
   {
     Min: 36,
@@ -1340,6 +1377,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 302,
+    id: "D35E.weapons-and-ammo.IdkQOHJcRMq1Rm1r",
   },
   {
     Min: 38,
@@ -1349,6 +1387,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 305,
+    id: "D35E.weapons-and-ammo.RSvRoQyG8GpS8vhH",
   },
   {
     Min: 40,
@@ -1358,6 +1397,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 308,
+    id: "D35E.weapons-and-ammo.wKIv4yCj8L3ADceU",
   },
   {
     Min: 42,
@@ -1367,6 +1407,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 305,
+    id: "D35E.weapons-and-ammo.TePZuaCtN2A4CzGD",
   },
   {
     Min: 44,
@@ -1376,6 +1417,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 309,
+    id: "D35E.weapons-and-ammo.hBgclgYrnhecN3pX",
   },
   {
     Min: 46,
@@ -1385,6 +1427,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 310,
+    id: "D35E.weapons-and-ammo.zLdHrDEnRQGbZJrv",
   },
   {
     Min: 49,
@@ -1394,6 +1437,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 301,
+    id: "D35E.weapons-and-ammo.s0LFk8Jk5CsgOj7V",
   },
   {
     Min: 52,
@@ -1403,6 +1447,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 620,
+    id: "D35E.weapons-and-ammo.VM6EF0t88wdSMQDd",
   },
   {
     Min: 55,
@@ -1412,6 +1457,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 301,
+    id: "D35E.weapons-and-ammo.Dwk80eD0rB93lPnN",
   },
   {
     Min: 57,
@@ -1421,6 +1467,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 306,
+    id: "D35E.weapons-and-ammo.F9GR4mUpehjkNdMj",
   },
   {
     Min: 59,
@@ -1430,6 +1477,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 308,
+    id: "D35E.weapons-and-ammo.Uw42p33QKEUhlSMi",
   },
   {
     Min: 62,
@@ -1439,6 +1487,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 310,
+    id: "D35E.weapons-and-ammo.wuW25pHWYQGW81jL",
   },
   {
     Min: 65,
@@ -1448,6 +1497,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 305,
+    id: "D35E.weapons-and-ammo.awNlvqmRM1TZRVR9",
   },
   {
     Min: 68,
@@ -1457,6 +1507,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 308,
+    id: "D35E.weapons-and-ammo.FADCspPM6J4xZ2Fi",
   },
   {
     Min: 71,
@@ -1464,8 +1515,9 @@ const UncommonMeleeWeaponTable = [
     roll: "1d1",
     itemType: "Net",
     type: "item",
-    table: meleeWeaponsAbilityTable,
+    table: rangedWeaponsAbilityTable,
     value: 320,
+    id: "D35E.weapons-and-ammo.6oevs2mE3QqqQEAK",
   },
   {
     Min: 73,
@@ -1475,6 +1527,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 308,
+    id: "D35E.weapons-and-ammo.Vh5O2NapyCHRzosU",
   },
   {
     Min: 75,
@@ -1484,6 +1537,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 304,
+    id: "D35E.weapons-and-ammo.dSvOrS64ClyN9isO",
   },
   {
     Min: 77,
@@ -1493,6 +1547,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 310,
+    id: "D35E.weapons-and-ammo.naiJiv2t267Xyi09",
   },
   {
     Min: 79,
@@ -1502,6 +1557,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 301,
+    id: "D35E.weapons-and-ammo.mkwz0g7RwRwWkFkN",
   },
   {
     Min: 81,
@@ -1511,6 +1567,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 318,
+    id: "D35E.weapons-and-ammo.dgmR0QtZF8vePzcz",
   },
   {
     Min: 83,
@@ -1518,8 +1575,9 @@ const UncommonMeleeWeaponTable = [
     roll: "1d1",
     itemType: "Shuriken",
     type: "item",
-    table: meleeWeaponsAbilityTable,
+    table: rangedWeaponsAbilityTable,
     value: 301,
+    id: "D35E.weapons-and-ammo.42M7kFLkyccrj1uf",
   },
   {
     Min: 85,
@@ -1529,6 +1587,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 306,
+    id: "D35E.weapons-and-ammo.oAb9EXEzaLRGfYxL",
   },
   {
     Min: 87,
@@ -1538,6 +1597,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 700,
+    id: "D35E.weapons-and-ammo.4nFjnETINUoBFWKX",
   },
   {
     Min: 90,
@@ -1547,6 +1607,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 315,
+    id: "D35E.weapons-and-ammo.2mw29eyL5mzZgKqR",
   },
   {
     Min: 92,
@@ -1556,6 +1617,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 650,
+    id: "D35E.weapons-and-ammo.aji2yHRoqFAHHfm6",
   },
   {
     Min: 95,
@@ -1565,6 +1627,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 312,
+    id: "D35E.weapons-and-ammo.pCFqtR5WrJmeZnDF",
   },
   {
     Min: 98,
@@ -1574,6 +1637,7 @@ const UncommonMeleeWeaponTable = [
     type: "item",
     table: meleeWeaponsAbilityTable,
     value: 301,
+    id: "D35E.weapons-and-ammo.OPTlPwKg2NyQAjhe",
   },
 ];
 
@@ -1587,26 +1651,29 @@ const CommonRangedWeaponTable = [
       {
         Min: 1,
         Max: 50,
-        roll: "1d1",
-        itemType: "Arrows (50)",
+        roll: "1d1 + 49",
+        itemType: "Arrows",
         type: "extraItem",
         value: 350,
+        id: "D35E.weapons-and-ammo.23HXFjpPnuLFOylm",
       },
       {
         Min: 51,
         Max: 80,
-        roll: "1d1",
-        itemType: "Bolts, crossbow (50)",
+        roll: "1d1 + 49",
+        itemType: "Bolts, crossbow",
         type: "extraItem",
         value: 350,
+        id: "D35E.weapons-and-ammo.v04yeRzoqrhYx0G7",
       },
       {
         Min: 81,
         Max: 100,
-        roll: "1d1",
-        itemType: "Bullets, sling (50)",
+        roll: "1d1 + 49",
+        itemType: "Bullets, sling",
         type: "extraItem",
         value: 350,
+        id: "D35E.weapons-and-ammo.UWVXKSouid1jDJSm",
       },
     ],
     type: "ammunition",
@@ -1621,6 +1688,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 308,
+    id: "D35E.weapons-and-ammo.gAs85NM90mIR4O4Z",
   },
   {
     Min: 16,
@@ -1630,6 +1698,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 350,
+    id: "D35E.weapons-and-ammo.vqF4kshibBDN624D",
   },
   {
     Min: 26,
@@ -1639,6 +1708,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 335,
+    id: "D35E.weapons-and-ammo.RWbjRwSPsuPAUDhw",
   },
   {
     Min: 36,
@@ -1648,6 +1718,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 300,
+    id: "D35E.weapons-and-ammo.mCwwHo32SU7kjGyu",
   },
   {
     Min: 40,
@@ -1657,6 +1728,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 301,
+    id: "D35E.weapons-and-ammo.KmbhZ4Z674Yk9yIh",
   },
   {
     Min: 42,
@@ -1666,6 +1738,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 330,
+    id: "D35E.weapons-and-ammo.Ata6ajiY9wuAnBLB",
   },
   {
     Min: 47,
@@ -1675,7 +1748,8 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 375,
-  },
+    id: "D35E.weapons-and-ammo.GGS4thGbUH5eKndT",
+  }, //TODO no distinct items for different composite shortbows
   {
     Min: 52,
     Max: 56,
@@ -1684,6 +1758,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 450,
+    id: "D35E.weapons-and-ammo.GGS4thGbUH5eKndT",
   },
   {
     Min: 57,
@@ -1693,6 +1768,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 525,
+    id: "D35E.weapons-and-ammo.GGS4thGbUH5eKndT",
   },
   {
     Min: 62,
@@ -1702,6 +1778,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 300,
+    id: "D35E.weapons-and-ammo.cJV7OBm9KiF2WWiu",
   },
   {
     Min: 66,
@@ -1711,6 +1788,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 375,
+    id: "D35E.weapons-and-ammo.PqJih70EG2A1XNGf",
   },
   {
     Min: 76,
@@ -1720,8 +1798,10 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 400,
+    id: "D35E.weapons-and-ammo.msTiRxZVnecbPCA8",
   },
   {
+    //TODO no distinct items for composite longbows
     Min: 81,
     Max: 85,
     roll: "1d1",
@@ -1729,6 +1809,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 500,
+    id: "D35E.weapons-and-ammo.msTiRxZVnecbPCA8",
   },
   {
     Min: 86,
@@ -1738,6 +1819,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 600,
+    id: "D35E.weapons-and-ammo.msTiRxZVnecbPCA8",
   },
   {
     Min: 91,
@@ -1747,6 +1829,7 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 700,
+    id: "D35E.weapons-and-ammo.msTiRxZVnecbPCA8",
   },
   {
     Min: 96,
@@ -1756,9 +1839,11 @@ const CommonRangedWeaponTable = [
     type: "item",
     table: rangedWeaponsAbilityTable,
     value: 800,
+    id: "D35E.weapons-and-ammo.msTiRxZVnecbPCA8",
   },
 ];
 
+//TODO fix Items ID
 const MundaneItemsTable = [
   {
     Min: 1,
@@ -3032,6 +3117,7 @@ const shieldTypeTable = [
     type: "item",
     table: shieldAbilityTable,
     value: 165,
+    id: "D35E.armors-and-shields.gsE0PAOmCwivue5A",
   },
   {
     Min: 11,
@@ -3040,6 +3126,7 @@ const shieldTypeTable = [
     type: "item",
     table: shieldAbilityTable,
     value: 153,
+    id: "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
   },
   {
     Min: 16,
@@ -3048,6 +3135,7 @@ const shieldTypeTable = [
     type: "item",
     table: shieldAbilityTable,
     value: 159,
+    id: "D35E.armors-and-shields.iRB7ACzHf14VIk4M",
   },
   {
     Min: 21,
@@ -3056,6 +3144,7 @@ const shieldTypeTable = [
     type: "item",
     table: shieldAbilityTable,
     value: 157,
+    id: "D35E.armors-and-shields.ioCsEZc3Shc3t4Sv",
   },
   {
     Min: 31,
@@ -3064,6 +3153,7 @@ const shieldTypeTable = [
     type: "item",
     table: shieldAbilityTable,
     value: 170,
+    id: "D35E.armors-and-shields.2fK608aSYU9QDmzw",
   },
   {
     Min: 96,
@@ -3072,6 +3162,7 @@ const shieldTypeTable = [
     type: "item",
     table: shieldAbilityTable,
     value: 180,
+    id: "D35E.armors-and-shields.3mQTIhwAaZgvJq12",
   },
 ];
 
@@ -3083,6 +3174,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 155,
+    id: "D35E.armors-and-shields.ziXQ1DlDMGTAUOe9",
   },
   {
     Min: 2,
@@ -3091,6 +3183,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 160,
+    id: "D35E.armors-and-shields.6YCQkebsf4vR508H",
   },
   {
     Min: 3,
@@ -3099,6 +3192,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 175,
+    id: "D35E.armors-and-shields.xeuREriTfdZR1yCD",
   },
   {
     Min: 18,
@@ -3107,6 +3201,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 250,
+    id: "D35E.armors-and-shields.iGu21zy6QtroUZ4O",
   },
   {
     Min: 33,
@@ -3115,6 +3210,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 165,
+    id: "D35E.armors-and-shields.aI6gSI7gnCLCucw0",
   },
   {
     Min: 43,
@@ -3123,6 +3219,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 200,
+    id: "D35E.armors-and-shields.nnDSj5NxUb9Q8z8S",
   },
   {
     Min: 44,
@@ -3131,6 +3228,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 300,
+    id: "D35E.armors-and-shields.unY9jt1B8a5bbnzO",
   },
   {
     Min: 45,
@@ -3139,6 +3237,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 350,
+    id: "D35E.armors-and-shields.5TzaS38RPAx1oj9p",
   },
   {
     Min: 58,
@@ -3147,6 +3246,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 350,
+    id: "D35E.armors-and-shields.CRtBIIyBtNCsxztO",
   },
   {
     Min: 59,
@@ -3155,6 +3255,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 400,
+    id: "D35E.armors-and-shields.HpPFigQKr6C6Dej4",
   },
   {
     Min: 60,
@@ -3163,6 +3264,7 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 750,
+    id: "D35E.armors-and-shields.Y10QTnY9wVXg5VCm",
   },
   {
     Min: 61,
@@ -3171,9 +3273,11 @@ const armorTypeTable = [
     type: "item",
     table: armorAbilityTable,
     value: 1650,
+    id: "D35E.armors-and-shields.h65qEp22nsyRoeRa",
   },
 ];
 
+// TODO specific items ids and eventually their stats
 // https://regex101.com/r/5PgyZw/2
 const specificArmorTable = [
   {
@@ -3188,6 +3292,8 @@ const specificArmorTable = [
     type: "item",
     value: 1100,
     enhancement: 0,
+    // id:'D35E.armors-and-shields.iGu21zy6QtroUZ4O',
+    // notes:'This extremely light chain shirt is made of very fine mithral links. Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor check penalty. It is considered light armor and weighs 10 pounds.'
   },
   {
     minorMin: 51,
@@ -3201,6 +3307,8 @@ const specificArmorTable = [
     type: "item",
     value: 3300,
     enhancement: 0,
+    // id:'D35E.armors-and-shields.h65qEp22nsyRoeRa',
+    // notes:'This suit of full plate is made of dragonhide, rather than metal, so druids can wear it. It is otherwise identical to masterwork full plate.'
   },
   {
     minorMin: 81,
@@ -4095,7 +4203,7 @@ const weaponsTable = [
     mediumMax: 10,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 1,
+    enhancement: 1,
     itemType: "",
     value: 2000,
     type: "roll",
@@ -4108,7 +4216,7 @@ const weaponsTable = [
     mediumMax: 29,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 2,
+    enhancement: 2,
     itemType: "",
     value: 8000,
     type: "roll",
@@ -4121,7 +4229,7 @@ const weaponsTable = [
     mediumMax: 58,
     majorMin: 1,
     majorMax: 20,
-    enanchement: 3,
+    enhancement: 3,
     itemType: "",
     value: 18000,
     type: "roll",
@@ -4134,7 +4242,7 @@ const weaponsTable = [
     mediumMax: 62,
     majorMin: 21,
     majorMax: 38,
-    enanchement: 4,
+    enhancement: 4,
     itemType: "",
     value: 32000,
     type: "roll",
@@ -4147,7 +4255,7 @@ const weaponsTable = [
     mediumMax: 0,
     majorMin: 39,
     majorMax: 49,
-    enanchement: 5,
+    enhancement: 5,
     itemType: "",
     value: 50000,
     type: "roll",
@@ -4160,7 +4268,7 @@ const weaponsTable = [
     mediumMax: 0,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 6,
+    enhancement: 6,
     itemType: "",
     value: 72000,
     type: "roll",
@@ -4173,7 +4281,7 @@ const weaponsTable = [
     mediumMax: 0,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 7,
+    enhancement: 7,
     itemType: "",
     value: 98000,
     type: "roll",
@@ -4186,7 +4294,7 @@ const weaponsTable = [
     mediumMax: 0,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 8,
+    enhancement: 8,
     itemType: "",
     value: 128000,
     type: "roll",
@@ -4199,7 +4307,7 @@ const weaponsTable = [
     mediumMax: 0,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 9,
+    enhancement: 9,
     itemType: "",
     value: 162000,
     type: "roll",
@@ -4212,7 +4320,7 @@ const weaponsTable = [
     mediumMax: 0,
     majorMin: 0,
     majorMax: 0,
-    enanchement: 10,
+    enhancement: 10,
     itemType: "",
     value: 200000,
     type: "roll",
@@ -4226,7 +4334,7 @@ const weaponsTable = [
     mediumMax: 68,
     majorMin: 50,
     majorMax: 63,
-    enanchement: 0,
+    enhancement: 0,
     itemType: "Specific weapon",
     value: 0,
     type: "roll",
@@ -4239,7 +4347,7 @@ const weaponsTable = [
     mediumMax: 100,
     majorMin: 64,
     majorMax: 100,
-    enanchement: 0,
+    enhancement: 0,
     itemType: "Special ability and roll again",
     value: 0,
     type: "roll+",
@@ -4402,6 +4510,7 @@ function rollMagicItem(table, grade, prefix = "", testRolls = [], treasure) {
           type: magicItemData.itemType.trim(),
           value: magicItemData.value || 0,
           table: magicItemData.table,
+          id: magicItemData.id,
         });
         return result;
       case "roll":
@@ -4416,13 +4525,15 @@ function rollMagicItem(table, grade, prefix = "", testRolls = [], treasure) {
         let valueBonus = 0;
         if (roll.valueBonus > 0) {
           valueBonus =
-            Math.pow(roll.enhancement + roll.valueBonus, 2) -
-            Math.pow(roll.enhancement, 2);
-          // console.log("adding bonus value " + valueBonus);
+            (Math.pow(roll.enhancement + roll.valueBonus, 2) -
+              Math.pow(roll.enhancement, 2)) *
+            1000;
+          if (magicItemData.itemType === "Weapons") valueBonus *= 2;
+          // console.log(`adding bonus value ${valueBonus} for ${magicItemData.itemType}`);
         }
 
         Object.assign(result, {
-          value: result.value + magicItemData.value + valueBonus * 1000,
+          value: result.value + magicItemData.value + valueBonus,
           enhancement: result.enhancement || 0 + magicItemData.enhancement || 0,
         });
 
@@ -4434,9 +4545,10 @@ function rollMagicItem(table, grade, prefix = "", testRolls = [], treasure) {
         treasure.items.push({
           value: magicItemData.value,
           type: (prefix + " " + magicItemData.itemType).trim(),
-          amount: 0,
+          amount: new Roll(magicItemData.roll).roll().total,
           ability: [],
           enhancement: 0,
+          id: magicItemData.id,
         });
         break;
       case "roll+":
@@ -4467,6 +4579,7 @@ function rollMagicItem(table, grade, prefix = "", testRolls = [], treasure) {
           type: prefix + " " + roll.type,
           ability: abilities.concat(roll.ability),
           table: roll.table,
+          id: roll.id,
         });
 
         return result;
@@ -4479,7 +4592,10 @@ function rollMagicItem(table, grade, prefix = "", testRolls = [], treasure) {
         //   }
         // }
         for (let ability of roll) {
-          if (abilities.filter(ab => ab.itemType === ability.itemType).length === 0) {
+          if (
+            abilities.filter((ab) => ab.itemType === ability.itemType)
+              .length === 0
+          ) {
             abilities.push(ability);
           }
         }
@@ -4487,27 +4603,38 @@ function rollMagicItem(table, grade, prefix = "", testRolls = [], treasure) {
         roll = rollMagicItem(table, grade, prefix, testRolls, treasure);
 
         for (let ability of roll) {
-          if (abilities.filter(ab => ab.itemType === ability.itemType).length === 0) {
+          if (
+            abilities.filter((ab) => ab.itemType === ability.itemType)
+              .length === 0
+          ) {
             abilities.push(ability);
           }
         }
         return abilities;
       case "ability":
-        let ret ={
+        let ret = {
           itemType: magicItemData.itemType,
           type: magicItemData.type,
           value: magicItemData.value,
           enhancement: magicItemData.enhancement,
+        };
+
+        if (magicItemData.table) {
+          ret.itemType +=
+            ", " +
+            rollMagicItem(
+              magicItemData.table,
+              grade,
+              prefix,
+              testRolls,
+              treasure
+            ); //extraItemDef
         }
-        
-        if (magicItemData.table){
-          ret.itemType += ', ' + rollMagicItem(magicItemData.table, grade, prefix, testRolls, treasure); //extraItemDef
-        }
-       
+
         abilities.push(ret);
         return abilities;
-        case "extraItemDef":
-          return magicItemData.itemType
+      case "extraItemDef":
+        return magicItemData.itemType;
     }
   } catch (err) {
     // console.error(magicItemData)
@@ -4579,7 +4706,26 @@ function rollMundaneItem(table, prefix = "", testRolls) {
   }
 }
 
-function run() {
+function getItem(link) {
+  let entity = null;
+
+  // Target 1 - Compendium Link
+  if (link.includes(".")) {
+    let parts = link.split(".");
+    let id = parts.pop();
+    let packId = parts.join(".");
+    const pack = game.packs.get(packId);
+    entity = id ? pack.getEntity(id) : null;
+  } // Target 2 - Item Link
+  else {
+    let id = link;
+    entity = id ? game.items.get(id) : null;
+  }
+
+  return entity;
+}
+
+function run(ItemRollFudge = []) {
   treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
   window.rolls = [];
   if (
@@ -4659,9 +4805,8 @@ function run() {
 
         //Roll for items
         let itemsRoll = new Roll("1d100").roll().total;
-        //TODO disable in production, automated testing purpose only
-        if (window.ItemRollFudge) {
-          itemsRoll = window.ItemRollFudge.shift();
+        if (ItemRollFudge.length > 0) {
+          itemsRoll = ItemRollFudge.shift();
           // console.debug("fudged Dice roll = " + itemsRoll);
         }
         let itemsResult = treasureRow.items.find(
@@ -4674,11 +4819,7 @@ function run() {
             case "nothing":
               break;
             case "mundane":
-              rollMundaneItem(
-                MundaneItemsTable,
-                "",
-                window.ItemRollFudge
-              ).forEach(
+              rollMundaneItem(MundaneItemsTable, "", ItemRollFudge).forEach(
                 ([mundaneItemValue, mundaneItemType, mundaneItemAmount]) =>
                   treasure.items.push({
                     value: mundaneItemValue,
@@ -4692,13 +4833,12 @@ function run() {
             case "minor":
             case "medium":
             case "major":
-              //TODO remove fudged roll
               try {
-                let { value, enhancement, ability, type } = rollMagicItem(
+                let { value, enhancement, ability, type, id } = rollMagicItem(
                   MagicItemTable,
                   itemsResult.type,
                   "",
-                  window.ItemRollFudge,
+                  ItemRollFudge,
                   treasure
                 );
                 treasure.items.push({
@@ -4707,6 +4847,7 @@ function run() {
                   ability: ability,
                   enhancement: enhancement,
                   amount: 1,
+                  id: id,
                 });
               } catch (err) {
                 err.message += " --- " + JSON.stringify(window.rolls);
@@ -4723,90 +4864,125 @@ function run() {
     //CHAT MESSAGE
     // console.log(treasure);
     window.treasure = treasure;
+    let pikUpStiXModule = game.modules.get("pick-up-stix");
     //var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
     // var TreasureString =
     //   '<div><p>Treasure:</p></div><div style="padding-left: 20px;"><p>';
-    var TreasureString = '<div class="D35E chat-card item-card">';
-    if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
-      TreasureString += `<header class="card-header flexrow">
+    if (pikUpStiXModule && pikUpStiXModule.active) {
+      //TODO add money
+      let itemsObjects = [];
+      let lastPromise = null;
+
+      for (let item of treasure.items){
+        if (item.id){
+          lastPromise = getItem(item.id).then(it => {
+            it.data.data.quantity = item.amount;
+            //TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
+            // to be released in 0.87.11
+            itemsObjects.push(it)})        
+        }
+        else{
+          console.error(`no item generated for ${item.type}`)
+        }
+      }
+      // treasure.items.forEach( async item => {
+      //   if (item.id){
+      //     await getItem(item.id).then(it => itemsObjects.push(it))        
+      //   }
+      //   else{
+      //     console.error(`no item generated for ${item.type}`)
+      //   }
+      // })
+      
+      lastPromise.then(() => {
+        console.log(itemsObjects)
+        pikUpStiXModule.apis.makeContainer(itemsObjects, {cp:treasure.cp,sp:treasure.sp,gp:treasure.gp,pp:treasure.pp})
+      })
+      
+    } else {
+      var TreasureString = '<div class="D35E chat-card item-card">';
+      if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
+        TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
     <h3 class="item-name">Money</h3>
   </header> <div><p>`;
-      if (treasure.cp > 0)
-        TreasureString +=
-          '<span class="fontstyle0">cp: ' + treasure.cp + "</span><br>";
-      if (treasure.sp > 0)
-        TreasureString +=
-          '<span class="fontstyle0">sp: ' + treasure.sp + "</span><br>";
-      if (treasure.gp > 0)
-        TreasureString +=
-          '<span class="fontstyle0">gp: ' + treasure.gp + "</span><br>";
-      if (treasure.pp > 0)
-        TreasureString +=
-          '<span class="fontstyle0">pp: ' + treasure.pp + "<br>";
+        if (treasure.cp > 0)
+          TreasureString +=
+            '<span class="fontstyle0">cp: ' + treasure.cp + "</span><br>";
+        if (treasure.sp > 0)
+          TreasureString +=
+            '<span class="fontstyle0">sp: ' + treasure.sp + "</span><br>";
+        if (treasure.gp > 0)
+          TreasureString +=
+            '<span class="fontstyle0">gp: ' + treasure.gp + "</span><br>";
+        if (treasure.pp > 0)
+          TreasureString +=
+            '<span class="fontstyle0">pp: ' + treasure.pp + "<br>";
 
-      TreasureString +=
-        '</p></div><hr><span class="fontstyle0"> total value = ' +
-        Math.floor(
-          treasure.cp / 100 + treasure.sp / 10 + treasure.gp + treasure.pp * 10
-        ) +
-        " gp</span>";
-    }
-    if (treasure.gems.length > 0) {
-      let totalValue = 0;
-      TreasureString += `<header class="card-header flexrow">
+        TreasureString +=
+          '</p></div><hr><span class="fontstyle0"> total value = ' +
+          Math.floor(
+            treasure.cp / 100 +
+              treasure.sp / 10 +
+              treasure.gp +
+              treasure.pp * 10
+          ) +
+          " gp</span>";
+      }
+      if (treasure.gems.length > 0) {
+        let totalValue = 0;
+        TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
     <h3 class="item-name">Gems</h3>
   </header> <div><p>`;
-      treasure.gems.forEach((gem) => {
-        totalValue += gem.value;
-        TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`;
-      });
-      TreasureString +=
-        '</p></div><hr><span class="fontstyle0">total value = ' +
-        totalValue +
-        " gp</span>";
-    }
-    if (treasure.arts.length > 0) {
-      let totalValue = 0;
-      TreasureString += `<header class="card-header flexrow">
+        treasure.gems.forEach((gem) => {
+          totalValue += gem.value;
+          TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`;
+        });
+        TreasureString +=
+          '</p></div><hr><span class="fontstyle0">total value = ' +
+          totalValue +
+          " gp</span>";
+      }
+      if (treasure.arts.length > 0) {
+        let totalValue = 0;
+        TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
     <h3 class="item-name">Arts</h3>
   </header> <div><p>`;
-      treasure.arts.forEach((art) => {
-        totalValue += art.value;
-        TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`;
-      });
-      TreasureString +=
-        '</p></div><hr><span class="fontstyle0">total value = ' +
-        totalValue +
-        " gp</span>";
-    }
+        treasure.arts.forEach((art) => {
+          totalValue += art.value;
+          TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`;
+        });
+        TreasureString +=
+          '</p></div><hr><span class="fontstyle0">total value = ' +
+          totalValue +
+          " gp</span>";
+      }
 
-    if (treasure.items.length > 0) {
-      TreasureString += `<header class="card-header flexrow">
+      if (treasure.items.length > 0) {
+        TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
     <h3 class="item-name">Items</h3>
   </header> <div class="card-content"><p>`;
 
-      treasure.items.forEach((item) => {
-        TreasureString += `<span class="fontstyle0">${
-          (item.amount > 1 && item.amount + "x ") || ""
-        }${item.type} ${
-          (item.enhancement > 0 && "+" + item.enhancement) || ""
-        } `;
-        if (item.ability.length > 0)
-          TreasureString += `[${item.ability.join(", ")}]`;
-        TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`;
-      });
-      TreasureString += "</p></div>";
+        treasure.items.forEach((item) => {
+          TreasureString += `<span class="fontstyle0">${
+            (item.amount > 1 && item.amount + "x ") || ""
+          }${item.type} ${
+            (item.enhancement > 0 && "+" + item.enhancement) || ""
+          } `;
+          if (item.ability.length > 0)
+            TreasureString += `[${item.ability.join(", ")}]`;
+          TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`;
+        });
+        TreasureString += "</p></div>";
+      }
+      TreasureString += "</div>";
+      //  console.log(TreasureString);
+      ChatMessage.create({ content: TreasureString });
     }
-    TreasureString += "</div>";
-    //  console.log(TreasureString);
-    ChatMessage.create({ content: TreasureString });
   }
 }
-
-run();
-
+run([98, 5, 100, 1, 99, 1, 2, 26, 1, 28]);
 window.rollTreasure = run;

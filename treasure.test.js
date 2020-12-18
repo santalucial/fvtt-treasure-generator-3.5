@@ -5,6 +5,7 @@ beforeAll(() => {
     actors: new Map([
       ["0", { data: { type: "npc", data: { details: { cr: 0 } } } }],
     ]),
+    modules: { get: (arg) => {} },
   };
   class ChatMessage {
     static create({ content }) {}
@@ -46,8 +47,7 @@ beforeEach(() => {
 
 describe("Magic armor rolls", () => {
   it("test roll", async () => {
-    window.ItemRollFudge = [98, 2, 95, 61, 43, 100, 94, 100, 63, 96];
-    window.rollTreasure();
+    window.rollTreasure([98, 2, 95, 61, 43, 100, 94, 100, 63, 96]);
 
     expect(window.treasure.items[0]).toMatchInlineSnapshot(`
       Object {
@@ -57,6 +57,7 @@ describe("Magic armor rolls", () => {
         ],
         "amount": 1,
         "enhancement": 1,
+        "id": "D35E.armors-and-shields.nnDSj5NxUb9Q8z8S",
         "type": " Scale mail",
         "value": 12950,
       }
@@ -64,14 +65,14 @@ describe("Magic armor rolls", () => {
   });
 
   it("test roll 2", async () => {
-    window.ItemRollFudge = [98, 2, 62, 12];
-    window.rollTreasure();
+    window.rollTreasure([98, 2, 62, 12]);
 
     expect(window.treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [],
         "amount": 1,
         "enhancement": 1,
+        "id": "D35E.armors-and-shields.xeuREriTfdZR1yCD",
         "type": "Studded leather",
         "value": 1175,
       }
@@ -79,8 +80,7 @@ describe("Magic armor rolls", () => {
   });
 
   it("test double ability", async () => {
-    window.ItemRollFudge = [98, 2, 92, 60, 15, 100, 5, 30];
-    window.rollTreasure();
+    window.rollTreasure([98, 2, 92, 60, 15, 100, 5, 30]);
 
     expect(window.treasure.items[0]).toMatchInlineSnapshot(`
       Object {
@@ -90,6 +90,7 @@ describe("Magic armor rolls", () => {
         ],
         "amount": 1,
         "enhancement": 1,
+        "id": "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
         "type": " Shield, light, wooden",
         "value": 9153,
       }
@@ -97,8 +98,7 @@ describe("Magic armor rolls", () => {
   });
 
   it("test double ability 2", async () => {
-    window.ItemRollFudge = [98, 2, 92, 92, 60, 15, 100, 5, 30, 70];
-    window.rollTreasure();
+    window.rollTreasure([98, 2, 92, 92, 60, 15, 100, 5, 30, 70]);
 
     expect(window.treasure.items[0]).toMatchInlineSnapshot(`
       Object {
@@ -109,6 +109,7 @@ describe("Magic armor rolls", () => {
         ],
         "amount": 1,
         "enhancement": 1,
+        "id": "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
         "type": "  Shield, light, wooden",
         "value": 16153,
       }
@@ -116,8 +117,7 @@ describe("Magic armor rolls", () => {
   });
 
   it("test double ability 3", async () => {
-    window.ItemRollFudge = [98, 2, 96, 100, 89, 59, 25, 70];
-    window.rollTreasure();
+    window.rollTreasure([98, 2, 96, 100, 89, 59, 25, 70]);
     expect(window.treasure.items[0]).toMatchInlineSnapshot(`
       Object {
         "ability": Array [
@@ -126,6 +126,7 @@ describe("Magic armor rolls", () => {
         ],
         "amount": 1,
         "enhancement": 0,
+        "id": undefined,
         "type": "  Dragonhide plate",
         "value": 9750,
       }
@@ -135,22 +136,19 @@ describe("Magic armor rolls", () => {
   it("full roll magic armor table", async () => {
     //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_2) => {
-      window.ItemRollFudge = [98, 2, t7_2];
-      window.rollTreasure();
+      window.rollTreasure([98, 2, t7_2]);
     });
   });
 
   it("full roll magic armor abilty table", async () => {
     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_5) => {
-      window.ItemRollFudge = [98, 2, 100, 61, t7_5];
-      window.rollTreasure();
+      window.rollTreasure([98, 2, 100, 61, t7_5]);
     });
   });
 
   it("full roll magic shield abilty table", async () => {
     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_6) => {
-      window.ItemRollFudge = [98, 2, 100, 1, t7_6];
-      window.rollTreasure();
+      window.rollTreasure([98, 2, 100, 1, t7_6]);
     });
   });
 
@@ -165,15 +163,15 @@ describe("Magic armor rolls", () => {
 
 describe("Magic weapon rolls", () => {
   it("test magic weapon with bane (fey)", async () => {
-    window.ItemRollFudge = [98, 5, 100, 1, 99, 1, 2, 26, 1, 28];
-    window.rollTreasure();
+    window.rollTreasure([98, 5, 100, 1, 99, 1, 2, 26, 1, 28]);
     expect(window.treasure.items).toMatchInlineSnapshot(`
       Array [
         Object {
           "ability": Array [],
-          "amount": 0,
+          "amount": 50,
           "enhancement": 0,
-          "type": "Common ranged weapon Arrows (50)",
+          "id": "D35E.weapons-and-ammo.23HXFjpPnuLFOylm",
+          "type": "Common ranged weapon Arrows",
           "value": 350,
         },
         Object {
@@ -181,9 +179,10 @@ describe("Magic weapon rolls", () => {
             "Bane, Fey",
           ],
           "amount": 1,
-          "enhancement": 0,
+          "enhancement": 1,
+          "id": "D35E.weapons-and-ammo.RWbjRwSPsuPAUDhw",
           "type": " Crossbow, light",
-          "value": 3335,
+          "value": 8335,
         },
       ]
     `);
@@ -192,8 +191,7 @@ describe("Magic weapon rolls", () => {
   it("full roll magic weapon table", async () => {
     //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-      window.ItemRollFudge = [98, 5, t7_9];
-      window.rollTreasure(); 
+      window.rollTreasure([98, 5, t7_9]);
     });
   });
 
@@ -206,5 +204,4 @@ describe("Magic weapon rolls", () => {
   //     });
   //   });
   // });
-
 });
