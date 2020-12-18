@@ -2330,6 +2330,7 @@ const armorAbilityTable = [
     mediumMax: 19,
     majorMin: 0,
     majorMax: 0,
+    //TODO this kind of ability needs an enchantementLevel data to be passed to the function that applies the ability to the item
     itemType: "Spell resistance (13)",
     type: "ability",
     value: 0,
@@ -4861,7 +4862,6 @@ function run(ItemRollFudge = []) {
       }
     });
 
-    //CHAT MESSAGE
     // console.log(treasure);
     window.treasure = treasure;
     let pikUpStiXModule = game.modules.get("pick-up-stix");
@@ -4873,33 +4873,38 @@ function run(ItemRollFudge = []) {
       let itemsObjects = [];
       let lastPromise = null;
 
-      for (let item of treasure.items){
-        if (item.id){
-          lastPromise = getItem(item.id).then(it => {
+      for (let item of treasure.items) {
+        if (item.id) {
+          lastPromise = getItem(item.id).then((it) => {
             it.data.data.quantity = item.amount;
             //TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
             // to be released in 0.87.11
-            itemsObjects.push(it)})        
-        }
-        else{
-          console.error(`no item generated for ${item.type}`)
+            itemsObjects.push(it);
+          });
+        } else {
+          console.error(`no item generated for ${item.type}`);
         }
       }
       // treasure.items.forEach( async item => {
       //   if (item.id){
-      //     await getItem(item.id).then(it => itemsObjects.push(it))        
+      //     await getItem(item.id).then(it => itemsObjects.push(it))
       //   }
       //   else{
       //     console.error(`no item generated for ${item.type}`)
       //   }
       // })
-      
+
       lastPromise.then(() => {
-        console.log(itemsObjects)
-        pikUpStiXModule.apis.makeContainer(itemsObjects, {cp:treasure.cp,sp:treasure.sp,gp:treasure.gp,pp:treasure.pp})
-      })
-      
+        console.log(itemsObjects);
+        pikUpStiXModule.apis.makeContainer(itemsObjects, {
+          cp: treasure.cp,
+          sp: treasure.sp,
+          gp: treasure.gp,
+          pp: treasure.pp,
+        });
+      });
     } else {
+      //CHAT MESSAGE
       var TreasureString = '<div class="D35E chat-card item-card">';
       if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
         TreasureString += `<header class="card-header flexrow">
