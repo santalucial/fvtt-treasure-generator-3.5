@@ -1,4 +1,127 @@
 beforeAll(() => {
+	window.getType = (token) => {
+		const tof = typeof token
+		if (tof === 'object') {
+			if (token === null) {
+				return 'null'
+			}
+			let cn = token.constructor.name
+			if (['String', 'Number', 'Boolean', 'Array', 'Set'].includes(cn)) {
+				return cn
+			} else if (/^HTML/.test(cn)) {
+				return 'HTMLElement'
+			} else {
+				return 'Object'
+			}
+		}
+		return tof
+	}
+	window.mergeObject = (
+		original,
+		other = {},
+		{
+			insertKeys = true,
+			insertValues = true,
+			overwrite = true,
+			inplace = true,
+			enforceTypes = false,
+		} = {},
+		_d = 0
+	) => {
+		other = other || {}
+		if (!(original instanceof Object) || !(other instanceof Object)) {
+			throw new Error('One of original or other are not Objects!')
+		}
+		let depth = _d + 1
+
+		// Maybe copy the original data at depth 0
+		if (!inplace && _d === 0) {
+			original = duplicate(original)
+		}
+
+		// Enforce object expansion at depth 0
+		if (_d === 0 && Object.keys(original).some((k) => /\./.test(k))) {
+			original = expandObject(original)
+		}
+		if (_d === 0 && Object.keys(other).some((k) => /\./.test(k))) {
+			other = expandObject(other)
+		}
+
+		// Iterate over the other object
+		for (let [k, v] of Object.entries(other)) {
+			let tv = getType(v)
+
+			// Prepare to delete
+			let toDelete = false
+			if (k.startsWith('-=')) {
+				k = k.slice(2)
+				toDelete = v === null
+			}
+
+			// Get the existing object
+			let x = original[k]
+			let has = original.hasOwnProperty(k)
+			let tx = getType(x)
+
+			// Ensure that inner objects exist
+			if (!has && tv === 'Object') {
+				x = original[k] = {}
+				has = true
+				tx = 'Object'
+			}
+
+			// Case 1 - Key exists
+			if (has) {
+				// 1.1 - Recursively merge an inner object
+				if (tv === 'Object' && tx === 'Object') {
+					mergeObject(
+						x,
+						v,
+						{
+							insertKeys: insertKeys,
+							insertValues: insertValues,
+							overwrite: overwrite,
+							inplace: true,
+							enforceTypes: enforceTypes,
+						},
+						depth
+					)
+				}
+
+				// 1.2 - Remove an existing key
+				else if (toDelete) {
+					delete original[k]
+				}
+
+				// 1.3 - Overwrite existing value
+				else if (overwrite) {
+					if (tx && tv !== tx && enforceTypes) {
+						throw new Error(
+							`Mismatched data types encountered during object merge.`
+						)
+					}
+					original[k] = v
+				}
+
+				// 1.4 - Insert new value
+				else if (x === undefined && insertValues) {
+					original[k] = v
+				}
+			}
+
+			// Case 2 - Key does not exist
+			else if (!toDelete) {
+				let canInsert =
+					(depth === 1 && insertKeys) || (depth > 1 && insertValues)
+				if (canInsert) {
+					original[k] = v
+				}
+			}
+		}
+
+		// Return the object for use
+		return original
+	}
 	window.canvas = { tokens: { controlled: [{ data: { actorId: '0' } }] } }
 
 	window.game = {
@@ -64,51 +187,110 @@ describe('Magic armor rolls', () => {
 		])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
-      Object {
-        "ability": Array [
-          "Spell resistance (13)",
-          "Shadow",
-        ],
-        "amount": 1,
-        "enhancement": 1,
-        "id": "D35E.armors-and-shields.nnDSj5NxUb9Q8z8S",
-        "type": " Scale mail",
-        "value": 12950,
-      }
-    `)
+		Object {
+		  "ability": Array [
+		    Object {
+		      "enhancement": 2,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Spell resistance (13)",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		    Object {
+		      "enhancement": 0,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Shadow",
+		      "type": "ability",
+		      "value": 3750,
+		    },
+		  ],
+		  "amount": 1,
+		  "enhancement": 1,
+		  "id": "D35E.armors-and-shields.nnDSj5NxUb9Q8z8S",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 12950,
+		      },
+		    },
+		  },
+		  "type": " Scale mail",
+		  "value": 12950,
+		}
+	`)
 	})
 
 	it('test roll 2', async () => {
 		let treasure = window.rollTreasure([98, 2, 62, 12])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
-      Object {
-        "ability": Array [],
-        "amount": 1,
-        "enhancement": 1,
-        "id": "D35E.armors-and-shields.xeuREriTfdZR1yCD",
-        "type": "Studded leather",
-        "value": 1175,
-      }
-    `)
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "enhancement": 1,
+		  "id": "D35E.armors-and-shields.xeuREriTfdZR1yCD",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 1175,
+		      },
+		    },
+		  },
+		  "type": "Studded leather",
+		  "value": 1175,
+		}
+	`)
 	})
 
 	it('test double ability', async () => {
 		let treasure = window.rollTreasure([98, 2, 92, 60, 15, 100, 5, 30])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
-      Object {
-        "ability": Array [
-          "Arrow catching",
-          "Bashing",
-        ],
-        "amount": 1,
-        "enhancement": 1,
-        "id": "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
-        "type": " Shield, light, wooden",
-        "value": 9153,
-      }
-    `)
+		Object {
+		  "ability": Array [
+		    Object {
+		      "enhancement": 1,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Arrow catching",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		    Object {
+		      "enhancement": 1,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Bashing",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		  ],
+		  "amount": 1,
+		  "enhancement": 1,
+		  "id": "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 9153,
+		      },
+		    },
+		  },
+		  "type": " Shield, light, wooden",
+		  "value": 9153,
+		}
+	`)
 	})
 
 	it('test double ability 2', async () => {
@@ -126,36 +308,103 @@ describe('Magic armor rolls', () => {
 		])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
-      Object {
-        "ability": Array [
-          "Fortification, light",
-          "Arrow catching",
-          "Bashing",
-        ],
-        "amount": 1,
-        "enhancement": 1,
-        "id": "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
-        "type": "  Shield, light, wooden",
-        "value": 16153,
-      }
-    `)
+		Object {
+		  "ability": Array [
+		    Object {
+		      "enhancement": 1,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Fortification, light",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		    Object {
+		      "enhancement": 1,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Arrow catching",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		    Object {
+		      "enhancement": 1,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Bashing",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		  ],
+		  "amount": 1,
+		  "enhancement": 1,
+		  "id": "D35E.armors-and-shields.l1qNkx4xGXelq6yY",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 16153,
+		      },
+		    },
+		  },
+		  "type": "  Shield, light, wooden",
+		  "value": 16153,
+		}
+	`)
 	})
 
 	it('test double ability 3', async () => {
 		let treasure = window.rollTreasure([98, 2, 96, 100, 89, 59, 25, 70])
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
-      Object {
-        "ability": Array [
-          "Shadow",
-          "Glamered",
-        ],
-        "amount": 1,
-        "enhancement": 0,
-        "id": undefined,
-        "type": "  Dragonhide plate",
-        "value": 9750,
-      }
-    `)
+		Object {
+		  "ability": Array [
+		    Object {
+		      "enhancement": 0,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Shadow",
+		      "type": "ability",
+		      "value": 3750,
+		    },
+		    Object {
+		      "enhancement": 0,
+		      "enhancementLevel": undefined,
+		      "id": undefined,
+		      "itemOverride": undefined,
+		      "itemType": "Glamered",
+		      "type": "ability",
+		      "value": 2700,
+		    },
+		  ],
+		  "amount": 1,
+		  "enhancement": 0,
+		  "id": "D35E.armors-and-shields.h65qEp22nsyRoeRa",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "description": Object {
+		          "value": "<p>This armor consists of shaped and fitted metal plates riveted and interlocked to cover the entire body. The suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor. Buckles and straps distribute the weight over the body, so full plate hampers movement less than splint mail even though splint is lighter. Each suit of full plate must be individually fitted to its owner by a master armorsmith, although a captured suit can be resized to fit a new owner at a cost of 200 to 800 (2d4 × 100) gold pieces. Full plate is also known as field plate. This suit of full plate is made of dragonhide, rather than metal, so druids can wear it.</p>",
+		        },
+		        "identified": false,
+		        "identifiedName": "Dragonhide plate",
+		        "masterwork": true,
+		        "price": 9750,
+		        "unidentified": Object {
+		          "name": "Unidentified Full Plate",
+		          "price": 1500,
+		        },
+		      },
+		      "name": "Dragonhide plate",
+		    },
+		  },
+		  "type": "  Dragonhide plate",
+		  "value": 9750,
+		}
+	`)
 	})
 
 	it('full roll magic armor table', async () => {
@@ -190,27 +439,52 @@ describe('Magic weapon rolls', () => {
 	it('test magic weapon with bane (fey)', async () => {
 		let treasure = window.rollTreasure([98, 5, 100, 1, 99, 1, 2, 26, 1, 28])
 		expect(treasure.items).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "ability": Array [],
-          "amount": 50,
-          "enhancement": 0,
-          "id": "D35E.weapons-and-ammo.23HXFjpPnuLFOylm",
-          "type": "Common ranged weapon Arrows",
-          "value": 350,
-        },
-        Object {
-          "ability": Array [
-            "Bane, Fey",
-          ],
-          "amount": 1,
-          "enhancement": 1,
-          "id": "D35E.weapons-and-ammo.RWbjRwSPsuPAUDhw",
-          "type": " Crossbow, light",
-          "value": 8335,
-        },
-      ]
-    `)
+		Array [
+		  Object {
+		    "ability": Array [],
+		    "amount": 50,
+		    "enhancement": 0,
+		    "id": "D35E.weapons-and-ammo.23HXFjpPnuLFOylm",
+		    "itemOverride": Object {
+		      "data": Object {
+		        "data": Object {
+		          "masterwork": true,
+		          "price": 7,
+		        },
+		      },
+		    },
+		    "type": "Common ranged weapon Arrows",
+		    "value": 350,
+		  },
+		  Object {
+		    "ability": Array [
+		      Object {
+		        "enhancement": 1,
+		        "enhancementLevel": undefined,
+		        "id": undefined,
+		        "itemOverride": undefined,
+		        "itemType": "Bane, Fey",
+		        "type": "ability",
+		        "value": 0,
+		      },
+		    ],
+		    "amount": 1,
+		    "enhancement": 1,
+		    "id": "D35E.weapons-and-ammo.RWbjRwSPsuPAUDhw",
+		    "itemOverride": Object {
+		      "data": Object {
+		        "data": Object {
+		          "identified": false,
+		          "masterwork": true,
+		          "price": 8335,
+		        },
+		      },
+		    },
+		    "type": " Crossbow, light",
+		    "value": 8335,
+		  },
+		]
+	`)
 	})
 
 	it('full roll magic weapon table', async () => {

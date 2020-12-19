@@ -1,4 +1,4 @@
-//dnd 3.5 loot tables
+//#region dnd 3.5 loot tables
 const TreasureTable = [
 	{
 		money: [
@@ -3306,7 +3306,23 @@ const specificArmorTable = [
 		type: 'item',
 		value: 3300,
 		enhancement: 0,
-		// id:'D35E.armors-and-shields.h65qEp22nsyRoeRa',
+		id: 'D35E.armors-and-shields.h65qEp22nsyRoeRa',
+		itemOverride: {
+			data: {
+				name: 'Dragonhide plate',
+				data: {
+					description: {
+						value:
+							'<p>This armor consists of shaped and fitted metal plates riveted and interlocked to cover the entire body. The suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor. Buckles and straps distribute the weight over the body, so full plate hampers movement less than splint mail even though splint is lighter. Each suit of full plate must be individually fitted to its owner by a master armorsmith, although a captured suit can be resized to fit a new owner at a cost of 200 to 800 (2d4 × 100) gold pieces. Full plate is also known as field plate. This suit of full plate is made of dragonhide, rather than metal, so druids can wear it.</p>',
+					},
+					identifiedName: 'Dragonhide plate',
+					unidentified: {
+						price: 1500,
+						name: 'Unidentified Full Plate',
+					},
+				},
+			},
+		},
 		// notes:'This suit of full plate is made of dragonhide, rather than metal, so druids can wear it. It is otherwise identical to masterwork full plate.'
 	},
 	{
@@ -4464,7 +4480,9 @@ const MagicItemTable = [
 		value: 0,
 	},
 ]
+//#endregion
 
+//#region utility functions
 function log(message) {
 	if (CONFIG.debug['treasure-gen']) {
 		// eslint-disable-next-line no-console
@@ -4472,7 +4490,14 @@ function log(message) {
 	}
 }
 
-function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
+function rollMagicItem(
+	table,
+	grade,
+	prefix = '',
+	testRolls = [],
+	treasure,
+	options
+) {
 	let magicItemRoll = new Roll('1d100').roll().total
 	//TODO disable in production, automated testing purpose only
 	if (testRolls && testRolls.length > 0) {
@@ -4486,6 +4511,7 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 			r[grade + 'Max'] >= magicItemRoll
 	)
 	if (magicItemData === undefined) {
+		//fallback for a table withoud minor-medium-major distinction
 		magicItemData = table.find(
 			(r) => r['Min'] <= magicItemRoll && r['Max'] >= magicItemRoll
 		)
@@ -4518,6 +4544,7 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					value: magicItemData.value || 0,
 					table: magicItemData.table,
 					id: magicItemData.id,
+					itemOverride: magicItemData.itemOverride,
 				})
 				return result
 			case 'roll':
@@ -4526,7 +4553,8 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					grade,
 					(prefix + ' ' + magicItemData.itemType).trim(),
 					testRolls,
-					treasure
+					treasure,
+					options
 				)
 				Object.assign(result, roll)
 				let valueBonus = 0
@@ -4548,6 +4576,20 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 						0 + magicItemData.enhancement ||
 						0,
 				})
+				let extraOverride = {
+					data: {
+						data: {
+							identified: options.identified,
+							price: result.value,
+							masterwork: options.masterwork,
+						},
+					},
+				}
+				if (result.itemOverride) {
+					mergeObject(result.itemOverride, extraOverride)
+				} else {
+					result.itemOverride = extraOverride
+				}
 
 				return result
 			case 'ammunition':
@@ -4556,22 +4598,48 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					grade,
 					prefix,
 					testRolls,
-					treasure
+					treasure,
+					options
 				)
-				return rollMagicItem(table, grade, prefix, testRolls, treasure)
+				return rollMagicItem(
+					table,
+					grade,
+					prefix,
+					testRolls,
+					treasure,
+					options
+				)
 			case 'extraItem':
-				treasure.items.push({
+				let extraItem = {
 					value: magicItemData.value,
 					type: (prefix + ' ' + magicItemData.itemType).trim(),
 					amount: new Roll(magicItemData.roll).roll().total,
 					ability: [],
 					enhancement: 0,
 					id: magicItemData.id,
-				})
+				}
+				extraItem.itemOverride = {
+					data: {
+						data: {
+							price: Math.floor(
+								extraItem.value / extraItem.amount
+							),
+							masterwork: options.masterwork,
+						},
+					},
+				}
+				treasure.items.push(extraItem)
 				break
 			case 'roll+':
 				//item roll
-				roll = rollMagicItem(table, grade, prefix, testRolls, treasure)
+				roll = rollMagicItem(
+					table,
+					grade,
+					prefix,
+					testRolls,
+					treasure,
+					options
+				)
 				// console.log(roll)
 				//ability roll
 				let abilityRoll = rollMagicItem(
@@ -4579,7 +4647,8 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					grade,
 					'',
 					testRolls,
-					treasure
+					treasure,
+					options
 				)
 
 				for (let ability of abilityRoll) {
@@ -4587,7 +4656,7 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 						value: result.value + ability.value,
 						valueBonus: result.valueBonus + ability.enhancement,
 					})
-					abilities.push(ability.itemType)
+					abilities.push(ability)
 				}
 
 				Object.assign(result, {
@@ -4598,11 +4667,19 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					ability: abilities.concat(roll.ability),
 					table: roll.table,
 					id: roll.id,
+					itemOverride: roll.itemOverride,
 				})
 
 				return result
 			case 'ability++':
-				roll = rollMagicItem(table, grade, prefix, testRolls, treasure)
+				roll = rollMagicItem(
+					table,
+					grade,
+					prefix,
+					testRolls,
+					treasure,
+					options
+				)
 				// Object.assign(result, roll);
 				// for (let ability of roll) {
 				//   if (abilities.indexOf(ability) === -1) {
@@ -4619,7 +4696,14 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					}
 				}
 
-				roll = rollMagicItem(table, grade, prefix, testRolls, treasure)
+				roll = rollMagicItem(
+					table,
+					grade,
+					prefix,
+					testRolls,
+					treasure,
+					options
+				)
 
 				for (let ability of roll) {
 					if (
@@ -4637,24 +4721,37 @@ function rollMagicItem(table, grade, prefix = '', testRolls = [], treasure) {
 					type: magicItemData.type,
 					value: magicItemData.value,
 					enhancement: magicItemData.enhancement,
+					id: magicItemData.id,
+					enhancementLevel: magicItemData.enhancementLevel,
+					itemOverride: magicItemData.itemOverride,
 				}
 
 				if (magicItemData.table) {
-					ret.itemType +=
-						', ' +
-						rollMagicItem(
-							magicItemData.table,
-							grade,
-							prefix,
-							testRolls,
-							treasure
-						) //extraItemDef
+					let {
+						itemTypeExtra,
+						idOverride,
+						itemOverride,
+					} = rollMagicItem(
+						magicItemData.table,
+						grade,
+						prefix,
+						testRolls,
+						treasure,
+						options
+					)
+					ret.itemType += ', ' + itemTypeExtra
+					ret.id = idOverride
+					ret.itemOverride = itemOverride //might be an issue if there were case in which both ability and extraItemDef(only used for typing bane ability) use it
 				}
 
 				abilities.push(ret)
 				return abilities
 			case 'extraItemDef':
-				return magicItemData.itemType
+				return {
+					itemTypeExtra: magicItemData.itemType,
+					idOverride: magicItemData.id,
+					itemOverride: magicItemData.itemOverride,
+				}
 		}
 	} catch (err) {
 		// console.error(magicItemData)
@@ -4748,8 +4845,10 @@ function getItem(link) {
 
 	return entity
 }
+//#endregion
 
-function run(ItemRollFudge = []) {
+//#region main function
+function run(ItemRollFudge = [], options = { identified: false }) {
 	var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
 	window.rolls = []
 	if (
@@ -4764,13 +4863,9 @@ function run(ItemRollFudge = []) {
 				let TreasureLevel =
 					Math.min(Math.max(Math.floor(cr), 1), 30) - 1
 				//console.log(TreasureLevel);
-				//let roll = game.tables.getName('Treasure').roll();
 				let treasureRow = TreasureTable[TreasureLevel]
-				// JSON.parse(
-				//   game.tables.getName("Treasure").data.results[TreasureLevel].text
-				// );
 
-				//Roll for money
+				//#region Roll for money
 				let moneyRoll = new Roll('1d100').roll().total
 				let moneyResult = treasureRow.money.find(
 					(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
@@ -4783,8 +4878,9 @@ function run(ItemRollFudge = []) {
 						moneyResult.roll
 					).roll().total
 				}
+				//#endregion
 
-				//Roll for goods
+				//#region Roll for goods
 				let goodsRoll = new Roll('1d100').roll().total
 				let goodsResult = treasureRow.goods.find(
 					(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
@@ -4847,8 +4943,9 @@ function run(ItemRollFudge = []) {
 							break
 					}
 				})
+				//#endregion
 
-				//Roll for items
+				//#region Roll for items
 				let itemsRoll = new Roll('1d100').roll().total
 				if (ItemRollFudge.length > 0) {
 					itemsRoll = ItemRollFudge.shift()
@@ -4893,12 +4990,17 @@ function run(ItemRollFudge = []) {
 									ability,
 									type,
 									id,
+									itemOverride,
 								} = rollMagicItem(
 									MagicItemTable,
 									itemsResult.type,
 									'',
 									ItemRollFudge,
-									treasure
+									treasure,
+									{
+										identified: options.identified,
+										masterwork: true,
+									}
 								)
 								treasure.items.push({
 									value: value,
@@ -4907,6 +5009,7 @@ function run(ItemRollFudge = []) {
 									enhancement: enhancement,
 									amount: 1,
 									id: id,
+									itemOverride: itemOverride,
 								})
 							} catch (err) {
 								err.message +=
@@ -4920,6 +5023,7 @@ function run(ItemRollFudge = []) {
 				})
 			}
 		})
+		//#endregion
 
 		log(treasure)
 
@@ -4928,30 +5032,38 @@ function run(ItemRollFudge = []) {
 		// var TreasureString =
 		//   '<div><p>Treasure:</p></div><div style="padding-left: 20px;"><p>';
 		if (pikUpStiXModule && pikUpStiXModule.active) {
-			//TODO add money
+			//#region pick-up-stix output
 			let itemsObjects = []
 			let lastPromise = null
-
+			// let promisesFinished = 0
 			for (let item of treasure.items) {
 				if (item.id) {
-					lastPromise = getItem(item.id).then((it) => {
-						it.data.data.quantity = item.amount
-						//TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
-						// to be released in 0.87.11
-						itemsObjects.push(it)
-					})
+					lastPromise = getItem(item.id)
+						.then((it) => {
+							it.data.data.quantity = item.amount
+							//TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
+							//TODO evaluate possible side effects of merging itemOverride data from specific items with usage of ItemPF.getMagicItem to apply an ability
+							// to be released in 0.87.11
+							if (item.itemOverride) {
+								mergeObject(it, item.itemOverride)
+							}
+							itemsObjects.push(it)
+							// promisesFinished++
+						})
+						.catch((err) => {
+							console.error(
+								`error fetching item ${item.type} - ${item.id}`
+							)
+							console.error(err)
+							// promisesFinished++
+						})
 				} else {
 					console.error(`no item generated for ${item.type}`)
+					// promisesFinished++
 				}
 			}
-			// treasure.items.forEach( async item => {
-			//   if (item.id){
-			//     await getItem(item.id).then(it => itemsObjects.push(it))
-			//   }
-			//   else{
-			//     console.error(`no item generated for ${item.type}`)
-			//   }
-			// })
+
+			// while (promisesFinished < treasure.items.length) {}
 
 			lastPromise.then(() => {
 				// console.log(itemsObjects);
@@ -4962,9 +5074,11 @@ function run(ItemRollFudge = []) {
 					pp: treasure.pp,
 				})
 			})
+			//#endregion
 		} else {
-			//CHAT MESSAGE
+			//#region CHAT MESSAGE
 			var TreasureString = '<div class="D35E chat-card item-card">'
+			//#region gold section
 			if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
 				TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
@@ -5003,6 +5117,9 @@ function run(ItemRollFudge = []) {
 					) +
 					' gp</span>'
 			}
+			//#endregion
+
+			//#region goods section
 			if (treasure.gems.length > 0) {
 				let totalValue = 0
 				TreasureString += `<header class="card-header flexrow">
@@ -5033,7 +5150,9 @@ function run(ItemRollFudge = []) {
 					totalValue +
 					' gp</span>'
 			}
+			//#endregion
 
+			//#region items section
 			if (treasure.items.length > 0) {
 				TreasureString += `<header class="card-header flexrow">
     <img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
@@ -5047,18 +5166,28 @@ function run(ItemRollFudge = []) {
 						(item.enhancement > 0 && '+' + item.enhancement) || ''
 					} `
 					if (item.ability.length > 0) {
-						TreasureString += `[${item.ability.join(', ')}]`
+						TreasureString += `[${item.ability
+							.map((it) => it.itemType)
+							.join(', ')}]`
 					}
 					TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`
 				})
 				TreasureString += '</p></div>'
 			}
+			//#endregion
 			TreasureString += '</div>'
 			//  console.log(TreasureString);
 			ChatMessage.create({ content: TreasureString })
+			//#endregion
 		}
 	}
 	return treasure
 }
-run([98, 5, 100, 1, 99, 1, 2, 26, 1, 28])
+//#endregion
+
+//crossbow and arrow
+//run([98, 5, 100, 1, 99, 1, 2, 26, 1, 28])
+//dragonhideplate  "Shadow","Glamered"
+run([98, 2, 96, 100, 89, 59, 25, 70])
+
 window.rollTreasure = run
