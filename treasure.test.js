@@ -382,23 +382,14 @@ describe('Magic armor rolls', () => {
 		  ],
 		  "amount": 1,
 		  "enhancement": 0,
-		  "id": "D35E.armors-and-shields.h65qEp22nsyRoeRa",
+		  "id": "D35E.magicitems.Dj2ItY5tZZ8PpGH8",
 		  "itemOverride": Object {
 		    "data": Object {
 		      "data": Object {
-		        "description": Object {
-		          "value": "<p>This armor consists of shaped and fitted metal plates riveted and interlocked to cover the entire body. The suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor. Buckles and straps distribute the weight over the body, so full plate hampers movement less than splint mail even though splint is lighter. Each suit of full plate must be individually fitted to its owner by a master armorsmith, although a captured suit can be resized to fit a new owner at a cost of 200 to 800 (2d4 × 100) gold pieces. Full plate is also known as field plate. This suit of full plate is made of dragonhide, rather than metal, so druids can wear it.</p>",
-		        },
 		        "identified": false,
-		        "identifiedName": "Dragonhide plate",
 		        "masterwork": true,
 		        "price": 9750,
-		        "unidentified": Object {
-		          "name": "Unidentified Full Plate",
-		          "price": 1500,
-		        },
 		      },
-		      "name": "Dragonhide plate",
 		    },
 		  },
 		  "type": "  Dragonhide plate",

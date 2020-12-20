@@ -1982,6 +1982,7 @@ const MundaneItemsTable = [
 						itemType: 'Buckler',
 						value: 205,
 						type: 'item',
+						id: 'D35E.magicitems.w7IiEvwHTxwhNWWs',
 					},
 					{
 						Min: 51,
@@ -1990,6 +1991,7 @@ const MundaneItemsTable = [
 						itemType: 'Shield',
 						value: 257,
 						type: 'item',
+						id: 'D35E.magicitems.hJy8FunC2kvlC19b',
 					},
 				],
 				itemType: 'Darkwood',
@@ -3291,27 +3293,27 @@ const specificArmorTable = [
 		type: 'item',
 		value: 1100,
 		enhancement: 0,
-		id: 'D35E.armors-and-shields.iGu21zy6QtroUZ4O',
+		id: 'D35E.magicitems.jAD73UYJtyiJZlBx',
 		//TODO  nothing applied for: Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small.
-		itemOverride: {
-			data: {
-				name: 'Mithral shirt',
-				data: {
-					description: {
-						value:
-							'<p>A chain shirt protects your torso while leaving your limbs free and mobile. It includes a layer of quilted fabric worn underneath to prevent chafing and to cushion the impact of blows. A chain shirt comes with a steel cap. This extremely light chain shirt is made of very fine mithral links. Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor check penalty. It is considered light armor and weighs 10 pounds.</p>',
-					},
-					weight: 10,
-					unidentified: {
-						price: 100,
-						name: 'Unidentified Chain Shirt',
-					},
-					identifiedName: 'Mithral shirt',
-					armor: { value: 4, dex: 6, acp: 0, enh: 0 },
-					spellFailure: 10,
-				},
-			},
-		},
+		// itemOverride: {
+		// 	data: {
+		// 		name: 'Mithral shirt',
+		// 		data: {
+		// 			description: {
+		// 				value:
+		// 					'<p>A chain shirt protects your torso while leaving your limbs free and mobile. It includes a layer of quilted fabric worn underneath to prevent chafing and to cushion the impact of blows. A chain shirt comes with a steel cap. This extremely light chain shirt is made of very fine mithral links. Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor check penalty. It is considered light armor and weighs 10 pounds.</p>',
+		// 			},
+		// 			weight: 10,
+		// 			unidentified: {
+		// 				price: 100,
+		// 				name: 'Unidentified Chain Shirt',
+		// 			},
+		// 			identifiedName: 'Mithral shirt',
+		// 			armor: { value: 4, dex: 6, acp: 0, enh: 0 },
+		// 			spellFailure: 10,
+		// 		},
+		// 	},
+		// },
 	},
 	{
 		minorMin: 51,
@@ -3325,23 +3327,23 @@ const specificArmorTable = [
 		type: 'item',
 		value: 3300,
 		enhancement: 0,
-		id: 'D35E.armors-and-shields.h65qEp22nsyRoeRa',
-		itemOverride: {
-			data: {
-				name: 'Dragonhide plate',
-				data: {
-					description: {
-						value:
-							'<p>This armor consists of shaped and fitted metal plates riveted and interlocked to cover the entire body. The suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor. Buckles and straps distribute the weight over the body, so full plate hampers movement less than splint mail even though splint is lighter. Each suit of full plate must be individually fitted to its owner by a master armorsmith, although a captured suit can be resized to fit a new owner at a cost of 200 to 800 (2d4 × 100) gold pieces. Full plate is also known as field plate. This suit of full plate is made of dragonhide, rather than metal, so druids can wear it.</p>',
-					},
-					identifiedName: 'Dragonhide plate',
-					unidentified: {
-						price: 1500,
-						name: 'Unidentified Full Plate',
-					},
-				},
-			},
-		},
+		id: 'D35E.magicitems.Dj2ItY5tZZ8PpGH8',
+		// itemOverride: {
+		// 	data: {
+		// 		name: 'Dragonhide plate',
+		// 		data: {
+		// 			description: {
+		// 				value:
+		// 					'<p>This armor consists of shaped and fitted metal plates riveted and interlocked to cover the entire body. The suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor. Buckles and straps distribute the weight over the body, so full plate hampers movement less than splint mail even though splint is lighter. Each suit of full plate must be individually fitted to its owner by a master armorsmith, although a captured suit can be resized to fit a new owner at a cost of 200 to 800 (2d4 × 100) gold pieces. Full plate is also known as field plate. This suit of full plate is made of dragonhide, rather than metal, so druids can wear it.</p>',
+		// 			},
+		// 			identifiedName: 'Dragonhide plate',
+		// 			unidentified: {
+		// 				price: 1500,
+		// 				name: 'Unidentified Full Plate',
+		// 			},
+		// 		},
+		// 	},
+		// },
 	},
 	{
 		minorMin: 81,
@@ -3355,27 +3357,27 @@ const specificArmorTable = [
 		type: 'item',
 		value: 4150,
 		enhancement: 0,
-		id: 'D35E.armors-and-shields.unY9jt1B8a5bbnzO',
-		itemOverride: {
-			data: {
-				name: 'Elven chain',
-				data: {
-					description: {
-						value:
-							'<p>This armor is made of interlocking metal rings. It includes a layer of quilted fabric worn underneath to prevent chafing and to cushion the impact of blows. Several layers of mail are hung over vital areas. Most of the armor’s weight hangs from the shoulders, making chainmail uncomfortable to wear for long periods of time. The suit includes gauntlets. This extremely light chainmail is made of very fine mithral links. Speed while wearing elven chain is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 20%, a maximum Dexterity bonus of +4, and an armor check penalty of -2. It is considered light armor and weighs 20 pounds.</p>',
-					},
-					identifiedName: 'Elven chain',
-					unidentified: {
-						price: 300,
-						name: 'Chainmail',
-					},
-					armor: { value: 5, dex: 4, acp: 2, enh: 0 },
-					spellFailure: 20,
-					weight: 20,
-					equipmentSubtype: 'lightArmor',
-				},
-			},
-		},
+		id: 'D35E.magicitems.6VWhMhntjPitWCmo',
+		// itemOverride: {
+		// 	data: {
+		// 		name: 'Elven chain',
+		// 		data: {
+		// 			description: {
+		// 				value:
+		// 					'<p>This armor is made of interlocking metal rings. It includes a layer of quilted fabric worn underneath to prevent chafing and to cushion the impact of blows. Several layers of mail are hung over vital areas. Most of the armor’s weight hangs from the shoulders, making chainmail uncomfortable to wear for long periods of time. The suit includes gauntlets. This extremely light chainmail is made of very fine mithral links. Speed while wearing elven chain is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 20%, a maximum Dexterity bonus of +4, and an armor check penalty of -2. It is considered light armor and weighs 20 pounds.</p>',
+		// 			},
+		// 			identifiedName: 'Elven chain',
+		// 			unidentified: {
+		// 				price: 300,
+		// 				name: 'Chainmail',
+		// 			},
+		// 			armor: { value: 5, dex: 4, acp: 2, enh: 0 },
+		// 			spellFailure: 20,
+		// 			weight: 20,
+		// 			equipmentSubtype: 'lightArmor',
+		// 		},
+		// 	},
+		// },
 	},
 	{
 		minorMin: 0,
@@ -3389,27 +3391,27 @@ const specificArmorTable = [
 		type: 'item',
 		value: 5165,
 		enhancement: 2,
-		id: 'D35E.armors-and-shields.aI6gSI7gnCLCucw0',
-		itemOverride: {
-			data: {
-				name: 'Rhino hide',
-				data: {
-					description: {
-						value:
-							'<p>This armor is prepared from multiple layers of leather and animal hides. It is stiff and hard to move in. Druids, who wear only nonmetallic armor, favor hide. This +2 hide armor is made from rhinoceros hide. In addition to granting a +2 enhancement bonus to AC, it has a -1 armor check penalty and deals an additional 2d6 points of damage on any successful charge attack made by the wearer, including a mounted charge.</p>',
-					},
-					identifiedName: 'Rhino hide',
-					unidentified: {
-						price: 165,
-						name: 'Hide',
-					},
-					armor: { value: 5, dex: 4, acp: -1, enh: 0 },
-					spellFailure: 20,
-					weight: 20,
-					equipmentSubtype: 'lightArmor',
-				},
-			},
-		},
+		id: 'D35E.magicitems.dVIcxQGYoztt36c4',
+		// itemOverride: {
+		// 	data: {
+		// 		name: 'Rhino hide',
+		// 		data: {
+		// 			description: {
+		// 				value:
+		// 					'<p>This armor is prepared from multiple layers of leather and animal hides. It is stiff and hard to move in. Druids, who wear only nonmetallic armor, favor hide. This +2 hide armor is made from rhinoceros hide. In addition to granting a +2 enhancement bonus to AC, it has a -1 armor check penalty and deals an additional 2d6 points of damage on any successful charge attack made by the wearer, including a mounted charge.</p>',
+		// 			},
+		// 			identifiedName: 'Rhino hide',
+		// 			unidentified: {
+		// 				price: 165,
+		// 				name: 'Hide',
+		// 			},
+		// 			armor: { value: 5, dex: 4, acp: -1, enh: 0 },
+		// 			spellFailure: 20,
+		// 			weight: 20,
+		// 			equipmentSubtype: 'lightArmor',
+		// 		},
+		// 	},
+		// },
 	},
 	{
 		minorMin: 0,
@@ -3422,6 +3424,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 10200,
+		id: 'D35E.magicitems.is99PCo6Z9bSbMoP',
 		enhancement: 0,
 	},
 	{
@@ -3435,6 +3438,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 16500,
+		id: 'D35E.magicitems.kfLr3EpVLKOEusZa',
 		enhancement: 0,
 	},
 	{
@@ -3448,6 +3452,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 18900,
+		id: 'D35E.magicitems.PtBS9oH4PMTmqlLN',
 		enhancement: 3,
 	},
 	{
@@ -3461,6 +3466,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 22400,
+		id: 'D35E.magicitems.Tq6ca3rawY6YzLTn',
 		enhancement: 3,
 	},
 	{
@@ -3474,6 +3480,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 24650,
+		id: 'D35E.magicitems.K2jz9sfgqdmbJhVp',
 		enhancement: 1,
 	},
 	{
@@ -3487,6 +3494,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 25400,
+		id: 'D35E.magicitems.e5PpIsAb6b52ItF3',
 		enhancement: 2,
 	},
 	{
@@ -3500,6 +3508,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 26500,
+		id: 'D35E.magicitems.EGYUUiDYbDJKn3QB',
 		enhancement: 1,
 	},
 	{
@@ -3513,6 +3522,7 @@ const specificArmorTable = [
 		table: armorAbilityTable,
 		type: 'item',
 		value: 52260,
+		id: 'D35E.magicitems.UslG3D005KBJoixx',
 		enhancement: 4,
 	},
 ]
@@ -3530,6 +3540,7 @@ const specificShieldTable = [
 		enhancement: 0,
 		type: 'item',
 		value: 205,
+		id: 'D35E.magicitems.w7IiEvwHTxwhNWWs',
 	},
 	{
 		minorMin: 31,
@@ -3543,6 +3554,7 @@ const specificShieldTable = [
 		enhancement: 0,
 		type: 'item',
 		value: 257,
+		id: 'D35E.magicitems.hJy8FunC2kvlC19b',
 	},
 	{
 		minorMin: 81,
@@ -3556,6 +3568,7 @@ const specificShieldTable = [
 		enhancement: 0,
 		type: 'item',
 		value: 1020,
+		id: 'D35E.magicitems.XHOyTNHQLvFISOvT',
 	},
 	{
 		minorMin: 96,
@@ -3569,6 +3582,7 @@ const specificShieldTable = [
 		enhancement: 1,
 		type: 'item',
 		value: 3153,
+		id: 'D35E.magicitems.vQwB4CttHa5J2xsm',
 	},
 	{
 		minorMin: 0,
@@ -3582,6 +3596,7 @@ const specificShieldTable = [
 		enhancement: 1,
 		type: 'item',
 		value: 5580,
+		id: 'D35E.magicitems.ZrYV6Vkaf5v91pRD',
 	},
 	{
 		minorMin: 0,
@@ -3595,6 +3610,7 @@ const specificShieldTable = [
 		enhancement: 2,
 		type: 'item',
 		value: 9170,
+		id: 'D35E.magicitems.3JS7KZSvvR2SNvkQ',
 	},
 	{
 		minorMin: 0,
@@ -3608,6 +3624,7 @@ const specificShieldTable = [
 		enhancement: 3,
 		type: 'item',
 		value: 17257,
+		id: 'D35E.magicitems.9X957qdDMOClkCzz',
 	},
 	{
 		minorMin: 0,
@@ -3621,6 +3638,7 @@ const specificShieldTable = [
 		enhancement: 1,
 		type: 'item',
 		value: 50170,
+		id: 'D35E.magicitems.BVzLvjwdrTQToXV8',
 	},
 ]
 
@@ -3797,6 +3815,7 @@ const armorAndShieldsTable = [
 	},
 ]
 
+//TODO arrows amount?
 const specificWeaponTable = [
 	{
 		minorMin: 1,
@@ -3806,10 +3825,12 @@ const specificWeaponTable = [
 		majorMin: 0,
 		majorMax: 0,
 		itemType: 'Sleep arrow',
+		amount: 20,
 		table: rangedWeaponsAbilityTable,
 		type: 'item',
 		value: 132,
 		enhancement: 0,
+		id: 'D35E.magicitems.3FoRpIEn7F1gY4v2',
 	},
 	{
 		minorMin: 16,
@@ -3819,10 +3840,12 @@ const specificWeaponTable = [
 		majorMin: 0,
 		majorMax: 0,
 		itemType: 'Screaming bolt',
+		amount: 20,
 		table: rangedWeaponsAbilityTable,
 		type: 'item',
 		value: 267,
 		enhancement: 0,
+		id: 'D35E.magicitems.f2XxNkWjxcEDhIdU',
 	},
 	{
 		minorMin: 26,
@@ -3836,6 +3859,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 322,
 		enhancement: 0,
+		id: 'D35E.magicitems.d16sug8RYT91mNfF',
 	},
 	{
 		minorMin: 46,
@@ -3849,6 +3873,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 330,
 		enhancement: 0,
+		id: 'D35E.magicitems.Jj8U2x0l8IeQfpYU',
 	},
 	{
 		minorMin: 66,
@@ -3862,6 +3887,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 1500,
 		enhancement: 0,
+		id: 'D35E.magicitems.cVhskNEiVT9QwTst',
 	},
 	{
 		minorMin: 76,
@@ -3871,10 +3897,12 @@ const specificWeaponTable = [
 		majorMin: 0,
 		majorMax: 0,
 		itemType: 'Slaying arrow',
+		amount: 20,
 		table: rangedWeaponsAbilityTable,
 		type: 'item',
 		value: 2282,
 		enhancement: 0,
+		id: 'D35E.magicitems.EF4H9mIvLO4zndMu',
 	},
 	{
 		minorMin: 81,
@@ -3888,6 +3916,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 3002,
 		enhancement: 0,
+		id: 'D35E.magicitems.NHlM8MS6Q7OQMXvR',
 	},
 	{
 		minorMin: 91,
@@ -3901,6 +3930,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 3010,
 		enhancement: 0,
+		id: 'D35E.magicitems.Ih96VEecwtRp5gb7',
 	},
 	{
 		minorMin: 0,
@@ -3910,10 +3940,12 @@ const specificWeaponTable = [
 		majorMin: 0,
 		majorMax: 0,
 		itemType: 'Slaying arrow (greater)',
+		amount: 20,
 		table: rangedWeaponsAbilityTable,
 		type: 'item',
 		value: 4057,
 		enhancement: 0,
+		id: 'D35E.magicitems.EF4H9mIvLO4zndMu',
 	},
 	{
 		minorMin: 0,
@@ -3927,6 +3959,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 4315,
 		enhancement: 0,
+		id: 'D35E.magicitems.BcFtLaCHxW2ZxKCs',
 	},
 	{
 		minorMin: 0,
@@ -3940,6 +3973,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 8302,
 		enhancement: 0,
+		id: 'D35E.magicitems.wvRmCNINFroJi7Cu',
 	},
 	{
 		minorMin: 0,
@@ -3953,6 +3987,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 10115,
 		enhancement: 0,
+		id: 'D35E.magicitems.LdViwZ9coU4fh5Ht',
 	},
 	{
 		minorMin: 0,
@@ -3966,6 +4001,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 10302,
 		enhancement: 0,
+		id: 'D35E.magicitems.9IKHzFGLwnA6B8dd',
 	},
 	{
 		minorMin: 0,
@@ -3979,6 +4015,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 12780,
 		enhancement: 0,
+		id: 'D35E.magicitems.kawFZRBpJZQNAmHB',
 	},
 	{
 		minorMin: 0,
@@ -3992,6 +4029,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 18650,
 		enhancement: 0,
+		id: 'D35E.magicitems.kpPVgJJxszyYviuv',
 	},
 	{
 		minorMin: 0,
@@ -4005,6 +4043,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 20715,
 		enhancement: 0,
+		id: 'D35E.magicitems.47kuvXipGQMtRsfL',
 	},
 	{
 		minorMin: 0,
@@ -4018,6 +4057,15 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 22060,
 		enhancement: 0,
+		id: 'D35E.magicitems.d7mxmwoU922b7s3Z',
+		itemOverride: {
+			data: {
+				name: 'Luck blade (0 wishes)',
+				data: {
+					identifiedName: 'Luck blade (0 wishes)',
+				},
+			},
+		},
 	},
 	{
 		minorMin: 0,
@@ -4031,6 +4079,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 22310,
 		enhancement: 0,
+		id: 'D35E.magicitems.l3vI1GqaEOMXNlik',
 	},
 	{
 		minorMin: 0,
@@ -4044,6 +4093,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 22315,
 		enhancement: 0,
+		id: 'D35E.magicitems.1pO8JB9h7XJgHtxV',
 	},
 	{
 		minorMin: 0,
@@ -4057,6 +4107,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 23057,
 		enhancement: 0,
+		id: 'D35E.magicitems.kmA6vOu6uGZWuy13',
 	},
 	{
 		minorMin: 0,
@@ -4070,6 +4121,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 25715,
 		enhancement: 0,
+		id: 'D35E.magicitems.k36XYpIRycSonxvQ',
 	},
 	{
 		minorMin: 0,
@@ -4083,6 +4135,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 25600,
 		enhancement: 0,
+		id: 'D35E.magicitems.Q5mFEYDjt9kUvzua',
 	},
 	{
 		minorMin: 0,
@@ -4096,6 +4149,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 38552,
 		enhancement: 0,
+		id: 'D35E.magicitems.1Htk8570u6KY1hvN',
 	},
 	{
 		minorMin: 0,
@@ -4109,6 +4163,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 40320,
 		enhancement: 0,
+		id: 'D35E.magicitems.WS6GkO3dasHmIUsd',
 	},
 	{
 		minorMin: 0,
@@ -4122,6 +4177,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 47315,
 		enhancement: 0,
+		id: 'D35E.magicitems.He8si0D5mnEVHVUg',
 	},
 	{
 		minorMin: 0,
@@ -4135,6 +4191,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 50320,
 		enhancement: 0,
+		id: 'D35E.magicitems.jx1AfXX4HRFn7vuM',
 	},
 	{
 		minorMin: 0,
@@ -4148,6 +4205,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 50335,
 		enhancement: 0,
+		id: 'D35E.magicitems.4OmDfUDNvBIGFCnc',
 	},
 	{
 		minorMin: 0,
@@ -4161,6 +4219,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 54475,
 		enhancement: 0,
+		id: 'D35E.magicitems.MKD5oUEDL8hm6sEz',
 	},
 	{
 		minorMin: 0,
@@ -4174,6 +4233,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 60312,
 		enhancement: 0,
+		id: 'D35E.magicitems.iOMeOjoLiLEzGbPn',
 	},
 	{
 		minorMin: 0,
@@ -4187,6 +4247,16 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 62360,
 		enhancement: 0,
+		//TODO Handle wish number
+		id: 'D35E.magicitems.d7mxmwoU922b7s3Z',
+		itemOverride: {
+			data: {
+				name: 'Luck blade (1 wishes)',
+				data: {
+					identifiedName: 'Luck blade (1 wishes)',
+				},
+			},
+		},
 	},
 	{
 		minorMin: 0,
@@ -4200,6 +4270,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 75312,
 		enhancement: 0,
+		id: 'D35E.magicitems.Zb6VLW6pf0ZfsX1L',
 	},
 	{
 		minorMin: 0,
@@ -4213,6 +4284,15 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 102660,
 		enhancement: 0,
+		id: 'D35E.magicitems.d7mxmwoU922b7s3Z',
+		itemOverride: {
+			data: {
+				name: 'Luck blade (2 wishes)',
+				data: {
+					identifiedName: 'Luck blade (2 wishes)',
+				},
+			},
+		},
 	},
 	{
 		minorMin: 0,
@@ -4226,6 +4306,7 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 120630,
 		enhancement: 0,
+		id: 'D35E.magicitems.DX6NyLEnI1ecclNo',
 	},
 	{
 		minorMin: 0,
@@ -4239,6 +4320,15 @@ const specificWeaponTable = [
 		type: 'item',
 		value: 142960,
 		enhancement: 0,
+		id: 'D35E.magicitems.d7mxmwoU922b7s3Z',
+		itemOverride: {
+			data: {
+				name: 'Luck blade (3 wishes)',
+				data: {
+					identifiedName: 'Luck blade (3 wishes)',
+				},
+			},
+		},
 	},
 ]
 
@@ -4605,6 +4695,7 @@ function rollMagicItem(
 					table: magicItemData.table,
 					id: magicItemData.id,
 					itemOverride: magicItemData.itemOverride,
+					amount: magicItemData.amount,
 				})
 				return result
 			case 'roll':
@@ -4728,6 +4819,7 @@ function rollMagicItem(
 					table: roll.table,
 					id: roll.id,
 					itemOverride: roll.itemOverride,
+					amount: roll.amount,
 				})
 
 				return result
@@ -5262,6 +5354,7 @@ function genTreasureFromSelectedNpcsCr(
 									type,
 									id,
 									itemOverride,
+									amount,
 								} = rollMagicItem(
 									MagicItemTable,
 									itemsResult.type,
@@ -5278,7 +5371,7 @@ function genTreasureFromSelectedNpcsCr(
 									type: type,
 									ability: ability,
 									enhancement: enhancement,
-									amount: 1,
+									amount: amount || 1,
 									id: id,
 									itemOverride: itemOverride,
 								})
