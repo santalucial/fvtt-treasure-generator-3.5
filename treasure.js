@@ -5003,279 +5003,275 @@ function treasureToChat(treasure) {
 	//  console.log(TreasureString);
 	ChatMessage.create({ content: TreasureString })
 }
+
+function treasureToPuSContainer(treasure) {
+	var treasureErr = {
+		cp: 0,
+		sp: 0,
+		gp: 0,
+		pp: 0,
+		gems: [],
+		arts: [],
+		items: [],
+	}
+	let itemsObjects = []
+	let lastPromise = null
+	let promisesFinished = 0
+	for (let item of treasure.items) {
+		if (item.id) {
+			lastPromise = getItem(item.id)
+				.then((it) => {
+					it.data.data.quantity = item.amount
+					//TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
+					//TODO evaluate possible side effects of merging itemOverride data from specific items with usage of ItemPF.getMagicItem to apply an ability
+					// to be released in 0.87.11
+					if (item.itemOverride) {
+						mergeObject(it, item.itemOverride)
+					}
+					itemsObjects.push(it)
+					promisesFinished++
+				})
+				.catch((err) => {
+					console.error(
+						`error fetching item ${item.type} - ${item.id}`
+					)
+					console.error(err)
+					treasureErr.items.push(item)
+					promisesFinished++
+				})
+		} else {
+			console.error(`no item generated for ${item.type}`)
+			treasureErr.items.push(item)
+			promisesFinished++
+		}
+	}
+
+	function sleep(ms) {
+		return new Promise((resolve) => setTimeout(resolve, ms))
+	}
+
+	async function loopPromises(lp) {
+		if (promisesFinished < treasure.items.length) {
+			lp.then(() => {
+				// console.log(itemsObjects);
+				pikUpStiXModule.apis.makeContainer(
+					itemsObjects,
+					{
+						cp: treasure.cp,
+						sp: treasure.sp,
+						gp: treasure.gp,
+						pp: treasure.pp,
+					},
+					{ gridX: 0, gridY: 0 }
+				)
+			})
+		} else {
+			await sleep(200)
+			return lp
+		}
+	}
+	loopPromises(lastPromise)
+	if (treasureErr.items.length > 0) {
+		treasureToChat(treasureErr)
+	}
+}
+
+function getActorCr(actor) {
+	let cr = actor.data.data.details.cr
+	return Math.min(Math.max(Math.floor(cr), 1), 31) - 1
+}
+
+const getSelectedNpcs = () =>
+	canvas.tokens.controlled.filter(
+		(t) => game.actors.get(t.data.actorId).data.type === 'npc'
+	)
 //#endregion
 
 //#region main function
-function run(
+function genTreasureFromSelectedNpcsCr(
 	ItemRollFudge = [],
 	options = { identified: false, tradeGoodsToGold: false }
 ) {
 	var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
 	window.rolls = []
-	if (
-		canvas.tokens.controlled.filter(
-			(t) => game.actors.get(t.data.actorId).data.type === 'npc'
-		).length !== 0
-	) {
-		canvas.tokens.controlled.forEach((t) => {
+	if (getSelectedNpcs().length !== 0) {
+		getSelectedNpcs().forEach((t) => {
 			let actor = game.actors.get(t.data.actorId)
-			if (actor.data.type === 'npc') {
-				let cr = actor.data.data.details.cr
-				let TreasureLevel =
-					Math.min(Math.max(Math.floor(cr), 1), 31) - 1
-				//console.log(TreasureLevel);
-				let treasureRow = TreasureTable[TreasureLevel]
+			let TreasureLevel = getActorCr(actor)
+			//console.log(TreasureLevel);
+			let treasureRow = TreasureTable[TreasureLevel]
 
-				//#region Roll for money
-				let moneyRoll = new Roll('1d100').roll().total
-				let moneyResult = treasureRow.money.find(
-					(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
-				)
+			//#region Roll for money
+			let moneyRoll = new Roll('1d100').roll().total
+			let moneyResult = treasureRow.money.find(
+				(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
+			)
 
-				// console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
+			// console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
 
-				if (moneyResult.type !== 'nothing') {
-					treasure[moneyResult.type] += new Roll(
-						moneyResult.roll
-					).roll().total
-				}
-				//#endregion
-
-				//#region Roll for goods
-				let goodsRoll = new Roll('1d100').roll().total
-				let goodsResult = treasureRow.goods.find(
-					(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
-				)
-				let goodsNo = new Roll(goodsResult.roll).roll().total
-				let goodsSteps = [...Array(goodsNo).keys()]
-				goodsSteps.forEach(() => {
-					switch (goodsResult.type) {
-						case 'nothing':
-							break
-						case 'gem':
-							let gemData =
-								GemsTable[
-									Math.floor(Math.random() * GemsTable.length)
-								]
-							let gemValue = new Roll(gemData.roll).roll().total
-							let gemType =
-								gemData.type[
-									Math.floor(
-										Math.random() * gemData.type.length
-									)
-								]
-							if (tradeGoodsToGold) {
-								treasure.gp += gemValue
-							} else {
-								treasure.gems.push({
-									value: gemValue,
-									type: gemType,
-								})
-							}
-							// console.debug(
-							//   "goodsRoll: " +
-							//     goodsRoll +
-							//     " - " +
-							//     goodsResult.roll +
-							//     " - " +
-							//     gemType
-							// );
-							break
-						case 'art':
-							let artData =
-								ArtsTable[
-									Math.floor(Math.random() * ArtsTable.length)
-								]
-							let artValue = new Roll(artData.roll).roll().total
-							let artType =
-								artData.type[
-									Math.floor(
-										Math.random() * artData.type.length
-									)
-								]
-							if (tradeGoodsToGold) {
-								treasure.gp += artValue
-							} else {
-								treasure.arts.push({
-									value: artValue,
-									type: artType,
-								})
-							}
-							// console.debug(
-							//   "goodsRoll: " +
-							//     goodsRoll +
-							//     " - " +
-							//     goodsResult.roll +
-							//     " - " +
-							//     artType
-							// );
-							break
-					}
-				})
-				//#endregion
-
-				//#region Roll for items
-				let itemsRoll = new Roll('1d100').roll().total
-				if (ItemRollFudge.length > 0) {
-					itemsRoll = ItemRollFudge.shift()
-					// console.debug("fudged Dice roll = " + itemsRoll);
-				}
-				let itemsResult = treasureRow.items.find(
-					(r) => r.Min <= itemsRoll && r.Max >= itemsRoll
-				)
-				let itemsNo = new Roll(itemsResult.roll).roll().total
-				let itemSteps = [...Array(itemsNo).keys()]
-				itemSteps.forEach(() => {
-					switch (itemsResult.type) {
-						case 'nothing':
-							break
-						case 'mundane':
-							rollMundaneItem(
-								MundaneItemsTable,
-								'',
-								ItemRollFudge
-							).forEach(
-								([
-									mundaneItemValue,
-									mundaneItemType,
-									mundaneItemAmount,
-								]) =>
-									treasure.items.push({
-										value: mundaneItemValue,
-										type: mundaneItemType,
-										amount: mundaneItemAmount,
-										ability: [],
-										enhancement: 0,
-									})
-							)
-							break
-						case 'minor':
-						case 'medium':
-						case 'major':
-							try {
-								let {
-									value,
-									enhancement,
-									ability,
-									type,
-									id,
-									itemOverride,
-								} = rollMagicItem(
-									MagicItemTable,
-									itemsResult.type,
-									'',
-									ItemRollFudge,
-									treasure,
-									{
-										identified: options.identified,
-										masterwork: true,
-									}
-								)
-								treasure.items.push({
-									value: value,
-									type: type,
-									ability: ability,
-									enhancement: enhancement,
-									amount: 1,
-									id: id,
-									itemOverride: itemOverride,
-								})
-							} catch (err) {
-								err.message +=
-									' --- ' + JSON.stringify(window.rolls)
-								console.error(window.rolls)
-								throw err
-							}
-
-							break
-					}
-				})
+			if (moneyResult.type !== 'nothing') {
+				treasure[moneyResult.type] += new Roll(
+					moneyResult.roll
+				).roll().total
 			}
+			//#endregion
+
+			//#region Roll for goods
+			let goodsRoll = new Roll('1d100').roll().total
+			let goodsResult = treasureRow.goods.find(
+				(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
+			)
+			let goodsNo = new Roll(goodsResult.roll).roll().total
+			let goodsSteps = [...Array(goodsNo).keys()]
+			goodsSteps.forEach(() => {
+				switch (goodsResult.type) {
+					case 'nothing':
+						break
+					case 'gem':
+						let gemData =
+							GemsTable[
+								Math.floor(Math.random() * GemsTable.length)
+							]
+						let gemValue = new Roll(gemData.roll).roll().total
+						let gemType =
+							gemData.type[
+								Math.floor(Math.random() * gemData.type.length)
+							]
+						if (tradeGoodsToGold) {
+							treasure.gp += gemValue
+						} else {
+							treasure.gems.push({
+								value: gemValue,
+								type: gemType,
+							})
+						}
+						// console.debug(
+						//   "goodsRoll: " +
+						//     goodsRoll +
+						//     " - " +
+						//     goodsResult.roll +
+						//     " - " +
+						//     gemType
+						// );
+						break
+					case 'art':
+						let artData =
+							ArtsTable[
+								Math.floor(Math.random() * ArtsTable.length)
+							]
+						let artValue = new Roll(artData.roll).roll().total
+						let artType =
+							artData.type[
+								Math.floor(Math.random() * artData.type.length)
+							]
+						if (tradeGoodsToGold) {
+							treasure.gp += artValue
+						} else {
+							treasure.arts.push({
+								value: artValue,
+								type: artType,
+							})
+						}
+						// console.debug(
+						//   "goodsRoll: " +
+						//     goodsRoll +
+						//     " - " +
+						//     goodsResult.roll +
+						//     " - " +
+						//     artType
+						// );
+						break
+				}
+			})
+			//#endregion
+
+			//#region Roll for items
+			let itemsRoll = new Roll('1d100').roll().total
+			if (ItemRollFudge.length > 0) {
+				itemsRoll = ItemRollFudge.shift()
+				// console.debug("fudged Dice roll = " + itemsRoll);
+			}
+			let itemsResult = treasureRow.items.find(
+				(r) => r.Min <= itemsRoll && r.Max >= itemsRoll
+			)
+			let itemsNo = new Roll(itemsResult.roll).roll().total
+			let itemSteps = [...Array(itemsNo).keys()]
+			itemSteps.forEach(() => {
+				switch (itemsResult.type) {
+					case 'nothing':
+						break
+					case 'mundane':
+						rollMundaneItem(
+							MundaneItemsTable,
+							'',
+							ItemRollFudge
+						).forEach(
+							([
+								mundaneItemValue,
+								mundaneItemType,
+								mundaneItemAmount,
+							]) =>
+								treasure.items.push({
+									value: mundaneItemValue,
+									type: mundaneItemType,
+									amount: mundaneItemAmount,
+									ability: [],
+									enhancement: 0,
+								})
+						)
+						break
+					case 'minor':
+					case 'medium':
+					case 'major':
+						try {
+							let {
+								value,
+								enhancement,
+								ability,
+								type,
+								id,
+								itemOverride,
+							} = rollMagicItem(
+								MagicItemTable,
+								itemsResult.type,
+								'',
+								ItemRollFudge,
+								treasure,
+								{
+									identified: options.identified,
+									masterwork: true,
+								}
+							)
+							treasure.items.push({
+								value: value,
+								type: type,
+								ability: ability,
+								enhancement: enhancement,
+								amount: 1,
+								id: id,
+								itemOverride: itemOverride,
+							})
+						} catch (err) {
+							err.message +=
+								' --- ' + JSON.stringify(window.rolls)
+							console.error(window.rolls)
+							throw err
+						}
+
+						break
+				}
+			})
+			//#endregion
 		})
-		//#endregion
 
 		log(treasure)
 
 		let pikUpStiXModule = game.modules.get('pick-up-stix')
-		//var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] };
-		// var TreasureString =
-		//   '<div><p>Treasure:</p></div><div style="padding-left: 20px;"><p>';
+
 		if (pikUpStiXModule && pikUpStiXModule.active) {
-			//#region pick-up-stix output
-			var treasureErr = {
-				cp: 0,
-				sp: 0,
-				gp: 0,
-				pp: 0,
-				gems: [],
-				arts: [],
-				items: [],
-			}
-			let itemsObjects = []
-			let lastPromise = null
-			let promisesFinished = 0
-			for (let item of treasure.items) {
-				if (item.id) {
-					lastPromise = getItem(item.id)
-						.then((it) => {
-							it.data.data.quantity = item.amount
-							//TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
-							//TODO evaluate possible side effects of merging itemOverride data from specific items with usage of ItemPF.getMagicItem to apply an ability
-							// to be released in 0.87.11
-							if (item.itemOverride) {
-								mergeObject(it, item.itemOverride)
-							}
-							itemsObjects.push(it)
-							promisesFinished++
-						})
-						.catch((err) => {
-							console.error(
-								`error fetching item ${item.type} - ${item.id}`
-							)
-							console.error(err)
-							treasureErr.items.push(item)
-							promisesFinished++
-						})
-				} else {
-					console.error(`no item generated for ${item.type}`)
-					treasureErr.items.push(item)
-					promisesFinished++
-				}
-			}
-
-			function sleep(ms) {
-				return new Promise((resolve) => setTimeout(resolve, ms))
-			}
-
-			async function loopPromises(lp) {
-				if (promisesFinished < treasure.items.length) {
-					lp.then(() => {
-						// console.log(itemsObjects);
-						pikUpStiXModule.apis.makeContainer(
-							itemsObjects,
-							{
-								cp: treasure.cp,
-								sp: treasure.sp,
-								gp: treasure.gp,
-								pp: treasure.pp,
-							},
-							{ gridX: 0, gridY: 0 }
-						)
-					})
-				} else {
-					await sleep(200)
-					return lp
-				}
-			}
-			loopPromises(lastPromise)
-			if (treasureErr.items.length > 0) {
-				treasureToChat(treasureErr)
-			}
-			//#endregion
+			treasureToPuSContainer(treasure)
 		} else {
-			//#region CHAT MESSAGE
 			treasureToChat(treasure)
-			//#endregion
 		}
 	}
 	return treasure
@@ -5287,5 +5283,5 @@ function run(
 //dragonhideplate  "Shadow","Glamered"
 //run([98, 2, 96, 100, 89, 59, 25, 70])
 
-run([98, 2, 96, 100, 89, 49])
-window.rollTreasure = run
+genTreasureFromSelectedNpcsCr([98, 2, 96, 100, 89, 49])
+window.rollTreasure = genTreasureFromSelectedNpcsCr
