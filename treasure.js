@@ -3291,8 +3291,27 @@ const specificArmorTable = [
 		type: 'item',
 		value: 1100,
 		enhancement: 0,
-		// id:'D35E.armors-and-shields.iGu21zy6QtroUZ4O',
-		// notes:'This extremely light chain shirt is made of very fine mithral links. Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor check penalty. It is considered light armor and weighs 10 pounds.'
+		id: 'D35E.armors-and-shields.iGu21zy6QtroUZ4O',
+		//TODO  nothing applied for: Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small.
+		itemOverride: {
+			data: {
+				name: 'Mithral shirt',
+				data: {
+					description: {
+						value:
+							'<p>A chain shirt protects your torso while leaving your limbs free and mobile. It includes a layer of quilted fabric worn underneath to prevent chafing and to cushion the impact of blows. A chain shirt comes with a steel cap. This extremely light chain shirt is made of very fine mithral links. Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 10%, a maximum Dexterity bonus of +6, and no armor check penalty. It is considered light armor and weighs 10 pounds.</p>',
+					},
+					weight: 10,
+					unidentified: {
+						price: 100,
+						name: 'Unidentified Chain Shirt',
+					},
+					identifiedName: 'Mithral shirt',
+					armor: { value: 4, dex: 6, acp: 0, enh: 0 },
+					spellFailure: 10,
+				},
+			},
+		},
 	},
 	{
 		minorMin: 51,
@@ -3323,7 +3342,6 @@ const specificArmorTable = [
 				},
 			},
 		},
-		// notes:'This suit of full plate is made of dragonhide, rather than metal, so druids can wear it. It is otherwise identical to masterwork full plate.'
 	},
 	{
 		minorMin: 81,
@@ -3337,6 +3355,27 @@ const specificArmorTable = [
 		type: 'item',
 		value: 4150,
 		enhancement: 0,
+		id: 'D35E.armors-and-shields.unY9jt1B8a5bbnzO',
+		itemOverride: {
+			data: {
+				name: 'Elven chain',
+				data: {
+					description: {
+						value:
+							'<p>This armor is made of interlocking metal rings. It includes a layer of quilted fabric worn underneath to prevent chafing and to cushion the impact of blows. Several layers of mail are hung over vital areas. Most of the armor’s weight hangs from the shoulders, making chainmail uncomfortable to wear for long periods of time. The suit includes gauntlets. This extremely light chainmail is made of very fine mithral links. Speed while wearing elven chain is 30 feet for Medium creatures, or 20 feet for Small. The armor has an arcane spell failure chance of 20%, a maximum Dexterity bonus of +4, and an armor check penalty of -2. It is considered light armor and weighs 20 pounds.</p>',
+					},
+					identifiedName: 'Elven chain',
+					unidentified: {
+						price: 300,
+						name: 'Chainmail',
+					},
+					armor: { value: 5, dex: 4, acp: 2, enh: 0 },
+					spellFailure: 20,
+					weight: 20,
+					equipmentSubtype: 'lightArmor',
+				},
+			},
+		},
 	},
 	{
 		minorMin: 0,
@@ -3350,6 +3389,27 @@ const specificArmorTable = [
 		type: 'item',
 		value: 5165,
 		enhancement: 2,
+		id: 'D35E.armors-and-shields.aI6gSI7gnCLCucw0',
+		itemOverride: {
+			data: {
+				name: 'Rhino hide',
+				data: {
+					description: {
+						value:
+							'<p>This armor is prepared from multiple layers of leather and animal hides. It is stiff and hard to move in. Druids, who wear only nonmetallic armor, favor hide. This +2 hide armor is made from rhinoceros hide. In addition to granting a +2 enhancement bonus to AC, it has a -1 armor check penalty and deals an additional 2d6 points of damage on any successful charge attack made by the wearer, including a mounted charge.</p>',
+					},
+					identifiedName: 'Rhino hide',
+					unidentified: {
+						price: 165,
+						name: 'Hide',
+					},
+					armor: { value: 5, dex: 4, acp: -1, enh: 0 },
+					spellFailure: 20,
+					weight: 20,
+					equipmentSubtype: 'lightArmor',
+				},
+			},
+		},
 	},
 	{
 		minorMin: 0,
@@ -4845,10 +4905,111 @@ function getItem(link) {
 
 	return entity
 }
+
+function treasureToChat(treasure) {
+	var TreasureString = '<div class="D35E chat-card item-card">'
+	//#region gold section
+	if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
+		TreasureString += `<header class="card-header flexrow">
+<img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
+<h3 class="item-name">Money</h3>
+</header> <div><p>`
+		if (treasure.cp > 0) {
+			TreasureString +=
+				'<span class="fontstyle0">cp: ' + treasure.cp + '</span><br>'
+		}
+		if (treasure.sp > 0) {
+			TreasureString +=
+				'<span class="fontstyle0">sp: ' + treasure.sp + '</span><br>'
+		}
+		if (treasure.gp > 0) {
+			TreasureString +=
+				'<span class="fontstyle0">gp: ' + treasure.gp + '</span><br>'
+		}
+		if (treasure.pp > 0) {
+			TreasureString +=
+				'<span class="fontstyle0">pp: ' + treasure.pp + '<br>'
+		}
+
+		TreasureString +=
+			'</p></div><hr><span class="fontstyle0"> total value = ' +
+			Math.floor(
+				treasure.cp / 100 +
+					treasure.sp / 10 +
+					treasure.gp +
+					treasure.pp * 10
+			) +
+			' gp</span>'
+	}
+	//#endregion
+
+	//#region goods section
+	if (treasure.gems.length > 0) {
+		let totalValue = 0
+		TreasureString += `<header class="card-header flexrow">
+<img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
+<h3 class="item-name">Gems</h3>
+</header> <div><p>`
+		treasure.gems.forEach((gem) => {
+			totalValue += gem.value
+			TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`
+		})
+		TreasureString +=
+			'</p></div><hr><span class="fontstyle0">total value = ' +
+			totalValue +
+			' gp</span>'
+	}
+	if (treasure.arts.length > 0) {
+		let totalValue = 0
+		TreasureString += `<header class="card-header flexrow">
+<img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
+<h3 class="item-name">Arts</h3>
+</header> <div><p>`
+		treasure.arts.forEach((art) => {
+			totalValue += art.value
+			TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`
+		})
+		TreasureString +=
+			'</p></div><hr><span class="fontstyle0">total value = ' +
+			totalValue +
+			' gp</span>'
+	}
+	//#endregion
+
+	//#region items section
+	if (treasure.items.length > 0) {
+		TreasureString += `<header class="card-header flexrow">
+<img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
+<h3 class="item-name">Items</h3>
+</header> <div class="card-content"><p>`
+
+		treasure.items.forEach((item) => {
+			TreasureString += `<span class="fontstyle0">${
+				(item.amount > 1 && item.amount + 'x ') || ''
+			}${item.type} ${
+				(item.enhancement > 0 && '+' + item.enhancement) || ''
+			} `
+			if (item.ability.length > 0) {
+				TreasureString += `[${item.ability
+					.map((it) => it.itemType)
+					.join(', ')}]`
+			}
+			TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`
+		})
+		TreasureString += '</p></div>'
+	}
+	//#endregion
+	TreasureString += '</div>'
+	//  console.log(TreasureString);
+	ChatMessage.create({ content: TreasureString })
+}
 //#endregion
 
 //#region main function
-function run(ItemRollFudge = [], options = { identified: false }) {
+function run(
+	ItemRollFudge = [],
+	options = { identified: false, tradeGoodsToGold: false }
+) {
 	var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
 	window.rolls = []
 	if (
@@ -4861,7 +5022,7 @@ function run(ItemRollFudge = [], options = { identified: false }) {
 			if (actor.data.type === 'npc') {
 				let cr = actor.data.data.details.cr
 				let TreasureLevel =
-					Math.min(Math.max(Math.floor(cr), 1), 30) - 1
+					Math.min(Math.max(Math.floor(cr), 1), 31) - 1
 				//console.log(TreasureLevel);
 				let treasureRow = TreasureTable[TreasureLevel]
 
@@ -4903,10 +5064,14 @@ function run(ItemRollFudge = [], options = { identified: false }) {
 										Math.random() * gemData.type.length
 									)
 								]
-							treasure.gems.push({
-								value: gemValue,
-								type: gemType,
-							})
+							if (tradeGoodsToGold) {
+								treasure.gp += gemValue
+							} else {
+								treasure.gems.push({
+									value: gemValue,
+									type: gemType,
+								})
+							}
 							// console.debug(
 							//   "goodsRoll: " +
 							//     goodsRoll +
@@ -4928,10 +5093,14 @@ function run(ItemRollFudge = [], options = { identified: false }) {
 										Math.random() * artData.type.length
 									)
 								]
-							treasure.arts.push({
-								value: artValue,
-								type: artType,
-							})
+							if (tradeGoodsToGold) {
+								treasure.gp += artValue
+							} else {
+								treasure.arts.push({
+									value: artValue,
+									type: artType,
+								})
+							}
 							// console.debug(
 							//   "goodsRoll: " +
 							//     goodsRoll +
@@ -5033,9 +5202,18 @@ function run(ItemRollFudge = [], options = { identified: false }) {
 		//   '<div><p>Treasure:</p></div><div style="padding-left: 20px;"><p>';
 		if (pikUpStiXModule && pikUpStiXModule.active) {
 			//#region pick-up-stix output
+			var treasureErr = {
+				cp: 0,
+				sp: 0,
+				gp: 0,
+				pp: 0,
+				gems: [],
+				arts: [],
+				items: [],
+			}
 			let itemsObjects = []
 			let lastPromise = null
-			// let promisesFinished = 0
+			let promisesFinished = 0
 			for (let item of treasure.items) {
 				if (item.id) {
 					lastPromise = getItem(item.id)
@@ -5048,136 +5226,55 @@ function run(ItemRollFudge = [], options = { identified: false }) {
 								mergeObject(it, item.itemOverride)
 							}
 							itemsObjects.push(it)
-							// promisesFinished++
+							promisesFinished++
 						})
 						.catch((err) => {
 							console.error(
 								`error fetching item ${item.type} - ${item.id}`
 							)
 							console.error(err)
-							// promisesFinished++
+							treasureErr.items.push(item)
+							promisesFinished++
 						})
 				} else {
 					console.error(`no item generated for ${item.type}`)
-					// promisesFinished++
+					treasureErr.items.push(item)
+					promisesFinished++
 				}
 			}
 
-			// while (promisesFinished < treasure.items.length) {}
+			function sleep(ms) {
+				return new Promise((resolve) => setTimeout(resolve, ms))
+			}
 
-			lastPromise.then(() => {
-				// console.log(itemsObjects);
-				pikUpStiXModule.apis.makeContainer(itemsObjects, {
-					cp: treasure.cp,
-					sp: treasure.sp,
-					gp: treasure.gp,
-					pp: treasure.pp,
-				})
-			})
+			async function loopPromises(lp) {
+				if (promisesFinished < treasure.items.length) {
+					lp.then(() => {
+						// console.log(itemsObjects);
+						pikUpStiXModule.apis.makeContainer(
+							itemsObjects,
+							{
+								cp: treasure.cp,
+								sp: treasure.sp,
+								gp: treasure.gp,
+								pp: treasure.pp,
+							},
+							{ gridX: 0, gridY: 0 }
+						)
+					})
+				} else {
+					await sleep(200)
+					return lp
+				}
+			}
+			loopPromises(lastPromise)
+			if (treasureErr.items.length > 0) {
+				treasureToChat(treasureErr)
+			}
 			//#endregion
 		} else {
 			//#region CHAT MESSAGE
-			var TreasureString = '<div class="D35E chat-card item-card">'
-			//#region gold section
-			if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
-				TreasureString += `<header class="card-header flexrow">
-    <img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
-    <h3 class="item-name">Money</h3>
-  </header> <div><p>`
-				if (treasure.cp > 0) {
-					TreasureString +=
-						'<span class="fontstyle0">cp: ' +
-						treasure.cp +
-						'</span><br>'
-				}
-				if (treasure.sp > 0) {
-					TreasureString +=
-						'<span class="fontstyle0">sp: ' +
-						treasure.sp +
-						'</span><br>'
-				}
-				if (treasure.gp > 0) {
-					TreasureString +=
-						'<span class="fontstyle0">gp: ' +
-						treasure.gp +
-						'</span><br>'
-				}
-				if (treasure.pp > 0) {
-					TreasureString +=
-						'<span class="fontstyle0">pp: ' + treasure.pp + '<br>'
-				}
-
-				TreasureString +=
-					'</p></div><hr><span class="fontstyle0"> total value = ' +
-					Math.floor(
-						treasure.cp / 100 +
-							treasure.sp / 10 +
-							treasure.gp +
-							treasure.pp * 10
-					) +
-					' gp</span>'
-			}
-			//#endregion
-
-			//#region goods section
-			if (treasure.gems.length > 0) {
-				let totalValue = 0
-				TreasureString += `<header class="card-header flexrow">
-    <img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
-    <h3 class="item-name">Gems</h3>
-  </header> <div><p>`
-				treasure.gems.forEach((gem) => {
-					totalValue += gem.value
-					TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`
-				})
-				TreasureString +=
-					'</p></div><hr><span class="fontstyle0">total value = ' +
-					totalValue +
-					' gp</span>'
-			}
-			if (treasure.arts.length > 0) {
-				let totalValue = 0
-				TreasureString += `<header class="card-header flexrow">
-    <img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
-    <h3 class="item-name">Arts</h3>
-  </header> <div><p>`
-				treasure.arts.forEach((art) => {
-					totalValue += art.value
-					TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`
-				})
-				TreasureString +=
-					'</p></div><hr><span class="fontstyle0">total value = ' +
-					totalValue +
-					' gp</span>'
-			}
-			//#endregion
-
-			//#region items section
-			if (treasure.items.length > 0) {
-				TreasureString += `<header class="card-header flexrow">
-    <img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
-    <h3 class="item-name">Items</h3>
-  </header> <div class="card-content"><p>`
-
-				treasure.items.forEach((item) => {
-					TreasureString += `<span class="fontstyle0">${
-						(item.amount > 1 && item.amount + 'x ') || ''
-					}${item.type} ${
-						(item.enhancement > 0 && '+' + item.enhancement) || ''
-					} `
-					if (item.ability.length > 0) {
-						TreasureString += `[${item.ability
-							.map((it) => it.itemType)
-							.join(', ')}]`
-					}
-					TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`
-				})
-				TreasureString += '</p></div>'
-			}
-			//#endregion
-			TreasureString += '</div>'
-			//  console.log(TreasureString);
-			ChatMessage.create({ content: TreasureString })
+			treasureToChat(treasure)
 			//#endregion
 		}
 	}
@@ -5188,6 +5285,7 @@ function run(ItemRollFudge = [], options = { identified: false }) {
 //crossbow and arrow
 //run([98, 5, 100, 1, 99, 1, 2, 26, 1, 28])
 //dragonhideplate  "Shadow","Glamered"
-run([98, 2, 96, 100, 89, 59, 25, 70])
+//run([98, 2, 96, 100, 89, 59, 25, 70])
 
+run([98, 2, 96, 100, 89, 49])
 window.rollTreasure = run
