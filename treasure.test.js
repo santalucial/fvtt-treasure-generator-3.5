@@ -191,18 +191,12 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 2,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Spell resistance (13)",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 0,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Shadow",
 		      "type": "ability",
 		      "value": 3750,
@@ -258,18 +252,12 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 1,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Arrow catching",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 1,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -312,27 +300,18 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 1,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Fortification, light",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 1,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Arrow catching",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 1,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -363,18 +342,12 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 0,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Shadow",
 		      "type": "ability",
 		      "value": 3750,
 		    },
 		    Object {
 		      "enhancement": 0,
-		      "enhancementLevel": undefined,
-		      "id": undefined,
-		      "itemOverride": undefined,
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
@@ -394,6 +367,36 @@ describe('Magic armor rolls', () => {
 		  },
 		  "type": "  Dragonhide plate",
 		  "value": 9750,
+		}
+	`)
+	})
+
+	it('test double ability 4', async () => {
+		let treasure = window.rollTreasure([98, 2, 96, 100, 89, 49, 1, 1])
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [
+		    Object {
+		      "enhancement": 0,
+		      "itemType": "Glamered",
+		      "type": "ability",
+		      "value": 2700,
+		    },
+		  ],
+		  "amount": 1,
+		  "enhancement": 0,
+		  "id": "D35E.magicitems.jAD73UYJtyiJZlBx",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 3800,
+		      },
+		    },
+		  },
+		  "type": "  Mithral shirt",
+		  "value": 3800,
 		}
 	`)
 	})
@@ -451,9 +454,6 @@ describe('Magic weapon rolls', () => {
 		    "ability": Array [
 		      Object {
 		        "enhancement": 1,
-		        "enhancementLevel": undefined,
-		        "id": undefined,
-		        "itemOverride": undefined,
 		        "itemType": "Bane, Fey",
 		        "type": "ability",
 		        "value": 0,

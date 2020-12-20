@@ -10,8 +10,8 @@ const TreasureTable = [
 		],
 		goods: [
 			{ Min: 1, Max: 90, roll: '1d1', type: 'nothing' },
-			{ Min: 91, Max: 95, roll: '1d1', type: 'gem' },
-			{ Min: 96, Max: 100, roll: '1d1', type: 'art' },
+			{ Min: 91, Max: 95, roll: '1d1', type: 'gems' },
+			{ Min: 96, Max: 100, roll: '1d1', type: 'arts' },
 		],
 		items: [
 			{ Min: 1, Max: 71, roll: '1d1', type: 'nothing' },
@@ -29,8 +29,8 @@ const TreasureTable = [
 		],
 		goods: [
 			{ Min: 1, Max: 81, roll: '1d1', type: 'nothing' },
-			{ Min: 82, Max: 95, roll: '1d3', type: 'gem' },
-			{ Min: 96, Max: 100, roll: '1d3', type: 'art' },
+			{ Min: 82, Max: 95, roll: '1d3', type: 'gems' },
+			{ Min: 96, Max: 100, roll: '1d3', type: 'arts' },
 		],
 		items: [
 			{ Min: 1, Max: 49, roll: '1d1', type: 'nothing' },
@@ -4640,6 +4640,17 @@ function log(message) {
 	}
 }
 
+function cleanObj(obj) {
+	Object.keys(obj).forEach((key) => {
+		if (obj[key] && typeof obj[key] === 'object') {
+			cleanObj(obj[key])
+		} else if (obj[key] === undefined) {
+			delete obj[key]
+		}
+	})
+	return obj
+}
+
 function rollMagicItem(
 	table,
 	grade,
@@ -4742,7 +4753,7 @@ function rollMagicItem(
 					result.itemOverride = extraOverride
 				}
 
-				return result
+				return cleanObj(result)
 			case 'ammunition':
 				rollMagicItem(
 					magicItemData.table,
@@ -4803,11 +4814,17 @@ function rollMagicItem(
 				)
 
 				for (let ability of abilityRoll) {
-					Object.assign(result, {
-						value: result.value + ability.value,
-						valueBonus: result.valueBonus + ability.enhancement,
-					})
-					abilities.push(ability)
+					if (
+						roll.ability.filter(
+							(ab) => ab.itemType === ability.itemType
+						).length === 0
+					) {
+						Object.assign(result, {
+							value: result.value + ability.value,
+							valueBonus: result.valueBonus + ability.enhancement,
+						})
+						abilities.push(ability)
+					}
 				}
 
 				Object.assign(result, {
@@ -4822,7 +4839,7 @@ function rollMagicItem(
 					amount: roll.amount,
 				})
 
-				return result
+				return cleanObj(result)
 			case 'ability++':
 				roll = rollMagicItem(
 					table,
@@ -4838,6 +4855,7 @@ function rollMagicItem(
 				//     abilities.push(ability);
 				//   }
 				// }
+
 				for (let ability of roll) {
 					if (
 						abilities.filter(
@@ -5179,6 +5197,21 @@ const getSelectedNpcs = () =>
 	)
 
 const times = (x) => [...Array(x).keys()]
+
+const rollMoney = (rollFormula) => {
+	return new Roll(rollFormula).roll().total
+}
+
+const rollTradeGoods = (table) => {
+	let goodsData = table[Math.floor(Math.random() * table.length)]
+	let goodsValue = new Roll(goodsData.roll).roll().total
+	let goodsType =
+		goodsData.type[Math.floor(Math.random() * goodsData.type.length)]
+	return {
+		value: goodsValue,
+		type: goodsType,
+	}
+}
 //#endregion
 
 //#region main function
@@ -5227,9 +5260,7 @@ function genTreasureFromSelectedNpcsCr(
 				// console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
 
 				if (moneyResult.type !== 'nothing') {
-					treasure[moneyResult.type] += new Roll(
-						moneyResult.roll
-					).roll().total
+					treasure[moneyResult.type] += rollMoney(moneyResult.roll)
 				}
 			})
 			//#endregion
@@ -5242,68 +5273,33 @@ function genTreasureFromSelectedNpcsCr(
 				)
 				let goodsNo = new Roll(goodsResult.roll).roll().total
 				times(goodsNo).forEach(() => {
+					let goods = null
 					switch (goodsResult.type) {
 						case 'nothing':
 							break
-						case 'gem':
-							let gemData =
-								GemsTable[
-									Math.floor(Math.random() * GemsTable.length)
-								]
-							let gemValue = new Roll(gemData.roll).roll().total
-							let gemType =
-								gemData.type[
-									Math.floor(
-										Math.random() * gemData.type.length
-									)
-								]
-							if (options.tradeGoodsToGold) {
-								treasure.gp += gemValue
-							} else {
-								treasure.gems.push({
-									value: gemValue,
-									type: gemType,
-								})
-							}
-							// console.debug(
-							//   "goodsRoll: " +
-							//     goodsRoll +
-							//     " - " +
-							//     goodsResult.roll +
-							//     " - " +
-							//     gemType
-							// );
+						case 'gems':
+							goods = rollTradeGoods(GemsTable)
 							break
-						case 'art':
-							let artData =
-								ArtsTable[
-									Math.floor(Math.random() * ArtsTable.length)
-								]
-							let artValue = new Roll(artData.roll).roll().total
-							let artType =
-								artData.type[
-									Math.floor(
-										Math.random() * artData.type.length
-									)
-								]
-							if (options.tradeGoodsToGold) {
-								treasure.gp += artValue
-							} else {
-								treasure.arts.push({
-									value: artValue,
-									type: artType,
-								})
-							}
-							// console.debug(
-							//   "goodsRoll: " +
-							//     goodsRoll +
-							//     " - " +
-							//     goodsResult.roll +
-							//     " - " +
-							//     artType
-							// );
+						case 'arts':
+							goods = rollTradeGoods(ArtsTable)
+
 							break
 					}
+					if (goodsResult.type !== 'nothing') {
+						if (options.tradeGoodsToGold) {
+							treasure.gp += goods.value
+						} else {
+							treasure[goodsResult.type].push(goods)
+						}
+					}
+					// console.debug(
+					//   "goodsRoll: " +
+					//     goodsRoll +
+					//     " - " +
+					//     goodsResult.roll +
+					//     " - " +
+					//     artType
+					// );
 				})
 			})
 			//#endregion
@@ -5408,5 +5404,5 @@ function genTreasureFromSelectedNpcsCr(
 //dragonhideplate  "Shadow","Glamered"
 //genTreasureFromSelectedNpcsCr([98, 2, 96, 100, 89, 59, 25, 70])
 
-genTreasureFromSelectedNpcsCr([98, 2, 96, 100, 89, 49])
+genTreasureFromSelectedNpcsCr([98, 2, 96, 100, 89, 49, 1, 1])
 window.rollTreasure = genTreasureFromSelectedNpcsCr
