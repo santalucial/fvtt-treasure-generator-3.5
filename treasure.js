@@ -267,22 +267,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 46,
-		Max: 46,
-		itemType: 'Humanoids, gnome',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 77,
-		Max: 77,
-		itemType: 'Outsiders, earth',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.lWOcM2Z4AFPcqEYZ',
 	},
 	{
 		Min: 6,
@@ -291,22 +277,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 47,
-		Max: 49,
-		itemType: 'Humanoids, goblinoid',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 78,
-		Max: 80,
-		itemType: 'Outsiders, evil',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.k6oQnwAQMzoJE9lc',
 	},
 	{
 		Min: 10,
@@ -315,22 +287,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 50,
-		Max: 50,
-		itemType: 'Humanoids, halfling',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 81,
-		Max: 81,
-		itemType: 'Outsiders, fire',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.9S2SATvB3MtC7RXm',
 	},
 	{
 		Min: 17,
@@ -339,22 +297,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 51,
-		Max: 54,
-		itemType: 'Humanoids, human',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 82,
-		Max: 84,
-		itemType: 'Outsiders, good',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.RneNZPpmevib1gwd',
 	},
 	{
 		Min: 23,
@@ -363,22 +307,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 55,
-		Max: 57,
-		itemType: 'Humanoids, reptilian',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 85,
-		Max: 87,
-		itemType: 'Outsiders, lawful',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.mPZoCRCwXwUs8RER',
 	},
 	{
 		Min: 28,
@@ -387,23 +317,10 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.7C6OD57df9VvTuJH',
 	},
-	{
-		Min: 58,
-		Max: 60,
-		itemType: 'Humanoids, orc',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 88,
-		Max: 88,
-		itemType: 'Outsiders, water',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
+
 	{
 		Min: 33,
 		Max: 39,
@@ -411,22 +328,9 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 61,
-		Max: 65,
-		itemType: 'Magical beasts',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 89,
-		Max: 90,
-		itemType: 'Plants',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		//TODO Missing enhancement
+		id: 'D35E.enhancements.',
 	},
 	{
 		Min: 40,
@@ -435,22 +339,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 66,
-		Max: 70,
-		itemType: 'Monstrous humanoids',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 91,
-		Max: 98,
-		itemType: 'Undead',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
 	},
 	{
 		Min: 41,
@@ -459,22 +349,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 71,
-		Max: 72,
-		itemType: 'Oozes',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
-	},
-	{
-		Min: 99,
-		Max: 100,
-		itemType: 'Vermin',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
 	},
 	{
 		Min: 43,
@@ -483,14 +359,8 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
-	},
-	{
-		Min: 73,
-		Max: 73,
-		itemType: 'Outsiders, air',
-		type: 'extraItemDef',
-		value: 0,
-		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
 	},
 	{
 		Min: 45,
@@ -499,6 +369,108 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 46,
+		Max: 46,
+		itemType: 'Humanoids, gnome',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 47,
+		Max: 49,
+		itemType: 'Humanoids, goblinoid',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 50,
+		Max: 50,
+		itemType: 'Humanoids, halfling',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 51,
+		Max: 54,
+		itemType: 'Humanoids, human',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 58,
+		Max: 60,
+		itemType: 'Humanoids, orc',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 55,
+		Max: 57,
+		itemType: 'Humanoids, reptilian',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.fR5rDXwOT8dNfWP1',
+	},
+	{
+		Min: 61,
+		Max: 65,
+		itemType: 'Magical beasts',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.9rAUGcASqHCEwago',
+	},
+	{
+		Min: 66,
+		Max: 70,
+		itemType: 'Monstrous humanoids',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.msECRBt5PmPwl442',
+	},
+	{
+		Min: 71,
+		Max: 72,
+		itemType: 'Oozes',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.nF54DTV7kbxQHyWH',
+	},
+	{
+		Min: 73,
+		Max: 73,
+		itemType: 'Outsiders, air',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
 	},
 	{
 		Min: 74,
@@ -507,6 +479,98 @@ const baneAbilityTable = [
 		type: 'extraItemDef',
 		value: 0,
 		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 77,
+		Max: 77,
+		itemType: 'Outsiders, earth',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 78,
+		Max: 80,
+		itemType: 'Outsiders, evil',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 81,
+		Max: 81,
+		itemType: 'Outsiders, fire',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 82,
+		Max: 84,
+		itemType: 'Outsiders, good',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 85,
+		Max: 87,
+		itemType: 'Outsiders, lawful',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 88,
+		Max: 88,
+		itemType: 'Outsiders, water',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.O6Tj6ejvPbfmVAkV',
+	},
+	{
+		Min: 89,
+		Max: 90,
+		itemType: 'Plants',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.aCd2XFASrTCgcPER',
+	},
+	{
+		Min: 91,
+		Max: 98,
+		itemType: 'Undead',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.4u5NcGxpPH8ep6D3',
+	},
+	{
+		Min: 99,
+		Max: 100,
+		itemType: 'Vermin',
+		type: 'extraItemDef',
+		value: 0,
+		enhancement: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.otZjWPlqfjJ1J2AA',
 	},
 ]
 
@@ -535,6 +599,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Defending',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.slKKGJe2ge31NiIt',
 		enhancement: 1,
 	},
 	{
@@ -547,6 +613,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Flaming',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.8ymQFRb8BnIsKViV',
 		enhancement: 1,
 	},
 	{
@@ -559,6 +627,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Frost',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.q61KOQ6iNiptC0Bx',
 		enhancement: 1,
 	},
 	{
@@ -571,6 +641,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Shock',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CG0Tm1y2G74DCREn',
 		enhancement: 1,
 	},
 	{
@@ -583,6 +655,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Ghost touch',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.JwWLdIDaE8RtQDr2',
 		enhancement: 1,
 	},
 	{
@@ -592,9 +666,11 @@ const meleeWeaponsAbilityTable = [
 		mediumMax: 44,
 		majorMin: 0,
 		majorMax: 0,
-		itemType: 'Keen2',
+		itemType: 'Keen',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.PPGTD9TygqYq1gPA',
 		enhancement: 1,
 	},
 	{
@@ -607,6 +683,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Ki Focus',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.4mIkE7i2nfIThqm7',
 		enhancement: 1,
 	},
 	{
@@ -619,6 +697,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Merciful',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.uGsscWT6NCrQivin',
 		enhancement: 1,
 	},
 	{
@@ -631,6 +711,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Mighty cleaving',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CV7Ytnv5OgZLeReC',
 		enhancement: 1,
 	},
 	{
@@ -643,6 +725,9 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Spell storing',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		enhancement: 1,
 	},
 	{
@@ -655,6 +740,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Throwing',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.QQgHYJsXOG3PylSy',
 		enhancement: 1,
 	},
 	{
@@ -667,6 +754,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Thundering',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.AVr5C03szoFJQkDO',
 		enhancement: 1,
 	},
 	{
@@ -679,6 +768,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Vicious',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.SwfdifYHAXfIiyPJ',
 		enhancement: 1,
 	},
 	{
@@ -691,6 +782,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Anarchic',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.k0Ab5SnYk0Y39baq',
 		enhancement: 2,
 	},
 	{
@@ -703,6 +796,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Axiomatic',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.sTSIrZVFXpfgYIDO',
 		enhancement: 2,
 	},
 	{
@@ -712,9 +807,12 @@ const meleeWeaponsAbilityTable = [
 		mediumMax: 78,
 		majorMin: 47,
 		majorMax: 49,
-		itemType: 'Disruption3',
+		itemType: 'Disruption',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		//TODO apply item damage type restriction
+		id: 'D35E.enhancements.f773ZQN84bkNKxXa',
 		enhancement: 2,
 	},
 	{
@@ -727,6 +825,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Flaming burst',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.02G45mX3YioHskwG',
 		enhancement: 2,
 	},
 	{
@@ -739,6 +839,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Icy burst',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.TTGG19LQgFU2U6Ze',
 		enhancement: 2,
 	},
 	{
@@ -751,6 +853,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Holy',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.RaPnsGo8W0u2nb4l',
 		enhancement: 2,
 	},
 	{
@@ -763,6 +867,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Shocking burst',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Kj7YAs2ELLFJfjlO',
 		enhancement: 2,
 	},
 	{
@@ -775,6 +881,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Unholy',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.yRXBQpq80qsBCVyB',
 		enhancement: 2,
 	},
 	{
@@ -787,6 +895,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Wounding',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.npKVpmW3UiBPSIdt',
 		enhancement: 2,
 	},
 	{
@@ -799,6 +909,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Speed',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.i5uiIHPkrW4US3fl',
 		enhancement: 3,
 	},
 	{
@@ -811,6 +923,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Brilliant energy',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.0wqBeQtwZVbIH87Q',
 		enhancement: 4,
 	},
 	{
@@ -823,6 +937,8 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Dancing',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.HBzfLgyJDyAiQ3As',
 		enhancement: 4,
 	},
 	{
@@ -832,9 +948,11 @@ const meleeWeaponsAbilityTable = [
 		mediumMax: 0,
 		majorMin: 89,
 		majorMax: 90,
-		itemType: 'Vorpal4',
+		itemType: 'Vorpal',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.wBOvLs4RGaWBWydH',
 		enhancement: 5,
 	},
 	{
@@ -847,7 +965,6 @@ const meleeWeaponsAbilityTable = [
 		itemType: 'Roll again twice',
 		type: 'ability++',
 		value: 0,
-		enhancement: 5,
 	},
 ]
 
@@ -863,6 +980,7 @@ const rangedWeaponsAbilityTable = [
 		type: 'ability',
 		table: baneAbilityTable,
 		value: 0,
+		enhancementLevel: 0,
 		enhancement: 1,
 	},
 	{
@@ -875,6 +993,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Distance',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.WOoIBY8BzeOIrrfk',
 		enhancement: 1,
 	},
 	{
@@ -887,6 +1007,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Flaming',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.8ymQFRb8BnIsKViV',
 		enhancement: 1,
 	},
 	{
@@ -899,6 +1021,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Frost',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.q61KOQ6iNiptC0Bx',
 		enhancement: 1,
 	},
 	{
@@ -911,6 +1035,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Merciful',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.uGsscWT6NCrQivin',
 		enhancement: 1,
 	},
 	{
@@ -923,6 +1049,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Returning',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.YWn7ILrquXx6wmHg',
 		enhancement: 1,
 	},
 	{
@@ -935,6 +1063,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Shock',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CG0Tm1y2G74DCREn',
 		enhancement: 1,
 	},
 	{
@@ -947,6 +1077,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Seeking',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.XJYT5YK1ccCqhvq3',
 		enhancement: 1,
 	},
 	{
@@ -959,6 +1091,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Thundering',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.AVr5C03szoFJQkDO',
 		enhancement: 1,
 	},
 	{
@@ -971,6 +1105,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Anarchic',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.k0Ab5SnYk0Y39baq',
 		enhancement: 2,
 	},
 	{
@@ -983,6 +1119,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Axiomatic',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.sTSIrZVFXpfgYIDO',
 		enhancement: 2,
 	},
 	{
@@ -995,6 +1133,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Flaming burst',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.02G45mX3YioHskwG',
 		enhancement: 2,
 	},
 	{
@@ -1007,6 +1147,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Holy',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.RaPnsGo8W0u2nb4l',
 		enhancement: 2,
 	},
 	{
@@ -1019,6 +1161,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Icy burst',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.TTGG19LQgFU2U6Ze',
 		enhancement: 2,
 	},
 	{
@@ -1031,6 +1175,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Shocking burst',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Kj7YAs2ELLFJfjlO',
 		enhancement: 2,
 	},
 	{
@@ -1043,6 +1189,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Unholy',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.yRXBQpq80qsBCVyB',
 		enhancement: 2,
 	},
 	{
@@ -1055,6 +1203,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Speed',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.i5uiIHPkrW4US3fl',
 		enhancement: 3,
 	},
 	{
@@ -1067,6 +1217,8 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Brilliant energy',
 		type: 'ability',
 		value: 0,
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.0wqBeQtwZVbIH87Q',
 		enhancement: 4,
 	},
 	{
@@ -1079,7 +1231,6 @@ const rangedWeaponsAbilityTable = [
 		itemType: 'Roll again twice',
 		type: 'ability++',
 		value: 0,
-		enhancement: 5,
 	},
 ]
 
@@ -2272,6 +2423,9 @@ const armorAbilityTable = [
 		majorMax: 3,
 		itemType: 'Glamered',
 		type: 'ability',
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		value: 2700,
 		enhancement: 0,
 	},
@@ -2284,6 +2438,8 @@ const armorAbilityTable = [
 		majorMax: 4,
 		itemType: 'Fortification, light',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.STDeZl8OzwXSyLTB',
 		value: 0,
 		enhancement: 1,
 	},
@@ -2296,6 +2452,8 @@ const armorAbilityTable = [
 		majorMax: 0,
 		itemType: 'Slick',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.8OaIZq2wsPZaUVvD',
 		value: 3750,
 		enhancement: 0,
 	},
@@ -2308,6 +2466,8 @@ const armorAbilityTable = [
 		majorMax: 0,
 		itemType: 'Shadow',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.r2I4wKm3NAJKN6sh',
 		value: 3750,
 		enhancement: 0,
 	},
@@ -2320,6 +2480,8 @@ const armorAbilityTable = [
 		majorMax: 0,
 		itemType: 'Silent moves',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.ulJT76GsSoSUoYCK',
 		value: 3750,
 		enhancement: 0,
 	},
@@ -2333,6 +2495,8 @@ const armorAbilityTable = [
 		//TODO this kind of ability needs an enchantementLevel data to be passed to the function that applies the ability to the item
 		itemType: 'Spell resistance (13)',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 2,
 	},
@@ -2345,6 +2509,8 @@ const armorAbilityTable = [
 		majorMax: 7,
 		itemType: 'Slick, improved',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.8OaIZq2wsPZaUVvD',
 		value: 15000,
 		enhancement: 0,
 	},
@@ -2357,6 +2523,8 @@ const armorAbilityTable = [
 		majorMax: 10,
 		itemType: 'Shadow, improved',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.r2I4wKm3NAJKN6sh',
 		value: 15000,
 		enhancement: 0,
 	},
@@ -2369,6 +2537,8 @@ const armorAbilityTable = [
 		majorMax: 13,
 		itemType: 'Silent moves, improved',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.ulJT76GsSoSUoYCK',
 		value: 15000,
 		enhancement: 0,
 	},
@@ -2381,6 +2551,8 @@ const armorAbilityTable = [
 		majorMax: 16,
 		itemType: 'Acid resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.XhvBWDpdW92xGkOS',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2393,6 +2565,8 @@ const armorAbilityTable = [
 		majorMax: 19,
 		itemType: 'Cold resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.gUa6WECiXI7H5Zjh',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2405,6 +2579,8 @@ const armorAbilityTable = [
 		majorMax: 22,
 		itemType: 'Electricity resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Xj1dJIa4egV2ES7f',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2417,6 +2593,8 @@ const armorAbilityTable = [
 		majorMax: 25,
 		itemType: 'Fire resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.dj6mQljg7t1smkK2',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2429,6 +2607,8 @@ const armorAbilityTable = [
 		majorMax: 28,
 		itemType: 'Sonic resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.7oUj276yj4bK9o2f',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2441,6 +2621,8 @@ const armorAbilityTable = [
 		majorMax: 33,
 		itemType: 'Ghost touch',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.JwWLdIDaE8RtQDr2',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2453,6 +2635,9 @@ const armorAbilityTable = [
 		majorMax: 35,
 		itemType: 'Invulnerability',
 		type: 'ability',
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2465,6 +2650,8 @@ const armorAbilityTable = [
 		majorMax: 40,
 		itemType: 'Fortification, moderate',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.STDeZl8OzwXSyLTB',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2477,6 +2664,8 @@ const armorAbilityTable = [
 		majorMax: 42,
 		itemType: 'Spell resistance (15)',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2489,6 +2678,9 @@ const armorAbilityTable = [
 		majorMax: 43,
 		itemType: 'Wild',
 		type: 'ability',
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2501,6 +2693,8 @@ const armorAbilityTable = [
 		majorMax: 48,
 		itemType: 'Slick, greater',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.8OaIZq2wsPZaUVvD',
 		value: 33750,
 		enhancement: 0,
 	},
@@ -2513,6 +2707,8 @@ const armorAbilityTable = [
 		majorMax: 53,
 		itemType: 'Shadow, greater',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.r2I4wKm3NAJKN6sh',
 		value: 33750,
 		enhancement: 0,
 	},
@@ -2525,6 +2721,8 @@ const armorAbilityTable = [
 		majorMax: 58,
 		itemType: 'Silent moves, greater',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.ulJT76GsSoSUoYCK',
 		value: 33750,
 		enhancement: 0,
 	},
@@ -2537,6 +2735,8 @@ const armorAbilityTable = [
 		majorMax: 63,
 		itemType: 'Acid resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Ti0nYgd5UTFtPHVI',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2549,6 +2749,8 @@ const armorAbilityTable = [
 		majorMax: 68,
 		itemType: 'Cold resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.E1QBi1i1XEdlziVX',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2561,6 +2763,8 @@ const armorAbilityTable = [
 		majorMax: 73,
 		itemType: 'Electricity resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.6KJsATHN2vTV2wtM',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2573,6 +2777,8 @@ const armorAbilityTable = [
 		majorMax: 78,
 		itemType: 'Fire resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.cf0DegnbVctoU9KX',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2585,6 +2791,8 @@ const armorAbilityTable = [
 		majorMax: 83,
 		itemType: 'Sonic resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.SWs7wMhzeYGrAlWH',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2597,6 +2805,8 @@ const armorAbilityTable = [
 		majorMax: 88,
 		itemType: 'Spell resistance (17)',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 4,
 	},
@@ -2609,6 +2819,9 @@ const armorAbilityTable = [
 		majorMax: 89,
 		itemType: 'Etherealness',
 		type: 'ability',
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		value: 49000,
 		enhancement: 0,
 	},
@@ -2621,6 +2834,8 @@ const armorAbilityTable = [
 		majorMax: 90,
 		itemType: 'Undead controlling',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.hNIRkA1PoqraKQNz',
 		value: 49000,
 		enhancement: 0,
 	},
@@ -2633,6 +2848,8 @@ const armorAbilityTable = [
 		majorMax: 92,
 		itemType: 'Fortification, heavy',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.STDeZl8OzwXSyLTB',
 		value: 0,
 		enhancement: 5,
 	},
@@ -2645,6 +2862,8 @@ const armorAbilityTable = [
 		majorMax: 94,
 		itemType: 'Spell resistance (19)',
 		type: 'ability',
+		enhancementLevel: 4,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 5,
 	},
@@ -2657,6 +2876,8 @@ const armorAbilityTable = [
 		majorMax: 95,
 		itemType: 'Acid resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Jv8vuoWG5Uu1mt53',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -2669,6 +2890,8 @@ const armorAbilityTable = [
 		majorMax: 96,
 		itemType: 'Cold resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.2T484OMyTSiqiPaZ',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -2681,6 +2904,8 @@ const armorAbilityTable = [
 		majorMax: 97,
 		itemType: 'Electricity resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CwuEpntNO1HoMgSC',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -2693,6 +2918,8 @@ const armorAbilityTable = [
 		majorMax: 98,
 		itemType: 'Fire resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.RMFlj5tFzlsvBBuP',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -2705,6 +2932,8 @@ const armorAbilityTable = [
 		majorMax: 99,
 		itemType: 'Sonic resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CM3uVPE5RnRCsFa4',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -2733,6 +2962,8 @@ const shieldAbilityTable = [
 		majorMax: 5,
 		itemType: 'Arrow catching',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.oHoYZizXSauB3UkB',
 		value: 0,
 		enhancement: 1,
 	},
@@ -2745,6 +2976,9 @@ const shieldAbilityTable = [
 		majorMax: 8,
 		itemType: 'Bashing',
 		type: 'ability',
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		value: 0,
 		enhancement: 1,
 	},
@@ -2757,6 +2991,9 @@ const shieldAbilityTable = [
 		majorMax: 10,
 		itemType: 'Blinding',
 		type: 'ability',
+		enhancementLevel: 0,
+		//TODO missing enhancements
+		id: 'D35E.enhancements.',
 		value: 0,
 		enhancement: 1,
 	},
@@ -2769,6 +3006,8 @@ const shieldAbilityTable = [
 		majorMax: 15,
 		itemType: 'Fortification, light',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.STDeZl8OzwXSyLTB',
 		value: 0,
 		enhancement: 1,
 	},
@@ -2781,6 +3020,8 @@ const shieldAbilityTable = [
 		majorMax: 20,
 		itemType: 'Arrow deflection',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.p3HuFX608G4YtqhZ',
 		value: 0,
 		enhancement: 2,
 	},
@@ -2793,6 +3034,8 @@ const shieldAbilityTable = [
 		majorMax: 25,
 		itemType: 'Animated',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.J5FLWFShaTjTXpGu',
 		value: 0,
 		enhancement: 2,
 	},
@@ -2805,6 +3048,8 @@ const shieldAbilityTable = [
 		majorMax: 0,
 		itemType: 'Spell resistance (13)',
 		type: 'ability',
+		enhancementLevel: 1,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 2,
 	},
@@ -2817,6 +3062,8 @@ const shieldAbilityTable = [
 		majorMax: 28,
 		itemType: 'Acid resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.XhvBWDpdW92xGkOS',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2829,6 +3076,8 @@ const shieldAbilityTable = [
 		majorMax: 31,
 		itemType: 'Cold resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.gUa6WECiXI7H5Zjh',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2841,6 +3090,8 @@ const shieldAbilityTable = [
 		majorMax: 34,
 		itemType: 'Electricity resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Xj1dJIa4egV2ES7f',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2853,6 +3104,8 @@ const shieldAbilityTable = [
 		majorMax: 37,
 		itemType: 'Fire resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.dj6mQljg7t1smkK2',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2865,6 +3118,8 @@ const shieldAbilityTable = [
 		majorMax: 40,
 		itemType: 'Sonic resistance',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.7oUj276yj4bK9o2f',
 		value: 18000,
 		enhancement: 0,
 	},
@@ -2877,6 +3132,8 @@ const shieldAbilityTable = [
 		majorMax: 46,
 		itemType: 'Ghost touch',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.JwWLdIDaE8RtQDr2',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2889,6 +3146,8 @@ const shieldAbilityTable = [
 		majorMax: 56,
 		itemType: 'Fortification, moderate',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.STDeZl8OzwXSyLTB',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2901,6 +3160,8 @@ const shieldAbilityTable = [
 		majorMax: 58,
 		itemType: 'Spell resistance (15)',
 		type: 'ability',
+		enhancementLevel: 2,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2913,6 +3174,8 @@ const shieldAbilityTable = [
 		majorMax: 59,
 		itemType: 'Wild',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.',
 		value: 0,
 		enhancement: 3,
 	},
@@ -2925,6 +3188,8 @@ const shieldAbilityTable = [
 		majorMax: 64,
 		itemType: 'Acid resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Ti0nYgd5UTFtPHVI',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2937,6 +3202,8 @@ const shieldAbilityTable = [
 		majorMax: 69,
 		itemType: 'Cold resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.E1QBi1i1XEdlziVX',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2949,6 +3216,8 @@ const shieldAbilityTable = [
 		majorMax: 74,
 		itemType: 'Electricity resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.6KJsATHN2vTV2wtM',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2961,6 +3230,8 @@ const shieldAbilityTable = [
 		majorMax: 79,
 		itemType: 'Fire resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.cf0DegnbVctoU9KX',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2973,6 +3244,8 @@ const shieldAbilityTable = [
 		majorMax: 84,
 		itemType: 'Sonic resistance, improved',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.SWs7wMhzeYGrAlWH',
 		value: 42000,
 		enhancement: 0,
 	},
@@ -2985,6 +3258,8 @@ const shieldAbilityTable = [
 		majorMax: 86,
 		itemType: 'Spell resistance (17)',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 4,
 	},
@@ -2997,6 +3272,8 @@ const shieldAbilityTable = [
 		majorMax: 87,
 		itemType: 'Undead controlling',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.hNIRkA1PoqraKQNz',
 		value: 49000,
 		enhancement: 0,
 	},
@@ -3009,6 +3286,8 @@ const shieldAbilityTable = [
 		majorMax: 91,
 		itemType: 'Fortification, heavy',
 		type: 'ability',
+		enhancementLevel: 3,
+		id: 'D35E.enhancements.STDeZl8OzwXSyLTB',
 		value: 0,
 		enhancement: 5,
 	},
@@ -3021,6 +3300,8 @@ const shieldAbilityTable = [
 		majorMax: 93,
 		itemType: 'Reflecting',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.RThyTYahgFuDnVJQ',
 		value: 0,
 		enhancement: 5,
 	},
@@ -3033,6 +3314,8 @@ const shieldAbilityTable = [
 		majorMax: 94,
 		itemType: 'Spell resistance (19)',
 		type: 'ability',
+		enhancementLevel: 4,
+		id: 'D35E.enhancements.g6afIpui4qfVC96t',
 		value: 0,
 		enhancement: 5,
 	},
@@ -3045,6 +3328,8 @@ const shieldAbilityTable = [
 		majorMax: 95,
 		itemType: 'Acid resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.Jv8vuoWG5Uu1mt53',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -3057,6 +3342,8 @@ const shieldAbilityTable = [
 		majorMax: 96,
 		itemType: 'Cold resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.2T484OMyTSiqiPaZ',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -3069,6 +3356,8 @@ const shieldAbilityTable = [
 		majorMax: 97,
 		itemType: 'Electricity resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CwuEpntNO1HoMgSC',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -3081,6 +3370,8 @@ const shieldAbilityTable = [
 		majorMax: 98,
 		itemType: 'Fire resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.RMFlj5tFzlsvBBuP',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -3093,6 +3384,8 @@ const shieldAbilityTable = [
 		majorMax: 99,
 		itemType: 'Sonic resistance, greater',
 		type: 'ability',
+		enhancementLevel: 0,
+		id: 'D35E.enhancements.CM3uVPE5RnRCsFa4',
 		value: 66000,
 		enhancement: 0,
 	},
@@ -4831,7 +5124,7 @@ function rollMagicItem(
 					value: result.value + roll.value,
 					enhancement: result.enhancement + roll.enhancement,
 					valueBonus: result.valueBonus + roll.valueBonus,
-					type: prefix + ' ' + roll.type,
+					type: (prefix + ' ' + roll.type).trim(),
 					ability: abilities.concat(roll.ability),
 					table: roll.table,
 					id: roll.id,
@@ -5212,6 +5505,149 @@ const rollTradeGoods = (table) => {
 		type: goodsType,
 	}
 }
+
+function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
+	let treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
+	TreasureLevels.forEach((TreasureLevel) => {
+		let treasureRow = TreasureTable[TreasureLevel]
+
+		//#region Roll for money
+		times(options.moneyMultiplier).forEach(() => {
+			let moneyRoll = new Roll('1d100').roll().total
+			let moneyResult = treasureRow.money.find(
+				(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
+			)
+
+			// console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
+
+			if (moneyResult.type !== 'nothing') {
+				treasure[moneyResult.type] += rollMoney(moneyResult.roll)
+			}
+		})
+		//#endregion
+
+		//#region Roll for goods
+		times(options.goodsMultiplier).forEach(() => {
+			let goodsRoll = new Roll('1d100').roll().total
+			let goodsResult = treasureRow.goods.find(
+				(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
+			)
+			let goodsNo = new Roll(goodsResult.roll).roll().total
+			times(goodsNo).forEach(() => {
+				let goods = null
+				switch (goodsResult.type) {
+					case 'nothing':
+						break
+					case 'gems':
+						goods = rollTradeGoods(GemsTable)
+						break
+					case 'arts':
+						goods = rollTradeGoods(ArtsTable)
+
+						break
+				}
+				if (goodsResult.type !== 'nothing') {
+					if (options.tradeGoodsToGold) {
+						treasure.gp += goods.value
+					} else {
+						treasure[goodsResult.type].push(goods)
+					}
+				}
+				// console.debug(
+				//   "goodsRoll: " +
+				//     goodsRoll +
+				//     " - " +
+				//     goodsResult.roll +
+				//     " - " +
+				//     artType
+				// );
+			})
+		})
+		//#endregion
+
+		//#region Roll for items
+		times(options.itemsMultiplier).forEach(() => {
+			let itemsRoll = new Roll('1d100').roll().total
+			if (ItemRollFudge.length > 0) {
+				itemsRoll = ItemRollFudge.shift()
+				// console.debug("fudged Dice roll = " + itemsRoll);
+			}
+			let itemsResult = treasureRow.items.find(
+				(r) => r.Min <= itemsRoll && r.Max >= itemsRoll
+			)
+			let itemsNo = new Roll(itemsResult.roll).roll().total
+			times(itemsNo).forEach(() => {
+				switch (itemsResult.type) {
+					case 'nothing':
+						break
+					case 'mundane':
+						rollMundaneItem(
+							MundaneItemsTable,
+							'',
+							ItemRollFudge
+						).forEach(
+							([
+								mundaneItemValue,
+								mundaneItemType,
+								mundaneItemAmount,
+							]) =>
+								treasure.items.push({
+									value: mundaneItemValue,
+									type: mundaneItemType,
+									amount: mundaneItemAmount,
+									ability: [],
+									enhancement: 0,
+								})
+						)
+						break
+					case 'minor':
+					case 'medium':
+					case 'major':
+						try {
+							let {
+								value,
+								enhancement,
+								ability,
+								type,
+								id,
+								itemOverride,
+								amount,
+							} = rollMagicItem(
+								MagicItemTable,
+								itemsResult.type,
+								'',
+								ItemRollFudge,
+								treasure,
+								{
+									identified: options.identified,
+									masterwork: true,
+								}
+							)
+							treasure.items.push({
+								value: value,
+								type: type,
+								ability: ability,
+								enhancement: enhancement,
+								amount: amount || 1,
+								id: id,
+								itemOverride: itemOverride,
+							})
+						} catch (err) {
+							err.message +=
+								' --- ' + JSON.stringify(window.rolls)
+							console.error(window.rolls)
+							throw err
+						}
+
+						break
+				}
+			})
+		})
+		//#endregion
+	})
+	return treasure
+}
+
 //#endregion
 
 //#region main function
@@ -5225,7 +5661,7 @@ function genTreasureFromSelectedNpcsCr(
 		itemsMultiplier: 1,
 	}
 ) {
-	var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
+	// var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
 	//#region Options Validation
 	options.moneyMultiplier =
 		(options.moneyMultiplier &&
@@ -5244,146 +5680,18 @@ function genTreasureFromSelectedNpcsCr(
 	//#endregion
 	window.rolls = []
 	if (getSelectedNpcs().length !== 0) {
+		let TreasureLevels = []
 		getSelectedNpcs().forEach((t) => {
 			let actor = game.actors.get(t.data.actorId)
 			let TreasureLevel = getActorCr(actor)
-			//console.log(TreasureLevel);
-			let treasureRow = TreasureTable[TreasureLevel]
-
-			//#region Roll for money
-			times(options.moneyMultiplier).forEach(() => {
-				let moneyRoll = new Roll('1d100').roll().total
-				let moneyResult = treasureRow.money.find(
-					(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
-				)
-
-				// console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
-
-				if (moneyResult.type !== 'nothing') {
-					treasure[moneyResult.type] += rollMoney(moneyResult.roll)
-				}
-			})
-			//#endregion
-
-			//#region Roll for goods
-			times(options.goodsMultiplier).forEach(() => {
-				let goodsRoll = new Roll('1d100').roll().total
-				let goodsResult = treasureRow.goods.find(
-					(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
-				)
-				let goodsNo = new Roll(goodsResult.roll).roll().total
-				times(goodsNo).forEach(() => {
-					let goods = null
-					switch (goodsResult.type) {
-						case 'nothing':
-							break
-						case 'gems':
-							goods = rollTradeGoods(GemsTable)
-							break
-						case 'arts':
-							goods = rollTradeGoods(ArtsTable)
-
-							break
-					}
-					if (goodsResult.type !== 'nothing') {
-						if (options.tradeGoodsToGold) {
-							treasure.gp += goods.value
-						} else {
-							treasure[goodsResult.type].push(goods)
-						}
-					}
-					// console.debug(
-					//   "goodsRoll: " +
-					//     goodsRoll +
-					//     " - " +
-					//     goodsResult.roll +
-					//     " - " +
-					//     artType
-					// );
-				})
-			})
-			//#endregion
-
-			//#region Roll for items
-			times(options.itemsMultiplier).forEach(() => {
-				let itemsRoll = new Roll('1d100').roll().total
-				if (ItemRollFudge.length > 0) {
-					itemsRoll = ItemRollFudge.shift()
-					// console.debug("fudged Dice roll = " + itemsRoll);
-				}
-				let itemsResult = treasureRow.items.find(
-					(r) => r.Min <= itemsRoll && r.Max >= itemsRoll
-				)
-				let itemsNo = new Roll(itemsResult.roll).roll().total
-				times(itemsNo).forEach(() => {
-					switch (itemsResult.type) {
-						case 'nothing':
-							break
-						case 'mundane':
-							rollMundaneItem(
-								MundaneItemsTable,
-								'',
-								ItemRollFudge
-							).forEach(
-								([
-									mundaneItemValue,
-									mundaneItemType,
-									mundaneItemAmount,
-								]) =>
-									treasure.items.push({
-										value: mundaneItemValue,
-										type: mundaneItemType,
-										amount: mundaneItemAmount,
-										ability: [],
-										enhancement: 0,
-									})
-							)
-							break
-						case 'minor':
-						case 'medium':
-						case 'major':
-							try {
-								let {
-									value,
-									enhancement,
-									ability,
-									type,
-									id,
-									itemOverride,
-									amount,
-								} = rollMagicItem(
-									MagicItemTable,
-									itemsResult.type,
-									'',
-									ItemRollFudge,
-									treasure,
-									{
-										identified: options.identified,
-										masterwork: true,
-									}
-								)
-								treasure.items.push({
-									value: value,
-									type: type,
-									ability: ability,
-									enhancement: enhancement,
-									amount: amount || 1,
-									id: id,
-									itemOverride: itemOverride,
-								})
-							} catch (err) {
-								err.message +=
-									' --- ' + JSON.stringify(window.rolls)
-								console.error(window.rolls)
-								throw err
-							}
-
-							break
-					}
-				})
-			})
-			//#endregion
+			TreasureLevels.push(TreasureLevel)
 		})
+
+		let treasure = makeTreasureFromCR(
+			TreasureLevels,
+			options,
+			ItemRollFudge
+		)
 
 		log(treasure)
 
@@ -5394,8 +5702,8 @@ function genTreasureFromSelectedNpcsCr(
 		} else {
 			treasureToChat(treasure)
 		}
+		return treasure
 	}
-	return treasure
 }
 //#endregion
 

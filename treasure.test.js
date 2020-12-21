@@ -191,12 +191,16 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 2,
+		      "enhancementLevel": 1,
+		      "id": "D35E.enhancements.g6afIpui4qfVC96t",
 		      "itemType": "Spell resistance (13)",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 0,
+		      "enhancementLevel": 1,
+		      "id": "D35E.enhancements.r2I4wKm3NAJKN6sh",
 		      "itemType": "Shadow",
 		      "type": "ability",
 		      "value": 3750,
@@ -214,7 +218,7 @@ describe('Magic armor rolls', () => {
 		      },
 		    },
 		  },
-		  "type": " Scale mail",
+		  "type": "Scale mail",
 		  "value": 12950,
 		}
 	`)
@@ -252,12 +256,16 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 1,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.oHoYZizXSauB3UkB",
 		      "itemType": "Arrow catching",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 1,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.",
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -275,7 +283,7 @@ describe('Magic armor rolls', () => {
 		      },
 		    },
 		  },
-		  "type": " Shield, light, wooden",
+		  "type": "Shield, light, wooden",
 		  "value": 9153,
 		}
 	`)
@@ -300,18 +308,24 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 1,
+		      "enhancementLevel": 1,
+		      "id": "D35E.enhancements.STDeZl8OzwXSyLTB",
 		      "itemType": "Fortification, light",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 1,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.oHoYZizXSauB3UkB",
 		      "itemType": "Arrow catching",
 		      "type": "ability",
 		      "value": 0,
 		    },
 		    Object {
 		      "enhancement": 1,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.",
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -329,7 +343,7 @@ describe('Magic armor rolls', () => {
 		      },
 		    },
 		  },
-		  "type": "  Shield, light, wooden",
+		  "type": "Shield, light, wooden",
 		  "value": 16153,
 		}
 	`)
@@ -342,12 +356,16 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 0,
+		      "enhancementLevel": 1,
+		      "id": "D35E.enhancements.r2I4wKm3NAJKN6sh",
 		      "itemType": "Shadow",
 		      "type": "ability",
 		      "value": 3750,
 		    },
 		    Object {
 		      "enhancement": 0,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.",
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
@@ -365,7 +383,7 @@ describe('Magic armor rolls', () => {
 		      },
 		    },
 		  },
-		  "type": "  Dragonhide plate",
+		  "type": "Dragonhide plate",
 		  "value": 9750,
 		}
 	`)
@@ -378,6 +396,8 @@ describe('Magic armor rolls', () => {
 		  "ability": Array [
 		    Object {
 		      "enhancement": 0,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.",
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
@@ -395,7 +415,7 @@ describe('Magic armor rolls', () => {
 		      },
 		    },
 		  },
-		  "type": "  Mithral shirt",
+		  "type": "Mithral shirt",
 		  "value": 3800,
 		}
 	`)
@@ -454,6 +474,8 @@ describe('Magic weapon rolls', () => {
 		    "ability": Array [
 		      Object {
 		        "enhancement": 1,
+		        "enhancementLevel": 0,
+		        "id": "D35E.enhancements.7C6OD57df9VvTuJH",
 		        "itemType": "Bane, Fey",
 		        "type": "ability",
 		        "value": 0,
@@ -471,7 +493,7 @@ describe('Magic weapon rolls', () => {
 		        },
 		      },
 		    },
-		    "type": " Crossbow, light",
+		    "type": "Crossbow, light",
 		    "value": 8335,
 		  },
 		]
