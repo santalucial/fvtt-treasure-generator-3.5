@@ -167,6 +167,32 @@ beforeAll(() => {
 	require('./treasure.js')
 })
 
+describe('potion rolls', () => {
+	it('potion of Protection from good', async () => {
+		let treasure = window.rollTreasure([98, 10, 31, 2])
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "consumableType": "potion",
+		  "enhancement": 0,
+		  "id": "D35E.spells.B2sGPfbpclfgSyOh",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 50,
+		      },
+		    },
+		  },
+		  "type": "Protection from good",
+		  "value": 50,
+		}
+	`)
+	})
+})
+
 describe('Mundane items rolls', () => {
 	it('3 Smokesticks', async () => {
 		let treasure = window.rollTreasure([72, 1, 25, 3])
@@ -487,7 +513,7 @@ describe('Magic weapon rolls', () => {
 		        },
 		      },
 		    },
-		    "type": "Common ranged weapon Arrows",
+		    "type": "Arrows",
 		    "value": 350,
 		  },
 		  Object {
