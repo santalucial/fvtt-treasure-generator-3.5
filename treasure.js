@@ -1992,7 +1992,6 @@ const CommonRangedWeaponTable = [
 	},
 ]
 
-//TODO fix Items ID
 const MundaneItemsTable = [
 	{
 		Min: 1,
@@ -2006,6 +2005,7 @@ const MundaneItemsTable = [
 				itemType: 'Alchemist’s fire',
 				value: 20,
 				type: 'item',
+				id: 'D35E.items.CLrtXQqD3oJ2uubQ',
 			},
 			{
 				Min: 13,
@@ -2014,6 +2014,7 @@ const MundaneItemsTable = [
 				itemType: 'Acid',
 				value: 10,
 				type: 'item',
+				id: 'D35E.items.ukJMYFrrvECT4dPv',
 			},
 			{
 				Min: 25,
@@ -2022,6 +2023,7 @@ const MundaneItemsTable = [
 				itemType: 'Smokesticks',
 				value: 20,
 				type: 'item',
+				id: 'D35E.items.76ZSd5C8wjqupu58',
 			},
 			{
 				Min: 37,
@@ -2030,6 +2032,7 @@ const MundaneItemsTable = [
 				itemType: 'Holy water',
 				value: 25,
 				type: 'item',
+				id: 'D35E.items.F65wMWPBzQU4TVMZ',
 			},
 			{
 				Min: 49,
@@ -2038,6 +2041,7 @@ const MundaneItemsTable = [
 				itemType: 'Antitoxin',
 				value: 50,
 				type: 'item',
+				id: 'D35E.items.RwSypkdSKQsFhTfL',
 			},
 			{
 				Min: 63,
@@ -2046,6 +2050,7 @@ const MundaneItemsTable = [
 				itemType: 'Everburning torch',
 				value: 0,
 				type: 'item',
+				id: 'D35E.items.SAvVbqQVGTIxUi6f',
 			},
 			{
 				Min: 75,
@@ -2054,6 +2059,7 @@ const MundaneItemsTable = [
 				itemType: 'Tanglefoot bags',
 				value: 50,
 				type: 'item',
+				id: 'D35E.items.abNMnT7mncirrtcS',
 			},
 			{
 				Min: 89,
@@ -2062,6 +2068,7 @@ const MundaneItemsTable = [
 				itemType: 'Thunderstones',
 				value: 30,
 				type: 'item',
+				id: 'D35E.items.Rwwll19LISUgCJIA',
 			},
 		],
 		itemType: 'Alchemical item',
@@ -2080,6 +2087,7 @@ const MundaneItemsTable = [
 				itemType: 'Chain shirt',
 				value: 100,
 				type: 'item',
+				id: 'D35E.armors-and-shields.iGu21zy6QtroUZ4O',
 			},
 			{
 				Min: 13,
@@ -2088,6 +2096,14 @@ const MundaneItemsTable = [
 				itemType: 'Masterwork studded leather',
 				value: 175,
 				type: 'item',
+				id: 'D35E.armors-and-shields.xeuREriTfdZR1yCD',
+				itemOverride: {
+					data: {
+						data: {
+							masterwork: true,
+						},
+					},
+				},
 			},
 			{
 				Min: 19,
@@ -2096,6 +2112,7 @@ const MundaneItemsTable = [
 				itemType: 'Breastplate',
 				value: 200,
 				type: 'item',
+				id: 'D35E.armors-and-shields.5TzaS38RPAx1oj9p',
 			},
 			{
 				Min: 27,
@@ -2104,6 +2121,7 @@ const MundaneItemsTable = [
 				itemType: 'Banded mail',
 				value: 250,
 				type: 'item',
+				id: 'D35E.armors-and-shields.HpPFigQKr6C6Dej4',
 			},
 			{
 				Min: 35,
@@ -2112,6 +2130,7 @@ const MundaneItemsTable = [
 				itemType: 'Half-plate',
 				value: 600,
 				type: 'item',
+				id: 'D35E.armors-and-shields.Y10QTnY9wVXg5VCm',
 			},
 			{
 				Min: 55,
@@ -2120,6 +2139,7 @@ const MundaneItemsTable = [
 				itemType: 'Full plate',
 				value: 1500,
 				type: 'item',
+				id: 'D35E.armors-and-shields.h65qEp22nsyRoeRa',
 			},
 			{
 				Min: 81,
@@ -2153,6 +2173,13 @@ const MundaneItemsTable = [
 				Min: 91,
 				Max: 100,
 				roll: '1d1',
+				itemOverride: {
+					data: {
+						data: {
+							masterwork: true,
+						},
+					},
+				},
 				itemType: 'Masterwork',
 				table: [
 					{
@@ -2162,6 +2189,7 @@ const MundaneItemsTable = [
 						itemType: 'Buckler',
 						value: 165,
 						type: 'item',
+						id: 'D35E.armors-and-shields.gsE0PAOmCwivue5A',
 					},
 					{
 						Min: 18,
@@ -2170,6 +2198,7 @@ const MundaneItemsTable = [
 						itemType: 'Light wooden shield',
 						value: 153,
 						type: 'item',
+						id: 'D35E.armors-and-shields.l1qNkx4xGXelq6yY',
 					},
 					{
 						Min: 41,
@@ -2178,6 +2207,7 @@ const MundaneItemsTable = [
 						itemType: 'Light steel shield',
 						value: 159,
 						type: 'item',
+						id: 'D35E.armors-and-shields.iRB7ACzHf14VIk4M',
 					},
 					{
 						Min: 61,
@@ -2186,6 +2216,7 @@ const MundaneItemsTable = [
 						itemType: 'Heavy wooden shield',
 						value: 157,
 						type: 'item',
+						id: 'D35E.armors-and-shields.ioCsEZc3Shc3t4Sv',
 					},
 					{
 						Min: 84,
@@ -2194,6 +2225,7 @@ const MundaneItemsTable = [
 						itemType: 'Heavy steel shield',
 						value: 170,
 						type: 'item',
+						id: 'D35E.armors-and-shields.2fK608aSYU9QDmzw',
 					},
 				],
 				value: 0,
@@ -2238,6 +2270,13 @@ const MundaneItemsTable = [
 			},
 		],
 		itemType: 'Masterwork',
+		itemOverride: {
+			data: {
+				data: {
+					masterwork: true,
+				},
+			},
+		},
 		value: 0,
 		type: 'roll',
 	},
@@ -2253,6 +2292,7 @@ const MundaneItemsTable = [
 				itemType: 'Backpack, empty',
 				value: 2,
 				type: 'item',
+				id: 'D35E.items.J5B6MDXxtNAlTBAj',
 			},
 			{
 				Min: 4,
@@ -2261,6 +2301,7 @@ const MundaneItemsTable = [
 				itemType: 'Crowbar',
 				value: 2,
 				type: 'item',
+				id: 'D35E.items.fDvR9P3UiYDCt9RR',
 			},
 			{
 				Min: 7,
@@ -2269,6 +2310,7 @@ const MundaneItemsTable = [
 				itemType: 'Lantern, bullseye',
 				value: 12,
 				type: 'item',
+				id: 'D35E.items.STGkrsRCr8kUSNdb',
 			},
 			{
 				Min: 12,
@@ -2277,6 +2319,7 @@ const MundaneItemsTable = [
 				itemType: 'Lock, simple',
 				value: 20,
 				type: 'item',
+				id: 'D35E.items.zzJj8LGDPohMFcgU',
 			},
 			{
 				Min: 17,
@@ -2285,6 +2328,7 @@ const MundaneItemsTable = [
 				itemType: 'Lock, average',
 				value: 40,
 				type: 'item',
+				id: 'D35E.items.SAXykzqF2Ybxz9TB',
 			},
 			{
 				Min: 22,
@@ -2293,6 +2337,7 @@ const MundaneItemsTable = [
 				itemType: 'Lock, good',
 				value: 80,
 				type: 'item',
+				id: 'D35E.items.qbjCmp3gLuRhQNRq',
 			},
 			{
 				Min: 29,
@@ -2301,6 +2346,7 @@ const MundaneItemsTable = [
 				itemType: 'Lock, superior',
 				value: 150,
 				type: 'item',
+				id: 'D35E.items.u4sZeHRPfFsfaiG9',
 			},
 			{
 				Min: 36,
@@ -2309,6 +2355,7 @@ const MundaneItemsTable = [
 				itemType: 'Manacles, masterwork',
 				value: 50,
 				type: 'item',
+				id: 'D35E.items.jZCh2TewBGDgVWVS',
 			},
 			{
 				Min: 41,
@@ -2317,6 +2364,7 @@ const MundaneItemsTable = [
 				itemType: 'Mirror, small steel',
 				value: 10,
 				type: 'item',
+				id: 'D35E.items.h6Z7HbnEzM2dajhy',
 			},
 			{
 				Min: 44,
@@ -2325,6 +2373,7 @@ const MundaneItemsTable = [
 				itemType: 'Rope, silk (50 ft.)',
 				value: 10,
 				type: 'item',
+				id: 'D35E.items.qW6YLVqWnW2aKmdT',
 			},
 			{
 				Min: 47,
@@ -2333,6 +2382,7 @@ const MundaneItemsTable = [
 				itemType: 'Spyglass',
 				value: 1000,
 				type: 'item',
+				id: 'D35E.items.EfVxXBYYbkXYZ9C5',
 			},
 			{
 				Min: 54,
@@ -2341,6 +2391,7 @@ const MundaneItemsTable = [
 				itemType: 'Artisan’s tools, masterwork',
 				value: 55,
 				type: 'item',
+				id: 'D35E.items.5a5AyKFG9FZSx4k7',
 			},
 			{
 				Min: 59,
@@ -2349,6 +2400,7 @@ const MundaneItemsTable = [
 				itemType: 'Climber’s kit',
 				value: 80,
 				type: 'item',
+				id: 'D35E.items.YfJhoNHfyYYdRpEA',
 			},
 			{
 				Min: 64,
@@ -2357,6 +2409,7 @@ const MundaneItemsTable = [
 				itemType: 'Disguise kit',
 				value: 50,
 				type: 'item',
+				id: 'D35E.items.mufn7Y8fChmsyw5s',
 			},
 			{
 				Min: 69,
@@ -2365,6 +2418,7 @@ const MundaneItemsTable = [
 				itemType: 'Healer’s kit',
 				value: 50,
 				type: 'item',
+				id: 'D35E.items.K8dnv2zsyiZ2wSxp',
 			},
 			{
 				Min: 74,
@@ -2373,6 +2427,7 @@ const MundaneItemsTable = [
 				itemType: 'Holy symbol, silver',
 				value: 25,
 				type: 'item',
+				id: 'D35E.items.2iE45eWpm4RbVtLs',
 			},
 			{
 				Min: 78,
@@ -2381,6 +2436,7 @@ const MundaneItemsTable = [
 				itemType: 'Hourglass',
 				value: 25,
 				type: 'item',
+				id: 'D35E.items.8go8bpgFmgSSDo37',
 			},
 			{
 				Min: 82,
@@ -2389,6 +2445,7 @@ const MundaneItemsTable = [
 				itemType: 'Magnifying glass',
 				value: 100,
 				type: 'item',
+				id: 'D35E.items.tPue8zCeebNuWVXv',
 			},
 			{
 				Min: 89,
@@ -2397,6 +2454,7 @@ const MundaneItemsTable = [
 				itemType: 'Musical instrument, masterwork',
 				value: 100,
 				type: 'item',
+				id: 'D35E.items.wns8KNLGtTHxyb8e',
 			},
 			{
 				Min: 96,
@@ -2405,6 +2463,7 @@ const MundaneItemsTable = [
 				itemType: 'Thieves’ tools, masterwork',
 				value: 50,
 				type: 'item',
+				id: 'D35E.items.JPR4dAdnUbJFsvMi',
 			},
 		],
 		itemType: '',
@@ -3571,7 +3630,6 @@ const armorTypeTable = [
 	},
 ]
 
-// TODO specific items ids and eventually their stats
 // https://regex101.com/r/5PgyZw/2
 const specificArmorTable = [
 	{
@@ -4944,7 +5002,7 @@ function cleanObj(obj) {
 	return obj
 }
 
-function rollMagicItem(
+function rollItem(
 	table,
 	grade,
 	prefix = '',
@@ -5001,9 +5059,16 @@ function rollMagicItem(
 					itemOverride: magicItemData.itemOverride,
 					amount: magicItemData.amount,
 				})
+				if (magicItemData.roll && magicItemData.roll !== '1d1') {
+					let ItemAmount = new Roll(magicItemData.roll).roll().total
+					if (testRolls && testRolls.length > 0) {
+						ItemAmount = testRolls.shift()
+					}
+					result.amount = ItemAmount
+				}
 				return result
 			case 'roll':
-				roll = rollMagicItem(
+				roll = rollItem(
 					magicItemData.table,
 					grade,
 					(prefix + ' ' + magicItemData.itemType).trim(),
@@ -5046,9 +5111,13 @@ function rollMagicItem(
 					result.itemOverride = extraOverride
 				}
 
+				if (magicItemData.itemOverride) {
+					mergeObject(result.itemOverride, magicItemData.itemOverride)
+				}
+
 				return cleanObj(result)
 			case 'ammunition':
-				rollMagicItem(
+				rollItem(
 					magicItemData.table,
 					grade,
 					prefix,
@@ -5056,7 +5125,7 @@ function rollMagicItem(
 					treasure,
 					options
 				)
-				return rollMagicItem(
+				return rollItem(
 					table,
 					grade,
 					prefix,
@@ -5087,7 +5156,7 @@ function rollMagicItem(
 				break
 			case 'roll+':
 				//item roll
-				roll = rollMagicItem(
+				roll = rollItem(
 					table,
 					grade,
 					prefix,
@@ -5097,7 +5166,7 @@ function rollMagicItem(
 				)
 				// console.log(roll)
 				//ability roll
-				let abilityRoll = rollMagicItem(
+				let abilityRoll = rollItem(
 					roll.table,
 					grade,
 					'',
@@ -5134,7 +5203,7 @@ function rollMagicItem(
 
 				return cleanObj(result)
 			case 'ability++':
-				roll = rollMagicItem(
+				roll = rollItem(
 					table,
 					grade,
 					prefix,
@@ -5159,7 +5228,7 @@ function rollMagicItem(
 					}
 				}
 
-				roll = rollMagicItem(
+				roll = rollItem(
 					table,
 					grade,
 					prefix,
@@ -5190,11 +5259,7 @@ function rollMagicItem(
 				}
 
 				if (magicItemData.table) {
-					let {
-						itemTypeExtra,
-						idOverride,
-						itemOverride,
-					} = rollMagicItem(
+					let { itemTypeExtra, idOverride, itemOverride } = rollItem(
 						magicItemData.table,
 						grade,
 						prefix,
@@ -5223,72 +5288,75 @@ function rollMagicItem(
 	}
 }
 
-function rollMundaneItem(table, prefix = '', testRolls) {
-	let mundaneItemRoll = new Roll('1d100').roll().total
-	//TODO disable in production, automated testing purpose only
-	if (testRolls && testRolls.length > 0) {
-		mundaneItemRoll = testRolls.shift()
-	}
-	let mundaneItemData = table.find(
-		(r) => r.Min <= mundaneItemRoll && r.Max >= mundaneItemRoll
-	)
-	// console.debug(
-	//   "mundaneItemRoll: " + mundaneItemRoll + " " + mundaneItemData.itemType
-	// );
-	let result = []
-	let roll = []
-	switch (mundaneItemData.type) {
-		case 'item':
-			let mundaneItemValue = mundaneItemData.value
-			let mundaneItemType = (
-				prefix +
-				' ' +
-				mundaneItemData.itemType
-			).trim()
-			let mundaneItemAmount = new Roll(mundaneItemData.roll).roll().total
-			return [mundaneItemValue, mundaneItemType, mundaneItemAmount]
-		case 'roll':
-			roll = rollMundaneItem(
-				mundaneItemData.table,
-				(prefix + ' ' + mundaneItemData.itemType).trim(),
-				testRolls
-			)
-			if (Array.isArray(roll[0])) {
-				result = result.concat(roll)
-			} else {
-				result.push(roll)
-			}
+// function rollMundaneItem(table, prefix = '', testRolls) {
+// 	let mundaneItemRoll = new Roll('1d100').roll().total
+// 	//TODO disable in production, automated testing purpose only
+// 	if (testRolls && testRolls.length > 0) {
+// 		mundaneItemRoll = testRolls.shift()
+// 	}
+// 	let mundaneItemData = table.find(
+// 		(r) => r.Min <= mundaneItemRoll && r.Max >= mundaneItemRoll
+// 	)
+// 	// console.debug(
+// 	//   "mundaneItemRoll: " + mundaneItemRoll + " " + mundaneItemData.itemType
+// 	// );
+// 	let result = []
+// 	let roll = []
+// 	switch (mundaneItemData.type) {
+// 		case 'item':
+// 			let mundaneItemValue = mundaneItemData.value
+// 			let mundaneItemType = (
+// 				prefix +
+// 				' ' +
+// 				mundaneItemData.itemType
+// 			).trim()
+// 			let mundaneItemAmount = new Roll(mundaneItemData.roll).roll().total
+// 			if (testRolls && testRolls.length > 0) {
+// 				mundaneItemAmount = testRolls.shift()
+// 			}
+// 			return [mundaneItemValue, mundaneItemType, mundaneItemAmount]
+// 		case 'roll':
+// 			roll = rollMundaneItem(
+// 				mundaneItemData.table,
+// 				(prefix + ' ' + mundaneItemData.itemType).trim(),
+// 				testRolls
+// 			)
+// 			if (Array.isArray(roll[0])) {
+// 				result = result.concat(roll)
+// 			} else {
+// 				result.push(roll)
+// 			}
 
-			return result
-		case 'ammunition':
-			return rollMundaneItem(
-				mundaneItemData.table,
-				(prefix + ' ' + mundaneItemData.itemType).trim(),
-				testRolls
-			)
-		case 'roll+':
-		case 'extraItem':
-			roll = rollMundaneItem(
-				mundaneItemData.table,
-				(prefix + ' ' + mundaneItemData.itemType).trim(),
-				testRolls
-			)
-			if (Array.isArray(roll[0])) {
-				result = result.concat(roll)
-			} else {
-				result.push(roll)
-			}
-			//reroll
-			roll = rollMundaneItem(table, prefix, testRolls)
-			if (Array.isArray(roll[0])) {
-				result = result.concat(roll)
-			} else {
-				result.push(roll)
-			}
-			return result
-			break
-	}
-}
+// 			return result
+// 		case 'ammunition':
+// 			return rollMundaneItem(
+// 				mundaneItemData.table,
+// 				(prefix + ' ' + mundaneItemData.itemType).trim(),
+// 				testRolls
+// 			)
+// 		case 'roll+':
+// 		case 'extraItem':
+// 			roll = rollMundaneItem(
+// 				mundaneItemData.table,
+// 				(prefix + ' ' + mundaneItemData.itemType).trim(),
+// 				testRolls
+// 			)
+// 			if (Array.isArray(roll[0])) {
+// 				result = result.concat(roll)
+// 			} else {
+// 				result.push(roll)
+// 			}
+// 			//reroll
+// 			roll = rollMundaneItem(table, prefix, testRolls)
+// 			if (Array.isArray(roll[0])) {
+// 				result = result.concat(roll)
+// 			} else {
+// 				result.push(roll)
+// 			}
+// 			return result
+// 			break
+// 	}
+// }
 
 function getItem(link) {
 	let entity = null
@@ -5422,26 +5490,71 @@ function treasureToPuSContainer(pikUpStiXModule, treasure) {
 	let promisesFinished = 0
 	for (let item of treasure.items) {
 		if (item.id) {
-			lastPromise = getItem(item.id)
-				.then((it) => {
-					it.data.data.quantity = item.amount
-					//TODO apply magic enhancemetns //ItemPF.getMagicItem(itemId, compendium,[{enhancementId:id, enchancementLevel:1 },{enhancementId:id2, enchancementLevel:1 }]
-					//TODO evaluate possible side effects of merging itemOverride data from specific items with usage of ItemPF.getMagicItem to apply an ability
-					// to be released in 0.87.11
-					if (item.itemOverride) {
-						mergeObject(it, item.itemOverride)
+			if (item.ability.length > 0 || item.enhancement > 0) {
+				let enhancements = []
+
+				if (item.ability.length > 0) {
+					for (let itemAbility of item.ability) {
+						enhancements.push({
+							id: itemAbility.id,
+							enhancement: itemAbility.enhancementLevel,
+						})
 					}
-					itemsObjects.push(it)
-					promisesFinished++
-				})
-				.catch((err) => {
-					console.error(
-						`error fetching item ${item.type} - ${item.id}`
-					)
-					console.error(err)
-					treasureErr.items.push(item)
-					promisesFinished++
-				})
+				}
+
+				if (item.enhancement > 0) {
+					if (item.id.includes('armors-and-shields')) {
+						enhancements.push({
+							id: 'iOhtLsgtgmt2l9CM',
+							enhancement: item.enhancement,
+						})
+					} else {
+						enhancements.push({
+							id: 'Ng5AlRupmkMOgqQi',
+							enhancement: item.enhancement,
+						})
+					}
+				}
+
+				lastPromise = ItemPF.getMagicItem(item.id, enhancements)
+					.then((it) => {
+						it.data.data.quantity = item.amount
+						if (item.itemOverride) {
+							mergeObject(it, item.itemOverride)
+						}
+
+						itemsObjects.push(it)
+						promisesFinished++
+					})
+					.catch((err) => {
+						console.error(
+							`error fetching magic item ${item.type} - ${item.id}`
+						)
+						console.error(err)
+						treasureErr.items.push(item)
+						promisesFinished++
+					})
+			} else {
+				lastPromise = getItem(item.id)
+					.then((it) => {
+						it.data.data.quantity = item.amount
+
+						if (item.itemOverride) {
+							mergeObject(it, item.itemOverride)
+						}
+
+						itemsObjects.push(it)
+						promisesFinished++
+					})
+					.catch((err) => {
+						console.error(
+							`error fetching item ${item.type} - ${item.id}`
+						)
+						console.error(err)
+						treasureErr.items.push(item)
+						promisesFinished++
+					})
+			}
 		} else {
 			console.error(`no item generated for ${item.type}`)
 			treasureErr.items.push(item)
@@ -5581,24 +5694,56 @@ function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
 					case 'nothing':
 						break
 					case 'mundane':
-						rollMundaneItem(
-							MundaneItemsTable,
-							'',
-							ItemRollFudge
-						).forEach(
-							([
-								mundaneItemValue,
-								mundaneItemType,
-								mundaneItemAmount,
-							]) =>
-								treasure.items.push({
-									value: mundaneItemValue,
-									type: mundaneItemType,
-									amount: mundaneItemAmount,
-									ability: [],
-									enhancement: 0,
-								})
-						)
+						// rollMundaneItem(
+						// 	MundaneItemsTable,
+						// 	'',
+						// 	ItemRollFudge
+						// ).forEach(
+						// 	([
+						// 		mundaneItemValue,
+						// 		mundaneItemType,
+						// 		mundaneItemAmount,
+						// 	]) =>
+						// 		treasure.items.push({
+						// 			value: mundaneItemValue,
+						// 			type: mundaneItemType,
+						// 			amount: mundaneItemAmount,
+						// 			ability: [],
+						// 			enhancement: 0,
+						// 		})
+						// )
+						try {
+							let {
+								value,
+								type,
+								id,
+								itemOverride,
+								amount,
+							} = rollItem(
+								MundaneItemsTable,
+								itemsResult.type,
+								'',
+								ItemRollFudge,
+								treasure,
+								{
+									identified: true,
+								}
+							)
+							treasure.items.push({
+								value: value,
+								type: type,
+								amount: amount || 1,
+								id: id,
+								ability: [],
+								enhancement: 0,
+								itemOverride: itemOverride,
+							})
+						} catch (err) {
+							err.message +=
+								' --- ' + JSON.stringify(window.rolls)
+							console.error(window.rolls)
+							throw err
+						}
 						break
 					case 'minor':
 					case 'medium':
@@ -5612,7 +5757,7 @@ function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
 								id,
 								itemOverride,
 								amount,
-							} = rollMagicItem(
+							} = rollItem(
 								MagicItemTable,
 								itemsResult.type,
 								'',

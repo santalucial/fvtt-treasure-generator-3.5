@@ -167,8 +167,28 @@ beforeAll(() => {
 	require('./treasure.js')
 })
 
-beforeEach(() => {
-	window.treasure = {}
+describe('Mundane items rolls', () => {
+	it('3 Smokesticks', async () => {
+		let treasure = window.rollTreasure([72, 1, 25, 3])
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 3,
+		  "enhancement": 0,
+		  "id": "D35E.items.76ZSd5C8wjqupu58",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": true,
+		        "price": 20,
+		      },
+		    },
+		  },
+		  "type": "Smokesticks",
+		  "value": 20,
+		}
+	`)
+	})
 })
 
 describe('Magic armor rolls', () => {
