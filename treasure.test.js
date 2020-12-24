@@ -176,7 +176,7 @@ describe('rings rolls', () => {
 		  "ability": Array [],
 		  "amount": 1,
 		  "enhancement": 0,
-		  "id": "H8427167HgyvVAUp",
+		  "id": "D35E.magicitems.H8427167HgyvVAUp",
 		  "itemOverride": Object {
 		    "data": Object {
 		      "data": Object {
