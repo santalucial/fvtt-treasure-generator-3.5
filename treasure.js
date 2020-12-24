@@ -259,6 +259,575 @@ const ArtsTable = [
 	},
 ]
 
+// https://regex101.com/r/WEdzYD/1
+//TODO missing rings
+const ringsTable = [
+	{
+		minorMin: 1,
+		minorMax: 18,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Protection +1',
+		type: 'item',
+		value: 2000,
+		id: 'H8427167HgyvVAUp',
+	},
+	{
+		minorMin: 19,
+		minorMax: 28,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Feather falling',
+		type: 'item',
+		value: 2200,
+		id: 'Fts6FAhppYJNQb6i',
+	},
+	{
+		minorMin: 29,
+		minorMax: 36,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Sustenance',
+		type: 'item',
+		value: 2500,
+		id: 'jVLTha07vf8Qg2Kb',
+	},
+	{
+		minorMin: 37,
+		minorMax: 44,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Climbing',
+		type: 'item',
+		value: 2500,
+		id: 'CASwBHLUohdgxRBG',
+	},
+	{
+		minorMin: 45,
+		minorMax: 52,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Jumping',
+		type: 'item',
+		value: 2500,
+		id: 'XGKXuPJiJ1NZgZKB',
+	},
+	{
+		minorMin: 53,
+		minorMax: 60,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Swimming',
+		type: 'item',
+		value: 2500,
+		id: 'cKeaRfl7derkzZzq',
+	},
+	{
+		minorMin: 61,
+		minorMax: 70,
+		mediumMin: 1,
+		mediumMax: 5,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Counterspells',
+		type: 'item',
+		value: 4000,
+		id: 'G009TJEU1aLluS3M',
+	},
+	{
+		minorMin: 71,
+		minorMax: 75,
+		mediumMin: 6,
+		mediumMax: 8,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Mind shielding',
+		type: 'item',
+		value: 8000,
+		id: 'tpGml5tmZgYU6YGG',
+	},
+	{
+		minorMin: 76,
+		minorMax: 80,
+		mediumMin: 9,
+		mediumMax: 18,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Protection +2',
+		type: 'item',
+		value: 8000,
+		id: 'r1edeTIqnSpnSRDe',
+	},
+	{
+		minorMin: 81,
+		minorMax: 85,
+		mediumMin: 19,
+		mediumMax: 23,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Force shield',
+		type: 'item',
+		value: 8500,
+		id: 'P0fQPFH42sRHw6eg',
+	},
+	{
+		minorMin: 86,
+		minorMax: 90,
+		mediumMin: 24,
+		mediumMax: 28,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Ram',
+		type: 'item',
+		value: 8600,
+		id: 'N38KW07JAEdxm3Lu',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 29,
+		mediumMax: 34,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Climbing, improved',
+		type: 'item',
+		value: 10000,
+		id: 'PQ5QaDbrGgJ1x7bQ',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 35,
+		mediumMax: 40,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Jumping, improved',
+		type: 'item',
+		value: 10000,
+		id: '3oGRCXEk8Fc1fL9X',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 41,
+		mediumMax: 46,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Swimming, improved',
+		type: 'item',
+		value: 10000,
+		id: '8sOX9zxQcve6GlCp',
+	},
+	{
+		minorMin: 91,
+		minorMax: 93,
+		mediumMin: 47,
+		mediumMax: 51,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Animal friendship',
+		type: 'item',
+		value: 10800,
+		id: 'psxfrgXyGqGRErGa',
+	},
+	{
+		minorMin: 94,
+		minorMax: 96,
+		mediumMin: 52,
+		mediumMax: 56,
+		majorMin: 1,
+		majorMax: 2,
+		itemType: 'Ring of Energy resistance, minor',
+		type: 'item',
+		value: 12000,
+		id: '2DMp33liZWgAr0d0',
+	},
+	{
+		minorMin: 97,
+		minorMax: 98,
+		mediumMin: 57,
+		mediumMax: 61,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Chameleon power',
+		type: 'item',
+		value: 12700,
+		id: '3jlEkkuG0uf6cvay',
+	},
+	{
+		minorMin: 99,
+		minorMax: 100,
+		mediumMin: 62,
+		mediumMax: 66,
+		majorMin: 0,
+		majorMax: 0,
+		itemType: 'Ring of Water walking',
+		type: 'item',
+		value: 15000,
+		id: 'owLkjWwkF3Lq19SA',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 67,
+		mediumMax: 71,
+		majorMin: 3,
+		majorMax: 7,
+		itemType: 'Ring of Protection +3',
+		type: 'item',
+		value: 18000,
+		id: 'BBxAGHt3q8aDGgBV',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 72,
+		mediumMax: 76,
+		majorMin: 8,
+		majorMax: 10,
+		itemType: 'Ring of Spell storing, minor',
+		type: 'item',
+		value: 18000,
+		id: 'pKgJt1hh9WKU6IcT',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 77,
+		mediumMax: 81,
+		majorMin: 11,
+		majorMax: 15,
+		itemType: 'Ring of Invisibility',
+		type: 'item',
+		value: 20000,
+		id: 'QfPZvY7mzKtU4nm8',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 82,
+		mediumMax: 85,
+		majorMin: 16,
+		majorMax: 19,
+		itemType: 'Ring of Wizardry (I)',
+		type: 'item',
+		value: 20000,
+		id: 'XM0O2DyzdMAW1kD6',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 86,
+		mediumMax: 89,
+		majorMin: 20,
+		majorMax: 25,
+		itemType: 'Ring of Evasion',
+		type: 'item',
+		value: 25000,
+		id: 'RuvNnOToJm5XFWz4',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 90,
+		mediumMax: 92,
+		majorMin: 26,
+		majorMax: 28,
+		itemType: 'Ring of X-ray vision',
+		type: 'item',
+		value: 25000,
+		id: 'Exuy3d0roEyh45dU',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 93,
+		mediumMax: 95,
+		majorMin: 29,
+		majorMax: 32,
+		itemType: 'Ring of Blinking',
+		type: 'item',
+		value: 27000,
+		id: 'X7qav40tnoACWzqV',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 96,
+		mediumMax: 98,
+		majorMin: 33,
+		majorMax: 36,
+		itemType: 'Ring of Meld into Stone',
+		type: 'item',
+		value: 27000,
+		id: 'D35E.magicitems.notFound',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 99,
+		mediumMax: 100,
+		majorMin: 37,
+		majorMax: 43,
+		itemType: 'Ring of Energy resistance, major',
+		type: 'item',
+		value: 28000,
+		id: 'c2yVZ46M751Vxujq',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 44,
+		majorMax: 50,
+		itemType: 'Ring of Protection +4',
+		type: 'item',
+		value: 32000,
+		id: '24Crt6ShpblXXuOK',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 51,
+		majorMax: 55,
+		itemType: 'Ring of Wizardry (II)',
+		type: 'item',
+		value: 40000,
+		id: 'PfSlttA4yLHqCC84',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 56,
+		majorMax: 60,
+		itemType: 'Ring of Freedom of movement',
+		type: 'item',
+		value: 40000,
+		id: 'cJvxodU7uFYfTjqn',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 61,
+		majorMax: 63,
+		itemType: 'Ring of Energy resistance, greater',
+		type: 'item',
+		value: 44000,
+		id: 'bIDo9CTKVtGveO5y',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 64,
+		majorMax: 65,
+		itemType: 'Ring of Friend shield (pair)',
+		type: 'item',
+		amount: 2,
+		value: 50000,
+		id: 'D35E.magicitems.BDISxydLfubBFTdE',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 66,
+		majorMax: 70,
+		itemType: 'Ring of Protection +5',
+		type: 'item',
+		value: 50000,
+		id: 'KpH5Ox673moCh6nE',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 71,
+		majorMax: 74,
+		itemType: 'Ring of Shooting stars',
+		type: 'item',
+		value: 50000,
+		id: '8SfDiiLJwII2a6HA',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 75,
+		majorMax: 79,
+		itemType: 'Ring of Spell storing',
+		type: 'item',
+		value: 50000,
+		id: 'K97yVzGAN5pjUNiT',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 80,
+		majorMax: 83,
+		itemType: 'Ring of Wizardry (III)',
+		type: 'item',
+		value: 70000,
+		id: '9tOMAMZKz97eD5I8',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 84,
+		majorMax: 86,
+		itemType: 'Ring of Telekinesis',
+		type: 'item',
+		value: 75000,
+		id: 'KA8VxVo9rttsZjqv',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 87,
+		majorMax: 88,
+		itemType: 'Ring of Regeneration',
+		type: 'item',
+		value: 90000,
+		id: 'lP6rBKqD56o0xAC0',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 89,
+		majorMax: 89,
+		itemType: 'Ring of Three wishes',
+		type: 'item',
+		value: 97950,
+		id: 'tlpGsriPPDPXa9Qy',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 90,
+		majorMax: 92,
+		itemType: 'Ring of Spell turning',
+		type: 'item',
+		value: 98280,
+		id: 'uVdeQ1fSyRiCGJMT',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 93,
+		majorMax: 94,
+		itemType: 'Ring of Wizardry (IV)',
+		type: 'item',
+		value: 100000,
+		id: 'Zi52qi2Fm9zEVzXk',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 95,
+		majorMax: 95,
+		itemType: 'Ring of Djinni calling',
+		type: 'item',
+		value: 125000,
+		id: 'zDxdBgM1BFSny9ub',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 96,
+		majorMax: 96,
+		itemType: 'Ring of Elemental command (air)',
+		type: 'item',
+		value: 200000,
+		id: 'D35E.magicitems.notFound',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 97,
+		majorMax: 97,
+		itemType: 'Ring of Elemental command (earth)',
+		type: 'item',
+		value: 200000,
+		id: 'D35E.magicitems.notFound',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 98,
+		majorMax: 98,
+		itemType: 'Ring of Elemental command (fire)',
+		type: 'item',
+		value: 200000,
+		id: 'D35E.magicitems.notFound',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 99,
+		majorMax: 99,
+		itemType: 'Ring of Elemental command (water)',
+		type: 'item',
+		value: 200000,
+		id: 'D35E.magicitems.nTkwSIKwa3ZCjCqZ',
+	},
+	{
+		minorMin: 0,
+		minorMax: 0,
+		mediumMin: 0,
+		mediumMax: 0,
+		majorMin: 100,
+		majorMax: 100,
+		itemType: 'Ring of Spell storing, major',
+		type: 'item',
+		value: 200000,
+		id: 'EJz49rhYtwzHyroh',
+	},
+]
 // https://regex101.com/r/73Z7av/1
 const potionsTable = [
 	{
@@ -6331,7 +6900,7 @@ const MagicItemTable = [
 		majorMax: 35,
 		itemType: 'Rings',
 		type: 'roll',
-		table: [],
+		table: ringsTable,
 		value: 0,
 	},
 	{
@@ -7070,13 +7639,28 @@ const rollTradeGoods = (table) => {
 	}
 }
 
-function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
+function makeTreasureFromCR(
+	TreasureLevels,
+	{
+		identified = false,
+		tradeGoodsToGold = false,
+		moneyMultiplier = 1,
+		goodsMultiplier = 1,
+		itemsMultiplier = 1,
+	},
+	ItemRollFudge
+) {
+	//#region Options Validation
+	moneyMultiplier = Math.floor(Math.max(moneyMultiplier, 1))
+	goodsMultiplier = Math.floor(Math.max(goodsMultiplier, 1))
+	itemsMultiplier = Math.floor(Math.max(itemsMultiplier, 1))
+	//#endregion
 	let treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
 	TreasureLevels.forEach((TreasureLevel) => {
 		let treasureRow = TreasureTable[TreasureLevel]
 
 		//#region Roll for money
-		times(options.moneyMultiplier).forEach(() => {
+		times(moneyMultiplier).forEach(() => {
 			let moneyRoll = new Roll('1d100').roll().total
 			let moneyResult = treasureRow.money.find(
 				(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
@@ -7091,7 +7675,7 @@ function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
 		//#endregion
 
 		//#region Roll for goods
-		times(options.goodsMultiplier).forEach(() => {
+		times(goodsMultiplier).forEach(() => {
 			let goodsRoll = new Roll('1d100').roll().total
 			let goodsResult = treasureRow.goods.find(
 				(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
@@ -7111,7 +7695,7 @@ function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
 						break
 				}
 				if (goodsResult.type !== 'nothing') {
-					if (options.tradeGoodsToGold) {
+					if (tradeGoodsToGold) {
 						treasure.gp += goods.value
 					} else {
 						treasure[goodsResult.type].push(goods)
@@ -7130,7 +7714,7 @@ function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
 		//#endregion
 
 		//#region Roll for items
-		times(options.itemsMultiplier).forEach(() => {
+		times(itemsMultiplier).forEach(() => {
 			let itemsRoll = new Roll('1d100').roll().total
 			if (ItemRollFudge.length > 0) {
 				itemsRoll = ItemRollFudge.shift()
@@ -7216,7 +7800,7 @@ function makeTreasureFromCR(TreasureLevels, options, ItemRollFudge) {
 								ItemRollFudge,
 								treasure,
 								{
-									identified: options.identified,
+									identified: identified,
 									// TODO are potions rings etc ok to be masterwork as well?
 									masterwork: true,
 								}
@@ -7263,22 +7847,7 @@ function genTreasureFromSelectedNpcsCr(
 	}
 ) {
 	// var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
-	//#region Options Validation
-	options.moneyMultiplier =
-		(options.moneyMultiplier &&
-			Math.floor(Math.max(options.moneyMultiplier, 1))) ||
-		1
-	options.goodsMultiplier =
-		(options.goodsMultiplier &&
-			Math.floor(Math.max(options.goodsMultiplier, 1))) ||
-		1
-	options.itemsMultiplier =
-		(options.itemsMultiplier &&
-			Math.floor(Math.max(options.itemsMultiplier, 1))) ||
-		1
-	options.identified = options.identified || false
-	options.tradeGoodsToGold = options.tradeGoodsToGold || false
-	//#endregion
+
 	window.rolls = []
 	if (getSelectedNpcs().length !== 0) {
 		let TreasureLevels = []

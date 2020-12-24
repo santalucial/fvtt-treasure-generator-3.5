@@ -167,6 +167,32 @@ beforeAll(() => {
 	require('./treasure.js')
 })
 
+describe('rings rolls', () => {
+	it('ring', async () => {
+		let treasure = window.rollTreasure([98, 45, 10])
+
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "enhancement": 0,
+		  "id": "H8427167HgyvVAUp",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 2000,
+		      },
+		    },
+		  },
+		  "type": "Ring of Protection +1",
+		  "value": 2000,
+		}
+	`)
+	})
+})
+
 describe('potion rolls', () => {
 	it('potion of Protection from good', async () => {
 		let treasure = window.rollTreasure([98, 10, 31, 2])
