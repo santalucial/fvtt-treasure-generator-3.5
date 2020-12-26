@@ -188,12 +188,13 @@ describe('scrolls rolls', () => {
 		      "data": Object {
 		        "data": Object {
 		          "identified": false,
+		          "identifiedName": "Scroll of antiplant shell",
 		          "masterwork": true,
 		          "price": 700,
 		        },
 		      },
 		    },
-		    "type": "c.l. 7 antiplant shell",
+		    "type": "Scroll of antiplant shell",
 		    "value": 700,
 		  },
 		]
@@ -223,12 +224,13 @@ describe('scrolls rolls', () => {
 		      "data": Object {
 		        "data": Object {
 		          "identified": false,
+		          "identifiedName": "Scroll of air walk",
 		          "masterwork": true,
 		          "price": 700,
 		        },
 		      },
 		    },
-		    "type": "c.l. 7 air walk",
+		    "type": "Scroll of air walk",
 		    "value": 700,
 		    "valueBonus": 0,
 		  },
@@ -243,15 +245,43 @@ describe('scrolls rolls', () => {
 		      "data": Object {
 		        "data": Object {
 		          "identified": false,
+		          "identifiedName": "Scroll of antiplant shell",
 		          "masterwork": true,
 		          "price": 700,
 		        },
 		      },
 		    },
-		    "type": "c.l. 7 antiplant shell",
+		    "type": "Scroll of antiplant shell",
 		    "value": 700,
 		  },
 		]
+	`)
+	})
+})
+
+describe('wondowrous items rolls', () => {
+	it('Ioun stone, pink rhomboid', async () => {
+		let treasure = window.rollTreasure([9], {}, [99, 92, 10])
+
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "enhancement": 0,
+		  "id": "D35E.magicitems.58uYduNxiqLMl2SR",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "identifiedName": "Ioun stone, pink rhomboid",
+		        "masterwork": true,
+		        "price": 8000,
+		      },
+		    },
+		  },
+		  "type": "Ioun stone, pink rhomboid",
+		  "value": 8000,
+		}
 	`)
 	})
 })
@@ -272,6 +302,7 @@ describe('wands rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Wand of Bull’s strength",
 		        "masterwork": true,
 		        "price": 4500,
 		      },
@@ -298,6 +329,7 @@ describe('rods rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Rod of Metamagic, Extend, lesser",
 		        "masterwork": true,
 		        "price": 3000,
 		      },
@@ -324,6 +356,7 @@ describe('staffs rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Staff of Charming",
 		        "masterwork": true,
 		        "price": 16500,
 		      },
@@ -350,6 +383,7 @@ describe('rings rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Ring of Protection +1",
 		        "masterwork": true,
 		        "price": 2000,
 		      },
@@ -376,12 +410,13 @@ describe('potion rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Potion of Protection from good",
 		        "masterwork": true,
 		        "price": 50,
 		      },
 		    },
 		  },
-		  "type": "Protection from good",
+		  "type": "Potion of Protection from good",
 		  "value": 50,
 		}
 	`)
@@ -401,6 +436,7 @@ describe('Mundane items rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": true,
+		        "identifiedName": "Smokesticks",
 		        "price": 20,
 		      },
 		    },
@@ -454,6 +490,7 @@ describe('Magic armor rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Scale mail",
 		        "masterwork": true,
 		        "price": 12950,
 		      },
@@ -478,6 +515,7 @@ describe('Magic armor rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Studded leather",
 		        "masterwork": true,
 		        "price": 1175,
 		      },
@@ -528,6 +566,7 @@ describe('Magic armor rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Shield, light, wooden",
 		        "masterwork": true,
 		        "price": 9153,
 		      },
@@ -588,6 +627,7 @@ describe('Magic armor rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Shield, light, wooden",
 		        "masterwork": true,
 		        "price": 16153,
 		      },
@@ -637,6 +677,7 @@ describe('Magic armor rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Dragonhide plate",
 		        "masterwork": true,
 		        "price": 9750,
 		      },
@@ -678,6 +719,7 @@ describe('Magic armor rolls', () => {
 		    "data": Object {
 		      "data": Object {
 		        "identified": false,
+		        "identifiedName": "Mithral shirt",
 		        "masterwork": true,
 		        "price": 3800,
 		      },
@@ -767,6 +809,7 @@ describe('Magic weapon rolls', () => {
 		      "data": Object {
 		        "data": Object {
 		          "identified": false,
+		          "identifiedName": "Crossbow, light",
 		          "masterwork": true,
 		          "price": 8335,
 		        },
