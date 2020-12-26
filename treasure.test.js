@@ -256,9 +256,37 @@ describe('scrolls rolls', () => {
 	})
 })
 
+describe('wands rolls', () => {
+	it('Wand of Bull’s strength', async () => {
+		let treasure = window.rollTreasure([9], {}, [99, 69, 10])
+
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "casterLevel": 0,
+		  "consumableType": "wand",
+		  "enhancement": 0,
+		  "id": "D35E.spells.JCW98LiIRWEoHHex",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 4500,
+		      },
+		    },
+		  },
+		  "type": "Wand of Bull’s strength",
+		  "value": 4500,
+		}
+	`)
+	})
+})
+
 describe('rods rolls', () => {
 	it('rod of Metamagic, Extend, lesser', async () => {
-		let treasure = window.rollTreasure([19], {}, [26, 41, 10])
+		let treasure = window.rollTreasure([9], {}, [99, 41, 10])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -277,6 +305,32 @@ describe('rods rolls', () => {
 		  },
 		  "type": "Rod of Metamagic, Extend, lesser",
 		  "value": 3000,
+		}
+	`)
+	})
+})
+
+describe('staffs rolls', () => {
+	it('Staff of Charming', async () => {
+		let treasure = window.rollTreasure([9], {}, [99, 66, 10])
+
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "enhancement": 0,
+		  "id": "D35E.magicitems.qb4onLydtyD2i2Qk",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 16500,
+		      },
+		    },
+		  },
+		  "type": "Staff of Charming",
+		  "value": 16500,
 		}
 	`)
 	})
