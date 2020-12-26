@@ -167,9 +167,124 @@ beforeAll(() => {
 	require('./treasure.js')
 })
 
+beforeEach(() => {
+	window.rolls = []
+})
+
+describe('scrolls rolls', () => {
+	it('scroll of antiplant shell', async () => {
+		let treasure = window.rollTreasure([9], {}, [99, 51, 71, 1, 66, 6])
+
+		expect(treasure.items).toMatchInlineSnapshot(`
+		Array [
+		  Object {
+		    "ability": Array [],
+		    "amount": 1,
+		    "casterLevel": 7,
+		    "consumableType": "scroll",
+		    "enhancement": 0,
+		    "id": "D35E.spells.IgINJsUbkdJL066w",
+		    "itemOverride": Object {
+		      "data": Object {
+		        "data": Object {
+		          "identified": false,
+		          "masterwork": true,
+		          "price": 700,
+		        },
+		      },
+		    },
+		    "type": "c.l. 7 antiplant shell",
+		    "value": 700,
+		  },
+		]
+	`)
+	})
+	it('scroll of antiplant shell and air walk', async () => {
+		let treasure = window.rollTreasure([9], {}, [
+			99,
+			51,
+			71,
+			2,
+			66,
+			6,
+			66,
+			1,
+		])
+
+		expect(treasure.items).toMatchInlineSnapshot(`
+		Array [
+		  Object {
+		    "ability": Array [],
+		    "casterLevel": 7,
+		    "consumableType": "scroll",
+		    "enhancement": 0,
+		    "id": "D35E.spells.nreHcYonQMUKiQLB",
+		    "itemOverride": Object {
+		      "data": Object {
+		        "data": Object {
+		          "identified": false,
+		          "masterwork": true,
+		          "price": 700,
+		        },
+		      },
+		    },
+		    "type": "c.l. 7 air walk",
+		    "value": 700,
+		    "valueBonus": 0,
+		  },
+		  Object {
+		    "ability": Array [],
+		    "amount": 1,
+		    "casterLevel": 7,
+		    "consumableType": "scroll",
+		    "enhancement": 0,
+		    "id": "D35E.spells.IgINJsUbkdJL066w",
+		    "itemOverride": Object {
+		      "data": Object {
+		        "data": Object {
+		          "identified": false,
+		          "masterwork": true,
+		          "price": 700,
+		        },
+		      },
+		    },
+		    "type": "c.l. 7 antiplant shell",
+		    "value": 700,
+		  },
+		]
+	`)
+	})
+})
+
+describe('rods rolls', () => {
+	it('rod of Metamagic, Extend, lesser', async () => {
+		let treasure = window.rollTreasure([19], {}, [26, 41, 10])
+
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "enhancement": 0,
+		  "id": "D35E.magicitems.PR40O5awfBo8y8Pu",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "masterwork": true,
+		        "price": 3000,
+		      },
+		    },
+		  },
+		  "type": "Rod of Metamagic, Extend, lesser",
+		  "value": 3000,
+		}
+	`)
+	})
+})
+
 describe('rings rolls', () => {
-	it('ring', async () => {
-		let treasure = window.rollTreasure([98, 45, 10])
+	it('Ring of Protection +1', async () => {
+		let treasure = window.rollTreasure([1], {}, [98, 45, 10])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -195,7 +310,7 @@ describe('rings rolls', () => {
 
 describe('potion rolls', () => {
 	it('potion of Protection from good', async () => {
-		let treasure = window.rollTreasure([98, 10, 31, 2])
+		let treasure = window.rollTreasure([1], {}, [98, 10, 31, 2])
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [],
@@ -221,7 +336,7 @@ describe('potion rolls', () => {
 
 describe('Mundane items rolls', () => {
 	it('3 Smokesticks', async () => {
-		let treasure = window.rollTreasure([72, 1, 25, 3])
+		let treasure = window.rollTreasure([1], {}, [72, 1, 25, 3])
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [],
@@ -245,7 +360,7 @@ describe('Mundane items rolls', () => {
 
 describe('Magic armor rolls', () => {
 	it('test roll', async () => {
-		let treasure = window.rollTreasure([
+		let treasure = window.rollTreasure([1], {}, [
 			98,
 			2,
 			95,
@@ -297,7 +412,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test roll 2', async () => {
-		let treasure = window.rollTreasure([98, 2, 62, 12])
+		let treasure = window.rollTreasure([1], {}, [98, 2, 62, 12])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -321,7 +436,16 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability', async () => {
-		let treasure = window.rollTreasure([98, 2, 92, 60, 15, 100, 5, 30])
+		let treasure = window.rollTreasure([1], {}, [
+			98,
+			2,
+			92,
+			60,
+			15,
+			100,
+			5,
+			30,
+		])
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -362,7 +486,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability 2', async () => {
-		let treasure = window.rollTreasure([
+		let treasure = window.rollTreasure([1], {}, [
 			98,
 			2,
 			92,
@@ -422,7 +546,16 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability 3', async () => {
-		let treasure = window.rollTreasure([98, 2, 96, 100, 89, 59, 25, 70])
+		let treasure = window.rollTreasure([1], {}, [
+			98,
+			2,
+			96,
+			100,
+			89,
+			59,
+			25,
+			70,
+		])
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [
@@ -462,7 +595,16 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability 4', async () => {
-		let treasure = window.rollTreasure([98, 2, 96, 100, 89, 49, 1, 1])
+		let treasure = window.rollTreasure([1], {}, [
+			98,
+			2,
+			96,
+			100,
+			89,
+			49,
+			1,
+			1,
+		])
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [
@@ -496,19 +638,19 @@ describe('Magic armor rolls', () => {
 	it('full roll magic armor table', async () => {
 		//Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_2) => {
-			window.rollTreasure([98, 2, t7_2])
+			window.rollTreasure([1], {}, [98, 2, t7_2])
 		})
 	})
 
 	it('full roll magic armor abilty table', async () => {
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_5) => {
-			window.rollTreasure([98, 2, 100, 61, t7_5])
+			window.rollTreasure([1], {}, [98, 2, 100, 61, t7_5])
 		})
 	})
 
 	it('full roll magic shield abilty table', async () => {
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_6) => {
-			window.rollTreasure([98, 2, 100, 1, t7_6])
+			window.rollTreasure([1], {}, [98, 2, 100, 1, t7_6])
 		})
 	})
 
@@ -523,7 +665,18 @@ describe('Magic armor rolls', () => {
 
 describe('Magic weapon rolls', () => {
 	it('test magic weapon with bane (fey)', async () => {
-		let treasure = window.rollTreasure([98, 5, 100, 1, 99, 1, 2, 26, 1, 28])
+		let treasure = window.rollTreasure([1], {}, [
+			98,
+			5,
+			100,
+			1,
+			99,
+			1,
+			2,
+			26,
+			1,
+			28,
+		])
 		expect(treasure.items).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -575,7 +728,7 @@ describe('Magic weapon rolls', () => {
 	it('full roll magic weapon table', async () => {
 		//Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-			window.rollTreasure([98, 5, t7_9])
+			window.rollTreasure([1], {}, [98, 5, t7_9])
 		})
 	})
 
