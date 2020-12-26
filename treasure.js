@@ -551,6 +551,7 @@ const TreasureTable = [
 	},
 ]
 
+//TODO missing items, adatp to rollItem desired structure
 const GemsTable = [
 	{
 		Min: 1,
@@ -20028,14 +20029,24 @@ function rollItem(
 							identified: options.identified,
 							price: result.value,
 							masterwork: options.masterwork,
-							identifiedName: result.type,
 						},
 					},
 				}
+
 				if (result.itemOverride) {
 					mergeObject(result.itemOverride, extraOverride)
 				} else {
 					result.itemOverride = extraOverride
+				}
+
+				if (options.overrideNames) {
+					mergeObject(result.itemOverride, {
+						data: {
+							data: {
+								identifiedName: result.type,
+							},
+						},
+					})
 				}
 
 				if (magicItemData.itemOverride) {
@@ -20470,8 +20481,8 @@ function treasureToPuSContainer(pikUpStiXModule, treasure) {
 		items: [],
 	}
 	let itemsObjects = []
-	let lastPromise = null
-	let promisesFinished = 0
+	let lastPromise = new Promise((resolve) => resolve())
+	var promisesFinished = 0
 	for (let item of treasure.items) {
 		if (item.id) {
 			if (item.consumableType) {
@@ -20575,7 +20586,7 @@ function treasureToPuSContainer(pikUpStiXModule, treasure) {
 	}
 
 	async function loopPromises(lp) {
-		if (promisesFinished < treasure.items.length) {
+		if (promisesFinished >= treasure.items.length) {
 			lp.then(() => {
 				// console.log(itemsObjects);
 				pikUpStiXModule.apis.makeContainer(
@@ -20591,7 +20602,7 @@ function treasureToPuSContainer(pikUpStiXModule, treasure) {
 			})
 		} else {
 			await sleep(200)
-			return lp
+			return loopPromises(lp)
 		}
 	}
 	loopPromises(lastPromise)
@@ -20600,9 +20611,20 @@ function treasureToPuSContainer(pikUpStiXModule, treasure) {
 	}
 }
 
-function getActorCr(actor) {
+function getActorCrAndMultiplier(actor) {
 	let cr = actor.data.data.details.cr
-	return Math.min(Math.max(Math.floor(cr), 1), 30) - 1
+	//#region Options Validation
+	// moneyMultiplier = Math.floor(Math.max(moneyMultiplier, 1))
+	// goodsMultiplier = Math.floor(Math.max(goodsMultiplier, 1))
+	// itemsMultiplier = Math.floor(Math.max(itemsMultiplier, 1))
+	//#endregion
+	//TODO fetch actual multiplier data
+	return {
+		cr: Math.min(Math.max(Math.floor(cr), 1), 30) - 1,
+		moneyMultiplier: 1,
+		goodsMultiplier: 1,
+		itemsMultiplier: 1,
+	}
 }
 
 const getSelectedNpcs = () =>
@@ -20627,26 +20649,15 @@ const rollTradeGoods = (table) => {
 
 function makeTreasureFromCR(
 	TreasureLevels,
-	{
-		identified = false,
-		tradeGoodsToGold = false,
-		moneyMultiplier = 1,
-		goodsMultiplier = 1,
-		itemsMultiplier = 1,
-	},
+	{ identified = false, tradeGoodsToGold = false, overrideNames = true },
 	ItemRollFudge
 ) {
-	//#region Options Validation
-	moneyMultiplier = Math.floor(Math.max(moneyMultiplier, 1))
-	goodsMultiplier = Math.floor(Math.max(goodsMultiplier, 1))
-	itemsMultiplier = Math.floor(Math.max(itemsMultiplier, 1))
-	//#endregion
 	let treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
 	TreasureLevels.forEach((TreasureLevel) => {
-		let treasureRow = TreasureTable[TreasureLevel]
+		let treasureRow = TreasureTable[TreasureLevel.cr]
 
 		//#region Roll for money
-		times(moneyMultiplier).forEach(() => {
+		times(TreasureLevel.moneyMultiplier).forEach(() => {
 			let moneyRoll = new Roll('1d100').roll().total
 			let moneyResult = treasureRow.money.find(
 				(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
@@ -20661,7 +20672,7 @@ function makeTreasureFromCR(
 		//#endregion
 
 		//#region Roll for goods
-		times(goodsMultiplier).forEach(() => {
+		times(TreasureLevel.goodsMultiplier).forEach(() => {
 			let goodsRoll = new Roll('1d100').roll().total
 			let goodsResult = treasureRow.goods.find(
 				(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
@@ -20700,7 +20711,7 @@ function makeTreasureFromCR(
 		//#endregion
 
 		//#region Roll for items
-		times(itemsMultiplier).forEach(() => {
+		times(TreasureLevel.itemsMultiplier).forEach(() => {
 			let itemsRoll = new Roll('1d100').roll().total
 			if (ItemRollFudge.length > 0) {
 				itemsRoll = ItemRollFudge.shift()
@@ -20715,24 +20726,6 @@ function makeTreasureFromCR(
 					case 'nothing':
 						break
 					case 'mundane':
-						// rollMundaneItem(
-						// 	MundaneItemsTable,
-						// 	'',
-						// 	ItemRollFudge
-						// ).forEach(
-						// 	([
-						// 		mundaneItemValue,
-						// 		mundaneItemType,
-						// 		mundaneItemAmount,
-						// 	]) =>
-						// 		treasure.items.push({
-						// 			value: mundaneItemValue,
-						// 			type: mundaneItemType,
-						// 			amount: mundaneItemAmount,
-						// 			ability: [],
-						// 			enhancement: 0,
-						// 		})
-						// )
 						try {
 							let {
 								value,
@@ -20748,6 +20741,7 @@ function makeTreasureFromCR(
 								treasure,
 								{
 									identified: true,
+									overrideNames: overrideNames,
 								}
 							)
 							treasure.items.push({
@@ -20790,6 +20784,7 @@ function makeTreasureFromCR(
 									identified: identified,
 									// TODO are potions rings etc ok to be masterwork as well?
 									masterwork: true,
+									overrideNames: overrideNames,
 								}
 							)
 							treasure.items.push(
@@ -20841,6 +20836,7 @@ function makeTreasureFromCR(
 							identified: identified,
 							// TODO are potions rings etc ok to be masterwork as well?
 							masterwork: true,
+							overrideNames: overrideNames,
 						}
 					)
 					treasure.items.push(
@@ -20876,9 +20872,7 @@ function genTreasureFromSelectedNpcsCr(
 	options = {
 		identified: false,
 		tradeGoodsToGold: false,
-		moneyMultiplier: 1,
-		goodsMultiplier: 1,
-		itemsMultiplier: 1,
+		overrideNames: true,
 	}
 ) {
 	// var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
@@ -20887,7 +20881,7 @@ function genTreasureFromSelectedNpcsCr(
 		let TreasureLevels = []
 		getSelectedNpcs().forEach((t) => {
 			let actor = game.actors.get(t.data.actorId)
-			let TreasureLevel = getActorCr(actor)
+			let TreasureLevel = getActorCrAndMultiplier(actor)
 			TreasureLevels.push(TreasureLevel)
 		})
 
