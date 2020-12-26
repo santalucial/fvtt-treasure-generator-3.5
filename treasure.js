@@ -20470,7 +20470,11 @@ function treasureToChat(treasure) {
 	ChatMessage.create({ content: TreasureString })
 }
 
-function treasureToPuSContainer(pikUpStiXModule, treasure) {
+function treasureToPuSContainer(
+	pikUpStiXModule,
+	treasure,
+	position = { gridX: 0, gridY: 0 }
+) {
 	var treasureErr = {
 		cp: 0,
 		sp: 0,
@@ -20597,7 +20601,7 @@ function treasureToPuSContainer(pikUpStiXModule, treasure) {
 						gp: treasure.gp,
 						pp: treasure.pp,
 					},
-					{ gridX: 0, gridY: 0 }
+					position
 				)
 			})
 		} else {
@@ -20896,7 +20900,13 @@ function genTreasureFromSelectedNpcsCr(
 		let pikUpStiXModule = game.modules.get('pick-up-stix')
 
 		if (pikUpStiXModule && pikUpStiXModule.active) {
-			treasureToPuSContainer(pikUpStiXModule, treasure)
+			let treasurePosition = {
+				gridX: getSelectedNpcs()[0].data.x,
+				gridY:
+					getSelectedNpcs()[0].data.y -
+					getSelectedNpcs()[0].scene.data.grid,
+			}
+			treasureToPuSContainer(pikUpStiXModule, treasure, treasurePosition)
 		} else {
 			treasureToChat(treasure)
 		}
@@ -20910,5 +20920,5 @@ function genTreasureFromSelectedNpcsCr(
 //dragonhideplate  "Shadow","Glamered"
 //genTreasureFromSelectedNpcsCr([98, 2, 96, 100, 89, 59, 25, 70])
 
-genTreasureFromSelectedNpcsCr([98, 2, 96, 100, 89, 49, 1, 1])
+genTreasureFromSelectedNpcsCr()
 window.rollTreasure = makeTreasureFromCR
