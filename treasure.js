@@ -41,7 +41,6 @@ function rollItem(
 	let magicItemRoll = new Roll('1d100').roll().total
 	if (testRolls && testRolls.length > 0) {
 		magicItemRoll = testRolls.shift()
-		// console.log("fudged dice roll = " + magicItemRoll)
 	}
 
 	let magicItemData = table.find(
@@ -124,7 +123,6 @@ function rollItem(
 					if (magicItemData.itemType === 'Weapons') {
 						valueBonus *= 2
 					}
-					// console.log(`adding bonus value ${valueBonus} for ${magicItemData.itemType}`);
 				}
 
 				Object.assign(result, {
@@ -276,7 +274,7 @@ function rollItem(
 					options,
 					rolls
 				)
-				// console.log(roll)
+
 				//ability roll
 				let abilityRoll = rollItem(
 					roll.table,
@@ -423,271 +421,6 @@ function getItem(link) {
 	return entity
 }
 
-function treasureToChat(treasure) {
-	var TreasureString = '<div class="D35E chat-card item-card">'
-	//#region gold section
-	if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
-		TreasureString += `<header class="card-header flexrow">
-<img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
-<h3 class="item-name">Money</h3>
-</header> <div><p>`
-		if (treasure.cp > 0) {
-			TreasureString +=
-				'<span class="fontstyle0">cp: ' + treasure.cp + '</span><br>'
-		}
-		if (treasure.sp > 0) {
-			TreasureString +=
-				'<span class="fontstyle0">sp: ' + treasure.sp + '</span><br>'
-		}
-		if (treasure.gp > 0) {
-			TreasureString +=
-				'<span class="fontstyle0">gp: ' + treasure.gp + '</span><br>'
-		}
-		if (treasure.pp > 0) {
-			TreasureString +=
-				'<span class="fontstyle0">pp: ' + treasure.pp + '<br>'
-		}
-
-		TreasureString +=
-			'</p></div><hr><span class="fontstyle0"> total value = ' +
-			Math.floor(
-				treasure.cp / 100 +
-					treasure.sp / 10 +
-					treasure.gp +
-					treasure.pp * 10
-			) +
-			' gp</span>'
-	}
-	//#endregion
-
-	//#region goods section
-	if (treasure.gems.length > 0) {
-		let totalValue = 0
-		TreasureString += `<header class="card-header flexrow">
-<img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
-<h3 class="item-name">Gems</h3>
-</header> <div><p>`
-		treasure.gems.forEach((gem) => {
-			totalValue += gem.value
-			TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`
-		})
-		TreasureString +=
-			'</p></div><hr><span class="fontstyle0">total value = ' +
-			totalValue +
-			' gp</span>'
-	}
-	if (treasure.arts.length > 0) {
-		let totalValue = 0
-		TreasureString += `<header class="card-header flexrow">
-<img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
-<h3 class="item-name">Arts</h3>
-</header> <div><p>`
-		treasure.arts.forEach((art) => {
-			totalValue += art.value
-			TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`
-		})
-		TreasureString +=
-			'</p></div><hr><span class="fontstyle0">total value = ' +
-			totalValue +
-			' gp</span>'
-	}
-	//#endregion
-
-	//#region items section
-	if (treasure.items.length > 0) {
-		TreasureString += `<header class="card-header flexrow">
-<img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
-<h3 class="item-name">Items</h3>
-</header> <div class="card-content"><p>`
-
-		treasure.items.forEach((item) => {
-			TreasureString += `<span class="fontstyle0">${
-				(item.amount > 1 && item.amount + 'x ') || ''
-			}${item.type} ${
-				(item.enhancement > 0 && '+' + item.enhancement) || ''
-			} `
-			if (item.ability.length > 0) {
-				TreasureString += `[${item.ability
-					.map((it) => it.itemType)
-					.join(', ')}]`
-			}
-			TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`
-		})
-		TreasureString += '</p></div>'
-	}
-	//#endregion
-	TreasureString += '</div>'
-	//  console.log(TreasureString);
-	ChatMessage.create({ content: TreasureString })
-}
-
-function treasureToPuSContainer(
-	pikUpStiXModule,
-	treasure,
-	position = { gridX: 0, gridY: 0 }
-) {
-	var treasureErr = {
-		cp: 0,
-		sp: 0,
-		gp: 0,
-		pp: 0,
-		gems: [],
-		arts: [],
-		items: [],
-	}
-	let itemsObjects = []
-	let lastPromise = new Promise((resolve) => resolve())
-	var promisesFinished = 0
-	for (let item of treasure.items) {
-		if (item.id) {
-			if (item.consumableType) {
-				lastPromise = getItem(item.id)
-					.then((it) => {
-						it.data.data.quantity = item.amount
-
-						let consumableItem = ItemPf.toConsumable(
-							it,
-							item.consumableType
-						)
-						if (item.itemOverride) {
-							mergeObject(consumableItem, item.itemOverride)
-						}
-
-						itemsObjects.push(consumableItem)
-						promisesFinished++
-					})
-					.catch((err) => {
-						console.error(
-							`error fetching item ${item.type} - ${item.id}`
-						)
-						console.error(err)
-						treasureErr.items.push(item)
-						promisesFinished++
-					})
-			} else if (item.ability.length > 0 || item.enhancement > 0) {
-				let enhancements = []
-
-				if (item.ability.length > 0) {
-					for (let itemAbility of item.ability) {
-						enhancements.push({
-							id: itemAbility.id,
-							enhancement: itemAbility.enhancementLevel,
-						})
-					}
-				}
-
-				if (item.enhancement > 0) {
-					if (item.id.includes('armors-and-shields')) {
-						enhancements.push({
-							id: 'iOhtLsgtgmt2l9CM',
-							enhancement: item.enhancement,
-						})
-					} else {
-						enhancements.push({
-							id: 'Ng5AlRupmkMOgqQi',
-							enhancement: item.enhancement,
-						})
-					}
-				}
-
-				lastPromise = ItemPF.getMagicItem(item.id, enhancements)
-					.then((it) => {
-						it.data.data.quantity = item.amount
-						if (item.itemOverride) {
-							mergeObject(it, item.itemOverride)
-						}
-
-						itemsObjects.push(it)
-						promisesFinished++
-					})
-					.catch((err) => {
-						console.error(
-							`error fetching magic item ${item.type} - ${item.id}`
-						)
-						console.error(err)
-						treasureErr.items.push(item)
-						promisesFinished++
-					})
-			} else {
-				lastPromise = getItem(item.id)
-					.then((it) => {
-						it.data.data.quantity = item.amount
-
-						if (item.itemOverride) {
-							mergeObject(it, item.itemOverride)
-						}
-
-						itemsObjects.push(it)
-						promisesFinished++
-					})
-					.catch((err) => {
-						console.error(
-							`error fetching item ${item.type} - ${item.id}`
-						)
-						console.error(err)
-						treasureErr.items.push(item)
-						promisesFinished++
-					})
-			}
-		} else {
-			console.error(`no item generated for ${item.type}`)
-			treasureErr.items.push(item)
-			promisesFinished++
-		}
-	}
-
-	function sleep(ms) {
-		return new Promise((resolve) => setTimeout(resolve, ms))
-	}
-
-	async function loopPromises(lp) {
-		if (promisesFinished >= treasure.items.length) {
-			lp.then(() => {
-				// console.log(itemsObjects);
-				pikUpStiXModule.apis.makeContainer(
-					itemsObjects,
-					{
-						cp: treasure.cp,
-						sp: treasure.sp,
-						gp: treasure.gp,
-						pp: treasure.pp,
-					},
-					position
-				)
-			})
-		} else {
-			await sleep(200)
-			return loopPromises(lp)
-		}
-	}
-	loopPromises(lastPromise)
-	if (treasureErr.items.length > 0) {
-		treasureToChat(treasureErr)
-	}
-}
-
-function getActorCrAndMultiplier(actor) {
-	let cr = actor.data.data.details.cr
-	//#region Options Validation
-	// moneyMultiplier = Math.floor(Math.max(moneyMultiplier, 1))
-	// goodsMultiplier = Math.floor(Math.max(goodsMultiplier, 1))
-	// itemsMultiplier = Math.floor(Math.max(itemsMultiplier, 1))
-	//#endregion
-	//TODO fetch actual multiplier data
-	return {
-		cr: Math.min(Math.max(Math.floor(cr), 1), 30) - 1,
-		moneyMultiplier: 1,
-		goodsMultiplier: 1,
-		itemsMultiplier: 1,
-	}
-}
-
-function getSelectedNpcs() {
-	return canvas.tokens.controlled.filter(
-		(t) => game.actors.get(t.data.actorId).data.type === 'npc'
-	)
-}
-
 function rollMoney(rollFormula) {
 	return new Roll(rollFormula).roll().total
 }
@@ -722,10 +455,265 @@ export default class TreasureGenerator {
 		return this._treasure
 	}
 
+	ToChat(treasure = this._treasure) {
+		var TreasureString = '<div class="D35E chat-card item-card">'
+		//#region gold section
+		if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
+			TreasureString += `<header class="card-header flexrow">
+	<img src="systems/D35E/icons/items/inventory/Loot_129.png" title="Money" width="36" height="36">
+	<h3 class="item-name">Money</h3>
+	</header> <div><p>`
+			if (treasure.cp > 0) {
+				TreasureString +=
+					'<span class="fontstyle0">cp: ' +
+					treasure.cp +
+					'</span><br>'
+			}
+			if (treasure.sp > 0) {
+				TreasureString +=
+					'<span class="fontstyle0">sp: ' +
+					treasure.sp +
+					'</span><br>'
+			}
+			if (treasure.gp > 0) {
+				TreasureString +=
+					'<span class="fontstyle0">gp: ' +
+					treasure.gp +
+					'</span><br>'
+			}
+			if (treasure.pp > 0) {
+				TreasureString +=
+					'<span class="fontstyle0">pp: ' + treasure.pp + '<br>'
+			}
+
+			TreasureString +=
+				'</p></div><hr><span class="fontstyle0"> total value = ' +
+				Math.floor(
+					treasure.cp / 100 +
+						treasure.sp / 10 +
+						treasure.gp +
+						treasure.pp * 10
+				) +
+				' gp</span>'
+		}
+		//#endregion
+
+		//#region goods section
+		if (treasure.gems.length > 0) {
+			let totalValue = 0
+			TreasureString += `<header class="card-header flexrow">
+	<img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
+	<h3 class="item-name">Gems</h3>
+	</header> <div><p>`
+			treasure.gems.forEach((gem) => {
+				totalValue += gem.value
+				TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`
+			})
+			TreasureString +=
+				'</p></div><hr><span class="fontstyle0">total value = ' +
+				totalValue +
+				' gp</span>'
+		}
+		if (treasure.arts.length > 0) {
+			let totalValue = 0
+			TreasureString += `<header class="card-header flexrow">
+	<img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
+	<h3 class="item-name">Arts</h3>
+	</header> <div><p>`
+			treasure.arts.forEach((art) => {
+				totalValue += art.value
+				TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`
+			})
+			TreasureString +=
+				'</p></div><hr><span class="fontstyle0">total value = ' +
+				totalValue +
+				' gp</span>'
+		}
+		//#endregion
+
+		//#region items section
+		if (treasure.items.length > 0) {
+			TreasureString += `<header class="card-header flexrow">
+	<img src="systems/D35E/icons/items/inventory/Loot_102.png" title="Items" width="36" height="36">
+	<h3 class="item-name">Items</h3>
+	</header> <div class="card-content"><p>`
+
+			treasure.items.forEach((item) => {
+				TreasureString += `<span class="fontstyle0">${
+					(item.amount > 1 && item.amount + 'x ') || ''
+				}${item.type} ${
+					(item.enhancement > 0 && '+' + item.enhancement) || ''
+				} `
+				if (item.ability.length > 0) {
+					TreasureString += `[${item.ability
+						.map((it) => it.itemType)
+						.join(', ')}]`
+				}
+				TreasureString += ` (${item.value} gp) </span><br style="font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px"><br>`
+			})
+			TreasureString += '</p></div>'
+		}
+		//#endregion
+		TreasureString += '</div>'
+		ChatMessage.create({ content: TreasureString })
+	}
+
+	treasureToPuSContainer(position = { gridX: 0, gridY: 0 }) {
+		let pikUpStiXModule = game.modules.get('pick-up-stix')
+		var treasureErr = {
+			cp: 0,
+			sp: 0,
+			gp: 0,
+			pp: 0,
+			gems: [],
+			arts: [],
+			items: [],
+		}
+		let itemsObjects = []
+		let lastPromise = new Promise((resolve) => resolve())
+		var promisesFinished = 0
+		for (let item of this._treasure.items) {
+			if (item.id) {
+				if (item.consumableType) {
+					lastPromise = getItem(item.id)
+						.then((it) => {
+							it.data.data.quantity = item.amount
+
+							let consumableItem = ItemPf.toConsumable(
+								it,
+								item.consumableType
+							)
+							if (item.itemOverride) {
+								mergeObject(consumableItem, item.itemOverride)
+							}
+
+							itemsObjects.push(consumableItem)
+							promisesFinished++
+						})
+						.catch((err) => {
+							console.error(
+								`error fetching item ${item.type} - ${item.id}`
+							)
+							console.error(err)
+							treasureErr.items.push(item)
+							promisesFinished++
+						})
+				} else if (item.ability.length > 0 || item.enhancement > 0) {
+					let enhancements = []
+
+					if (item.ability.length > 0) {
+						for (let itemAbility of item.ability) {
+							enhancements.push({
+								id: itemAbility.id,
+								enhancement: itemAbility.enhancementLevel,
+							})
+						}
+					}
+
+					if (item.enhancement > 0) {
+						if (item.id.includes('armors-and-shields')) {
+							enhancements.push({
+								id: 'iOhtLsgtgmt2l9CM',
+								enhancement: item.enhancement,
+							})
+						} else {
+							enhancements.push({
+								id: 'Ng5AlRupmkMOgqQi',
+								enhancement: item.enhancement,
+							})
+						}
+					}
+
+					lastPromise = ItemPF.getMagicItem(item.id, enhancements)
+						.then((it) => {
+							it.data.data.quantity = item.amount
+							if (item.itemOverride) {
+								mergeObject(it, item.itemOverride)
+							}
+
+							itemsObjects.push(it)
+							promisesFinished++
+						})
+						.catch((err) => {
+							console.error(
+								`error fetching magic item ${item.type} - ${item.id}`
+							)
+							console.error(err)
+							treasureErr.items.push(item)
+							promisesFinished++
+						})
+				} else {
+					lastPromise = getItem(item.id)
+						.then((it) => {
+							it.data.data.quantity = item.amount
+
+							if (item.itemOverride) {
+								mergeObject(it, item.itemOverride)
+							}
+
+							itemsObjects.push(it)
+							promisesFinished++
+						})
+						.catch((err) => {
+							console.error(
+								`error fetching item ${item.type} - ${item.id}`
+							)
+							console.error(err)
+							treasureErr.items.push(item)
+							promisesFinished++
+						})
+				}
+			} else {
+				console.error(`no item generated for ${item.type}`)
+				treasureErr.items.push(item)
+				promisesFinished++
+			}
+		}
+
+		function sleep(ms) {
+			return new Promise((resolve) => setTimeout(resolve, ms))
+		}
+
+		async function loopPromises(lp) {
+			if (promisesFinished >= this._treasure.items.length) {
+				lp.then(() => {
+					pikUpStiXModule.apis.makeContainer(
+						itemsObjects,
+						{
+							cp: this._treasure.cp,
+							sp: this._treasure.sp,
+							gp: this._treasure.gp,
+							pp: this._treasure.pp,
+						},
+						position
+					)
+				})
+			} else {
+				await sleep(200)
+				return loopPromises(lp)
+			}
+		}
+		loopPromises(lastPromise)
+		if (treasureErr.items.length > 0) {
+			this.treasureToChat(treasureErr)
+		}
+	}
+
+	/**
+	 *
+	 * @param {Array} TreasureLevels Represents the monsters against which to run the generation algorithm e.g. [{
+		cr = 1,
+		moneyMultiplier= 1,
+		goodsMultiplier= 1,
+		itemsMultiplier= 1,
+	}]
+	 * @param {Object} Options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true }
+	 * @param {Array} ItemRollFudge Overrides rolls maintaining array order, used for automated testing e.g. [1,5,5]
+	 */
 	makeTreasureFromCR(
 		TreasureLevels,
 		{ identified = false, tradeGoodsToGold = false, overrideNames = true },
-		ItemRollFudge
+		ItemRollFudge = []
 	) {
 		TreasureLevels.forEach((TreasureLevel) => {
 			let treasureRow = TreasureTable[TreasureLevel.cr]
@@ -736,8 +724,6 @@ export default class TreasureGenerator {
 				let moneyResult = treasureRow.money.find(
 					(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
 				)
-
-				// console.debug("moneyRoll: " + moneyRoll + " - " + moneyResult.roll);
 
 				if (moneyResult.type !== 'nothing') {
 					this.treasure[moneyResult.type] += rollMoney(
@@ -774,14 +760,6 @@ export default class TreasureGenerator {
 							this.treasure[goodsResult.type].push(goods)
 						}
 					}
-					// console.debug(
-					//   "goodsRoll: " +
-					//     goodsRoll +
-					//     " - " +
-					//     goodsResult.roll +
-					//     " - " +
-					//     artType
-					// );
 				})
 			})
 			//#endregion
@@ -940,52 +918,78 @@ export default class TreasureGenerator {
 			}
 			//#endregion
 		})
+		log(treasure)
 		return this
 	}
+}
 
-	genTreasureFromSelectedNpcsCr(
-		ItemRollFudge = [],
-		options = {
-			identified: false,
-			tradeGoodsToGold: false,
-			overrideNames: true,
-		}
-	) {
-		// var treasure = { cp: 0, sp: 0, gp: 0, pp: 0, gems: [], arts: [], items: [] }
-		if (getSelectedNpcs().length !== 0) {
-			let TreasureLevels = []
-			getSelectedNpcs().forEach((t) => {
-				let actor = game.actors.get(t.data.actorId)
-				let TreasureLevel = getActorCrAndMultiplier(actor)
-				TreasureLevels.push(TreasureLevel)
-			})
+//#region example
 
-			let treasure = this.makeTreasureFromCR(
-				TreasureLevels,
-				options,
-				ItemRollFudge
-			)
-
-			log(treasure)
-
-			let pikUpStiXModule = game.modules.get('pick-up-stix')
-
-			if (pikUpStiXModule && pikUpStiXModule.active) {
-				let treasurePosition = {
-					gridX: getSelectedNpcs()[0].data.x,
-					gridY:
-						getSelectedNpcs()[0].data.y -
-						getSelectedNpcs()[0].scene.data.grid,
-				}
-				treasureToPuSContainer(
-					pikUpStiXModule,
-					treasure,
-					treasurePosition
-				)
-			} else {
-				treasureToChat(treasure)
-			}
-			return treasure
-		}
+function getActorCrAndMultiplier(actor) {
+	let cr = actor.data.data.details.cr
+	//#region Options Validation
+	// moneyMultiplier = Math.floor(Math.max(moneyMultiplier, 1))
+	// goodsMultiplier = Math.floor(Math.max(goodsMultiplier, 1))
+	// itemsMultiplier = Math.floor(Math.max(itemsMultiplier, 1))
+	//#endregion
+	//TODO fetch actual multiplier data
+	return {
+		cr: Math.min(Math.max(Math.floor(cr), 1), 30) - 1,
+		moneyMultiplier: 1,
+		goodsMultiplier: 1,
+		itemsMultiplier: 1,
 	}
 }
+
+function getSelectedNpcs() {
+	return canvas.tokens.controlled.filter(
+		(t) => game.actors.get(t.data.actorId).data.type === 'npc'
+	)
+}
+
+/**
+ * Treasure Generator Usage Example
+ * @param {Array} ItemRollFudge Overrides rolls maintaining array order, used for automated testing e.g. [1,5,5]
+ * @param {Object} options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true }
+ */
+// eslint-disable-next-line no-unused-vars
+function genTreasureFromSelectedNpcsCr(
+	ItemRollFudge = [],
+	options = {
+		identified: false,
+		tradeGoodsToGold: false,
+		overrideNames: true,
+	}
+) {
+	if (getSelectedNpcs().length !== 0) {
+		let TreasureLevels = []
+		getSelectedNpcs().forEach((t) => {
+			let actor = game.actors.get(t.data.actorId)
+			let TreasureLevel = getActorCrAndMultiplier(actor)
+			TreasureLevels.push(TreasureLevel)
+		})
+
+		let treasure = this.makeTreasureFromCR(
+			TreasureLevels,
+			options,
+			ItemRollFudge
+		)
+
+		let pikUpStiXModule = game.modules.get('pick-up-stix')
+
+		if (pikUpStiXModule && pikUpStiXModule.active) {
+			let treasurePosition = {
+				gridX: getSelectedNpcs()[0].data.x,
+				gridY:
+					getSelectedNpcs()[0].data.y -
+					getSelectedNpcs()[0].scene.data.grid,
+			}
+			this.treasureToPuSContainer(treasurePosition)
+		} else {
+			this.treasureToChat(treasure)
+		}
+		return treasure
+	}
+}
+
+//#endregion

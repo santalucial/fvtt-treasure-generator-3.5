@@ -1,4 +1,5 @@
 import TreasureGenerator from './treasure'
+import * as Tables from './treasureTables'
 
 beforeAll(() => {
 	window.getType = (token) => {
@@ -270,6 +271,23 @@ describe('scrolls rolls', () => {
 })
 
 describe('wondowrous items rolls', () => {
+	it('full wondowrous items table', async () => {
+		Array.from(Tables.wondrousItemsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 9,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[99, 92, t1.mediumMin]
+			)
+		})
+	})
+
 	it('Ioun stone, pink rhomboid', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
@@ -308,6 +326,23 @@ describe('wondowrous items rolls', () => {
 })
 
 describe('wands rolls', () => {
+	it('full wands table', async () => {
+		Array.from(Tables.wandsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 9,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[99, 69, t1.mediumMin]
+			)
+		})
+	})
+
 	it('Wand of Bull’s strength', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
@@ -348,6 +383,22 @@ describe('wands rolls', () => {
 })
 
 describe('rods rolls', () => {
+	it('full rods table', async () => {
+		Array.from(Tables.rodsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 9,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[99, 41, t1.mediumMin]
+			)
+		})
+	})
 	it('rod of Metamagic, Extend, lesser', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
@@ -386,6 +437,23 @@ describe('rods rolls', () => {
 })
 
 describe('staffs rolls', () => {
+	it('full staffs table', async () => {
+		Array.from(Tables.staffsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 9,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[99, 66, t1.mediumMin]
+			)
+		})
+	})
+
 	it('Staff of Charming', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
@@ -424,6 +492,23 @@ describe('staffs rolls', () => {
 })
 
 describe('rings rolls', () => {
+	it('full rings table', async () => {
+		Array.from(Tables.ringsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 1,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[98, 45, t1.minorMin]
+			)
+		})
+	})
+
 	it('Ring of Protection +1', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
@@ -497,6 +582,23 @@ describe('potion rolls', () => {
 		}
 	`)
 	})
+
+	it('full potions table', async () => {
+		Array.from(Tables.potionsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 1,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[98, 10, t1.minorMin]
+			)
+		})
+	})
 })
 
 describe('Mundane items rolls', () => {
@@ -532,6 +634,23 @@ describe('Mundane items rolls', () => {
 		  "value": 20,
 		}
 	`)
+	})
+
+	it('full mundane items table', async () => {
+		Array.from(Tables.MundaneItemsTable).forEach((t1) => {
+			new TreasureGenerator().makeTreasureFromCR(
+				[
+					{
+						cr: 1,
+						moneyMultiplier: 1,
+						goodsMultiplier: 1,
+						itemsMultiplier: 1,
+					},
+				],
+				{},
+				[72, t1.Min]
+			)
+		})
 	})
 })
 
@@ -886,14 +1005,6 @@ describe('Magic armor rolls', () => {
 			)
 		})
 	})
-
-	// it("full roll magic weapon table", async () => {
-	//   //Array.from({length: 10}, (_, i) => i + 1).forEach(t7_2 =>{})
-	//   Array.from({ length: 10 }, (_, i) => i + 1).forEach((t7_2) => {
-	//     window.ItemRollFudge = [98, 2, t7_2];
-	//     new TreasureGenerator().makeTreasureFromCR();
-	//   });
-	// });
 })
 
 describe('Magic weapon rolls', () => {
@@ -959,26 +1070,26 @@ describe('Magic weapon rolls', () => {
 	`)
 	})
 
-	// it('full roll magic weapon table', async () => {
-	// 	Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-	// 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_10) => {
-	// 			Array.from({ length: 100 }, (_, i) => i + 1).forEach(
-	// 				(t7_11_12_13) => {
-	// 					new TreasureGenerator().makeTreasureFromCR(
-	// 						[
-	// 							{
-	// 								cr: 1,
-	// 								moneyMultiplier: 1,
-	// 								goodsMultiplier: 1,
-	// 								itemsMultiplier: 1,
-	// 							},
-	// 						],
-	// 						{},
-	// 						[98, 5, t7_9, t7_10, t7_11_12_13]
-	// 					)
-	// 				}
-	// 			)
-	// 		})
-	// 	})
-	// })
+	it('full roll magic weapon table', async () => {
+		Array.from(Tables.weaponsTable).forEach((t7_9) => {
+			Array.from(Tables.weaponsTypeTable).forEach((t7_10) => {
+				Array.from({ length: 100 }, (_, i) => i + 1).forEach(
+					(t7_11_12_13) => {
+						new TreasureGenerator().makeTreasureFromCR(
+							[
+								{
+									cr: 1,
+									moneyMultiplier: 1,
+									goodsMultiplier: 1,
+									itemsMultiplier: 1,
+								},
+							],
+							{},
+							[98, 5, t7_9.minorMin, t7_10.Min, t7_11_12_13]
+						)
+					}
+				)
+			})
+		})
+	})
 })
