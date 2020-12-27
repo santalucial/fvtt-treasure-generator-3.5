@@ -168,10 +168,6 @@ beforeAll(() => {
 	window.Roll = Roll
 })
 
-beforeEach(() => {
-	window.rolls = []
-})
-
 describe('scrolls rolls', () => {
 	it('scroll of antiplant shell', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
