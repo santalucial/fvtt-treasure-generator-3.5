@@ -13758,7 +13758,6 @@ export const ringsTable = [
 ]
 
 // https://regex101.com/r/73Z7av/1
-//TODO potions might need caster level data in the future
 export const potionsTable = [
 	{
 		minorMin: 1,
@@ -13976,6 +13975,7 @@ export const potionsTable = [
 		value: 50,
 		id: 'D35E.spells.D0kThI8dXgdemgMX',
 		consumableType: 'potion',
+		casterLevel: 1,
 	},
 	{
 		minorMin: 39,
@@ -14054,6 +14054,7 @@ export const potionsTable = [
 		value: 300,
 		id: 'D35E.spells.h2rP6QYk5SZeqYg5',
 		consumableType: 'potion',
+		casterLevel: 3,
 	},
 	{
 		minorMin: 51,
@@ -14286,6 +14287,7 @@ export const potionsTable = [
 		itemType: 'Potion of Resist energy',
 		type: 'roll',
 		consumableType: 'potion',
+		casterLevel: 3,
 		table: [
 			{
 				Min: 1,
@@ -14346,6 +14348,7 @@ export const potionsTable = [
 		value: 300,
 		id: 'D35E.spells.D0kThI8dXgdemgMX',
 		consumableType: 'potion',
+		casterLevel: 6,
 	},
 	{
 		minorMin: 98,
@@ -14385,6 +14388,7 @@ export const potionsTable = [
 		value: 600,
 		id: 'D35E.spells.h2rP6QYk5SZeqYg5',
 		consumableType: 'potion',
+		casterLevel: 6,
 	},
 	{
 		minorMin: 0,
@@ -14398,6 +14402,7 @@ export const potionsTable = [
 		value: 600,
 		id: 'D35E.spells.D0kThI8dXgdemgMX',
 		consumableType: 'potion',
+		casterLevel: 12,
 	},
 	{
 		minorMin: 0,
@@ -14409,6 +14414,7 @@ export const potionsTable = [
 		itemType: 'Potion of Resist energy',
 		type: 'roll',
 		consumableType: 'potion',
+		casterLevel: 7,
 		table: [
 			{
 				Min: 1,
@@ -14547,6 +14553,7 @@ export const potionsTable = [
 		value: 750,
 		id: 'D35E.spells.h6gW9VgxNItQEvwj',
 		consumableType: 'potion',
+		casterLevel: 4,
 	},
 	{
 		minorMin: 0,
@@ -14560,6 +14567,7 @@ export const potionsTable = [
 		value: 750,
 		id: 'D35E.spells.NAGahbSLUOX6gY5F',
 		consumableType: 'potion',
+		casterLevel: 4,
 	},
 	{
 		minorMin: 0,
@@ -14661,6 +14669,7 @@ export const potionsTable = [
 		value: 750,
 		id: 'D35E.spells.7OmyaAC9Sxttewng',
 		consumableType: 'potion',
+		casterLevel: 4,
 	},
 	{
 		minorMin: 0,
@@ -14850,6 +14859,7 @@ export const potionsTable = [
 		value: 900,
 		id: 'D35E.spells.h2rP6QYk5SZeqYg5',
 		consumableType: 'potion',
+		casterLevel: 9,
 	},
 	{
 		minorMin: 0,
@@ -14863,6 +14873,7 @@ export const potionsTable = [
 		value: 900,
 		id: 'D35E.spells.D0kThI8dXgdemgMX',
 		consumableType: 'potion',
+		casterLevel: 18,
 	},
 	{
 		minorMin: 0,
@@ -14887,6 +14898,7 @@ export const potionsTable = [
 		itemType: 'Potion of Resist energy',
 		type: 'roll',
 		consumableType: 'potion',
+		casterLevel: 11,
 		table: [
 			{
 				Min: 1,
@@ -14947,6 +14959,7 @@ export const potionsTable = [
 		value: 1200,
 		id: 'D35E.spells.h2rP6QYk5SZeqYg5',
 		consumableType: 'potion',
+		casterLevel: 12,
 	},
 	{
 		minorMin: 0,
@@ -14960,6 +14973,7 @@ export const potionsTable = [
 		value: 1200,
 		id: 'D35E.spells.h6gW9VgxNItQEvwj',
 		consumableType: 'potion',
+		casterLevel: 8,
 	},
 	{
 		minorMin: 0,
@@ -14973,6 +14987,7 @@ export const potionsTable = [
 		value: 1200,
 		id: 'D35E.spells.NAGahbSLUOX6gY5F',
 		consumableType: 'potion',
+		casterLevel: 8,
 	},
 	{
 		minorMin: 0,
@@ -14986,6 +15001,7 @@ export const potionsTable = [
 		value: 1200,
 		id: 'D35E.spells.7OmyaAC9Sxttewng',
 		consumableType: 'potion',
+		casterLevel: 8,
 	},
 	{
 		minorMin: 0,
@@ -15012,6 +15028,7 @@ export const potionsTable = [
 		value: 1800,
 		id: 'D35E.spells.h6gW9VgxNItQEvwj',
 		consumableType: 'potion',
+		casterLevel: 12,
 	},
 	{
 		minorMin: 0,
@@ -15025,6 +15042,7 @@ export const potionsTable = [
 		value: 1800,
 		id: 'D35E.spells.NAGahbSLUOX6gY5F',
 		consumableType: 'potion',
+		casterLevel: 12,
 	},
 	{
 		minorMin: 0,
@@ -15038,6 +15056,7 @@ export const potionsTable = [
 		value: 1800,
 		id: 'D35E.spells.7OmyaAC9Sxttewng',
 		consumableType: 'potion',
+		casterLevel: 12,
 	},
 	{
 		minorMin: 0,
@@ -15051,6 +15070,7 @@ export const potionsTable = [
 		value: 2400,
 		id: 'D35E.spells.h6gW9VgxNItQEvwj',
 		consumableType: 'potion',
+		casterLevel: 16,
 	},
 	{
 		minorMin: 0,
@@ -15064,6 +15084,7 @@ export const potionsTable = [
 		value: 2400,
 		id: 'D35E.spells.NAGahbSLUOX6gY5F',
 		consumableType: 'potion',
+		casterLevel: 16,
 	},
 	{
 		minorMin: 0,
@@ -15077,6 +15098,7 @@ export const potionsTable = [
 		value: 2400,
 		id: 'D35E.spells.7OmyaAC9Sxttewng',
 		consumableType: 'potion',
+		casterLevel: 16,
 	},
 	{
 		minorMin: 0,
@@ -15090,6 +15112,7 @@ export const potionsTable = [
 		value: 3000,
 		id: 'D35E.spells.h6gW9VgxNItQEvwj',
 		consumableType: 'potion',
+		casterLevel: 20,
 	},
 	{
 		minorMin: 0,
@@ -15103,6 +15126,7 @@ export const potionsTable = [
 		value: 3000,
 		id: 'D35E.spells.NAGahbSLUOX6gY5F',
 		consumableType: 'potion',
+		casterLevel: 20,
 	},
 	{
 		minorMin: 0,
@@ -15116,6 +15140,7 @@ export const potionsTable = [
 		value: 3000,
 		id: 'D35E.spells.7OmyaAC9Sxttewng',
 		consumableType: 'potion',
+		casterLevel: 20,
 	},
 ]
 
@@ -15434,7 +15459,6 @@ export const baneAbilityTable = [
 	},
 ]
 
-//TODO handle abilities only for weapon damage type
 // https://regex101.com/r/yIjBpB/2
 export const meleeWeaponsAbilityTable = [
 	{
@@ -15533,6 +15557,7 @@ export const meleeWeaponsAbilityTable = [
 		enhancementLevel: 0,
 		id: 'D35E.enhancements.PPGTD9TygqYq1gPA',
 		enhancement: 1,
+		damageTypeWhitelist: ['P', 'S'],
 	},
 	{
 		minorMin: 68,
@@ -15672,9 +15697,9 @@ export const meleeWeaponsAbilityTable = [
 		type: 'ability',
 		value: 0,
 		enhancementLevel: 0,
-		//TODO apply item damage type restriction
 		id: 'D35E.enhancements.f773ZQN84bkNKxXa',
 		enhancement: 2,
+		damageTypeWhitelist: ['B'],
 	},
 	{
 		minorMin: 0,
@@ -15815,6 +15840,7 @@ export const meleeWeaponsAbilityTable = [
 		enhancementLevel: 0,
 		id: 'D35E.enhancements.wBOvLs4RGaWBWydH',
 		enhancement: 5,
+		damageTypeWhitelist: ['P', 'S'],
 	},
 	{
 		minorMin: 100,
@@ -16105,6 +16131,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 302,
 		id: 'D35E.weapons-and-ammo.fOSuWwRSZLTrROch',
+		damageType: ['P', 'S'],
 	},
 	{
 		Min: 5,
@@ -16115,6 +16142,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 320,
 		id: 'D35E.weapons-and-ammo.Wx22UaMqWgCrYi7r',
+		damageType: ['S'],
 	},
 	{
 		Min: 15,
@@ -16125,6 +16153,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 350,
 		id: 'D35E.weapons-and-ammo.oyUApQSVsAqzyjdz',
+		damageType: ['S'],
 	},
 	{
 		Min: 25,
@@ -16135,6 +16164,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 302,
 		id: 'D35E.weapons-and-ammo.ik99jFlELGHbSryg',
+		damageType: ['S'],
 	},
 	{
 		Min: 29,
@@ -16145,6 +16175,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 315,
 		id: 'D35E.weapons-and-ammo.zWRlna42PMJVX6un',
+		damageType: ['S'],
 	},
 	{
 		Min: 42,
@@ -16155,6 +16186,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 305,
 		id: 'D35E.weapons-and-ammo.Yeli1JRCgnmVyhWT',
+		damageType: ['B'],
 	},
 	{
 		Min: 46,
@@ -16165,6 +16197,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 312,
 		id: 'D35E.weapons-and-ammo.AbmnL8ilLH6r95Oa',
+		damageType: ['B'],
 	},
 	{
 		Min: 51,
@@ -16175,6 +16208,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 302,
 		id: 'D35E.weapons-and-ammo.Kn9rGMb1KReqJhc1',
+		damageType: ['B'],
 	},
 	{
 		Min: 55,
@@ -16185,6 +16219,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 600,
 		id: 'D35E.weapons-and-ammo.6eAg4BT0RM8tfyUN',
+		damageType: ['B'],
 	},
 	{
 		Min: 58,
@@ -16195,6 +16230,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 320,
 		id: 'D35E.weapons-and-ammo.LA6TC5679iOXDNwq',
+		damageType: ['P'],
 	},
 	{
 		Min: 62,
@@ -16205,6 +16241,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 315,
 		id: 'D35E.weapons-and-ammo.SjYkpvZqfgvh0EAd',
+		damageType: ['S'],
 	},
 	{
 		Min: 67,
@@ -16215,6 +16252,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 302,
 		id: 'D35E.weapons-and-ammo.N37FFAdWjVV6EolR',
+		damageType: ['P'],
 	},
 	{
 		Min: 71,
@@ -16225,6 +16263,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 303,
 		id: 'D35E.weapons-and-ammo.L4KYkvLrUYAQJcdl',
+		damageType: ['P'],
 	},
 	{
 		Min: 75,
@@ -16235,6 +16274,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 335,
 		id: 'D35E.weapons-and-ammo.KtgSPHGqIRTwhwZM',
+		damageType: ['S'],
 	},
 	{
 		Min: 85,
@@ -16245,6 +16285,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 310,
 		id: 'D35E.weapons-and-ammo.7tGcTtI2fEj1AFaT',
+		damageType: ['P'],
 	},
 	{
 		Min: 90,
@@ -16255,6 +16296,7 @@ export const CommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 330,
 		id: 'D35E.weapons-and-ammo.NVmHsonsX3jF4ZUi',
+		damageType: ['S'],
 	},
 ]
 
@@ -16268,6 +16310,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 660,
 		id: 'D35E.weapons-and-ammo.PmiF2bF8uhzghtuz',
+		damageType: ['S'],
 	},
 	{
 		Min: 4,
@@ -16278,6 +16321,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 310,
 		id: 'D35E.weapons-and-ammo.JIljkqPWhmvAPYbI',
+		damageType: ['S'],
 	},
 	{
 		Min: 8,
@@ -16288,6 +16332,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 325,
 		id: 'D35E.weapons-and-ammo.u6Hv3AYMgkAtR7Jm',
+		damageType: ['P'],
 	},
 	{
 		Min: 11,
@@ -16298,6 +16343,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 300,
 		id: 'D35E.weapons-and-ammo.vu3N4zCRDTUJ5FW4',
+		damageType: ['B'],
 	},
 	{
 		Min: 13,
@@ -16308,6 +16354,7 @@ export const UncommonMeleeWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 400,
 		id: 'D35E.weapons-and-ammo.BgTqaNqyS3tnLGAg',
+		damageType: ['P'],
 	},
 	{
 		Min: 17,
@@ -16318,6 +16365,7 @@ export const UncommonMeleeWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 550,
 		id: 'D35E.weapons-and-ammo.bnM8psLOFegcdWg1',
+		damageType: ['P'],
 	},
 	{
 		Min: 19,
@@ -16328,6 +16376,7 @@ export const UncommonMeleeWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 550,
 		id: 'D35E.weapons-and-ammo.iXpBlVYJXAeIxUhW',
+		damageType: ['P'],
 	},
 	{
 		Min: 20,
@@ -16338,6 +16387,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 302,
 		id: 'D35E.weapons-and-ammo.05NnBuNnkMsaNoXf',
+		damageType: ['P'],
 	},
 	{
 		Min: 22,
@@ -16348,6 +16398,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 375,
 		id: 'D35E.weapons-and-ammo.v8Ee5Iagp62xsUQZ',
+		damageType: ['S'],
 	},
 	{
 		Min: 24,
@@ -16358,6 +16409,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 690,
 		id: 'D35E.weapons-and-ammo.RY3sfrMSDs0OGLAH',
+		damageType: ['B'],
 	},
 	{
 		Min: 27,
@@ -16368,6 +16420,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 315,
 		id: 'D35E.weapons-and-ammo.IfotwHH89d60H3pR',
+		damageType: ['B'],
 	},
 	{
 		Min: 32,
@@ -16378,6 +16431,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 308,
 		id: 'D35E.weapons-and-ammo.BcY8IkVwo2hXC6ND',
+		damageType: ['B'],
 	},
 	{
 		Min: 36,
@@ -16388,6 +16442,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 302,
 		id: 'D35E.weapons-and-ammo.IdkQOHJcRMq1Rm1r',
+		damageType: ['B'],
 	},
 	{
 		Min: 38,
@@ -16398,6 +16453,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 305,
 		id: 'D35E.weapons-and-ammo.RSvRoQyG8GpS8vhH',
+		damageType: ['P'],
 	},
 	{
 		Min: 40,
@@ -16408,6 +16464,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 308,
 		id: 'D35E.weapons-and-ammo.wKIv4yCj8L3ADceU',
+		damageType: ['S'],
 	},
 	{
 		Min: 42,
@@ -16418,6 +16475,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 305,
 		id: 'D35E.weapons-and-ammo.TePZuaCtN2A4CzGD',
+		damageType: ['B'],
 	},
 	{
 		Min: 44,
@@ -16428,6 +16486,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 309,
 		id: 'D35E.weapons-and-ammo.hBgclgYrnhecN3pX',
+		damageType: ['S'],
 	},
 	{
 		Min: 46,
@@ -16438,6 +16497,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 310,
 		id: 'D35E.weapons-and-ammo.zLdHrDEnRQGbZJrv',
+		damageType: ['S', 'P'],
 	},
 	{
 		Min: 49,
@@ -16448,6 +16508,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 301,
 		id: 'D35E.weapons-and-ammo.s0LFk8Jk5CsgOj7V',
+		damageType: ['P'],
 	},
 	{
 		Min: 52,
@@ -16458,6 +16519,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 620,
 		id: 'D35E.weapons-and-ammo.VM6EF0t88wdSMQDd',
+		damageType: ['B'],
 	},
 	{
 		Min: 55,
@@ -16468,6 +16530,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 301,
 		id: 'D35E.weapons-and-ammo.Dwk80eD0rB93lPnN',
+		damageType: ['B'],
 	},
 	{
 		Min: 57,
@@ -16478,6 +16541,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 306,
 		id: 'D35E.weapons-and-ammo.F9GR4mUpehjkNdMj',
+		damageType: ['S'],
 	},
 	{
 		Min: 59,
@@ -16488,6 +16552,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 308,
 		id: 'D35E.weapons-and-ammo.Uw42p33QKEUhlSMi',
+		damageType: ['S'],
 	},
 	{
 		Min: 62,
@@ -16498,6 +16563,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 310,
 		id: 'D35E.weapons-and-ammo.wuW25pHWYQGW81jL',
+		damageType: ['P'],
 	},
 	{
 		Min: 65,
@@ -16508,6 +16574,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 305,
 		id: 'D35E.weapons-and-ammo.awNlvqmRM1TZRVR9',
+		damageType: ['P'],
 	},
 	{
 		Min: 68,
@@ -16518,6 +16585,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 308,
 		id: 'D35E.weapons-and-ammo.FADCspPM6J4xZ2Fi',
+		damageType: ['B', 'P'],
 	},
 	{
 		Min: 71,
@@ -16538,6 +16606,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 308,
 		id: 'D35E.weapons-and-ammo.Vh5O2NapyCHRzosU',
+		damageType: ['P'],
 	},
 	{
 		Min: 75,
@@ -16548,6 +16617,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 304,
 		id: 'D35E.weapons-and-ammo.dSvOrS64ClyN9isO',
+		damageType: ['P'],
 	},
 	{
 		Min: 77,
@@ -16558,6 +16628,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 310,
 		id: 'D35E.weapons-and-ammo.naiJiv2t267Xyi09',
+		damageType: ['P'],
 	},
 	{
 		Min: 79,
@@ -16568,6 +16639,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 301,
 		id: 'D35E.weapons-and-ammo.mkwz0g7RwRwWkFkN',
+		damageType: ['B'],
 	},
 	{
 		Min: 81,
@@ -16578,6 +16650,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 318,
 		id: 'D35E.weapons-and-ammo.dgmR0QtZF8vePzcz',
+		damageType: ['S', 'P'],
 	},
 	{
 		Min: 83,
@@ -16588,6 +16661,7 @@ export const UncommonMeleeWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 301,
 		id: 'D35E.weapons-and-ammo.42M7kFLkyccrj1uf',
+		damageType: ['P'],
 	},
 	{
 		Min: 85,
@@ -16598,6 +16672,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 306,
 		id: 'D35E.weapons-and-ammo.oAb9EXEzaLRGfYxL',
+		damageType: ['S'],
 	},
 	{
 		Min: 87,
@@ -16608,6 +16683,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 700,
 		id: 'D35E.weapons-and-ammo.4nFjnETINUoBFWKX',
+		damageType: ['S'],
 	},
 	{
 		Min: 90,
@@ -16618,6 +16694,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 315,
 		id: 'D35E.weapons-and-ammo.2mw29eyL5mzZgKqR',
+		damageType: ['P'],
 	},
 	{
 		Min: 92,
@@ -16628,6 +16705,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 650,
 		id: 'D35E.weapons-and-ammo.aji2yHRoqFAHHfm6',
+		damageType: ['S'],
 	},
 	{
 		Min: 95,
@@ -16638,6 +16716,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 312,
 		id: 'D35E.weapons-and-ammo.pCFqtR5WrJmeZnDF',
+		damageType: ['B'],
 	},
 	{
 		Min: 98,
@@ -16648,6 +16727,7 @@ export const UncommonMeleeWeaponTable = [
 		table: meleeWeaponsAbilityTable,
 		value: 301,
 		id: 'D35E.weapons-and-ammo.OPTlPwKg2NyQAjhe',
+		damageType: ['S'],
 	},
 ]
 
@@ -16699,6 +16779,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 308,
 		id: 'D35E.weapons-and-ammo.gAs85NM90mIR4O4Z',
+		damageType: ['S'],
 	},
 	{
 		Min: 16,
@@ -16709,6 +16790,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 350,
 		id: 'D35E.weapons-and-ammo.vqF4kshibBDN624D',
+		damageType: ['P'],
 	},
 	{
 		Min: 26,
@@ -16719,6 +16801,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 335,
 		id: 'D35E.weapons-and-ammo.RWbjRwSPsuPAUDhw',
+		damageType: ['P'],
 	},
 	{
 		Min: 36,
@@ -16729,6 +16812,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 300,
 		id: 'D35E.weapons-and-ammo.mCwwHo32SU7kjGyu',
+		damageType: ['P'],
 	},
 	{
 		Min: 40,
@@ -16739,6 +16823,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 301,
 		id: 'D35E.weapons-and-ammo.KmbhZ4Z674Yk9yIh',
+		damageType: ['P'],
 	},
 	{
 		Min: 42,
@@ -16749,6 +16834,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 330,
 		id: 'D35E.weapons-and-ammo.Ata6ajiY9wuAnBLB',
+		damageType: ['P'],
 	},
 	{
 		Min: 47,
@@ -16759,6 +16845,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 375,
 		id: 'D35E.weapons-and-ammo.GGS4thGbUH5eKndT',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Shortbow, composite (+0 Str bonus)',
@@ -16777,6 +16864,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 450,
 		id: 'D35E.weapons-and-ammo.GGS4thGbUH5eKndT',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Shortbow, composite (+1 Str bonus)',
@@ -16795,6 +16883,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 525,
 		id: 'D35E.weapons-and-ammo.GGS4thGbUH5eKndT',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Shortbow, composite (+2 Str bonus)',
@@ -16813,6 +16902,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 300,
 		id: 'D35E.weapons-and-ammo.cJV7OBm9KiF2WWiu',
+		damageType: ['B'],
 	},
 	{
 		Min: 66,
@@ -16823,6 +16913,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 375,
 		id: 'D35E.weapons-and-ammo.PqJih70EG2A1XNGf',
+		damageType: ['P'],
 	},
 	{
 		Min: 76,
@@ -16833,6 +16924,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 400,
 		id: 'D35E.weapons-and-ammo.msTiRxZVnecbPCA8',
+		damageType: ['P'],
 	},
 	{
 		//TODO no distinct items for composite longbows
@@ -16844,6 +16936,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 500,
 		id: 'D35E.weapons-and-ammo.msTiRxZVnecbPCA8',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Longbow, composite (+1 Str bonus)',
@@ -16862,6 +16955,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 600,
 		id: 'D35E.weapons-and-ammo.msTiRxZVnecbPCA8',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Longbow, composite (+2 Str bonus)',
@@ -16880,6 +16974,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 700,
 		id: 'D35E.weapons-and-ammo.msTiRxZVnecbPCA8',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Longbow, composite (+3 Str bonus)',
@@ -16898,6 +16993,7 @@ export const CommonRangedWeaponTable = [
 		table: rangedWeaponsAbilityTable,
 		value: 800,
 		id: 'D35E.weapons-and-ammo.msTiRxZVnecbPCA8',
+		damageType: ['P'],
 		itemOverride: {
 			data: {
 				name: 'Longbow, composite (+4 Str bonus)',
@@ -18561,7 +18657,7 @@ export const specificArmorTable = [
 		value: 1100,
 		enhancement: 0,
 		id: 'D35E.magicitems.jAD73UYJtyiJZlBx',
-		//TODO  nothing applied for: Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small.
+		// nothing applied for: Speed while wearing a mithral shirt is 30 feet for Medium creatures, or 20 feet for Small.
 		// itemOverride: {
 		// 	data: {
 		// 		name: 'Mithral shirt',

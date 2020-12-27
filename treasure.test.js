@@ -547,6 +547,43 @@ describe('rings rolls', () => {
 })
 
 describe('potion rolls', () => {
+	it('potion of Magic vestment +2 with caster level 8', async () => {
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
+			[
+				{
+					cr: 20,
+					moneyMultiplier: 1,
+					goodsMultiplier: 1,
+					itemsMultiplier: 1,
+				},
+			],
+			{},
+			[100, 21, 78]
+		).treasure
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "casterLevel": 8,
+		  "consumableType": "potion",
+		  "enhancement": 0,
+		  "id": "D35E.spells.7OmyaAC9Sxttewng",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "identifiedName": "Potion of Magic vestment +2",
+		        "masterwork": true,
+		        "price": 1200,
+		      },
+		    },
+		  },
+		  "type": "Potion of Magic vestment +2",
+		  "value": 1200,
+		}
+	`)
+	})
+
 	it('potion of Protection from good', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
@@ -1008,6 +1045,50 @@ describe('Magic armor rolls', () => {
 })
 
 describe('Magic weapon rolls', () => {
+	it('trying to apply Vorpal to a bludgeoning weapon should fail, then roll Disruption on it', async () => {
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
+			[
+				{
+					cr: 20,
+					moneyMultiplier: 1,
+					goodsMultiplier: 1,
+					itemsMultiplier: 1,
+				},
+			],
+			{},
+			[99, 11, 100, 21, 70, 42, 90, 47]
+		).treasure
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [
+		    Object {
+		      "enhancement": 2,
+		      "enhancementLevel": 0,
+		      "id": "D35E.enhancements.f773ZQN84bkNKxXa",
+		      "itemType": "Disruption",
+		      "type": "ability",
+		      "value": 0,
+		    },
+		  ],
+		  "amount": 1,
+		  "enhancement": 4,
+		  "id": "D35E.weapons-and-ammo.Yeli1JRCgnmVyhWT",
+		  "itemOverride": Object {
+		    "data": Object {
+		      "data": Object {
+		        "identified": false,
+		        "identifiedName": "Mace, light",
+		        "masterwork": true,
+		        "price": 72305,
+		      },
+		    },
+		  },
+		  "type": "Mace, light",
+		  "value": 72305,
+		}
+	`)
+	})
+
 	it('test magic weapon with bane (fey)', async () => {
 		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[

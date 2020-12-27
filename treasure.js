@@ -36,7 +36,8 @@ function rollItem(
 	testRolls = [],
 	treasure,
 	options,
-	rolls
+	rolls,
+	itemDamageType = []
 ) {
 	let magicItemRoll = new Roll('1d100').roll().total
 	if (testRolls && testRolls.length > 0) {
@@ -90,6 +91,7 @@ function rollItem(
 					amount: magicItemData.amount,
 					consumableType: magicItemData.consumableType,
 					casterLevel: magicItemData.casterLevel,
+					damageType: magicItemData.damageType,
 				})
 				if (magicItemData.roll && magicItemData.roll !== '1d1') {
 					let ItemAmount = new Roll(magicItemData.roll).roll().total
@@ -283,7 +285,8 @@ function rollItem(
 					testRolls,
 					treasure,
 					options,
-					rolls
+					rolls,
+					roll.damageType
 				)
 
 				for (let ability of abilityRoll) {
@@ -321,7 +324,8 @@ function rollItem(
 					testRolls,
 					treasure,
 					options,
-					rolls
+					rolls,
+					itemDamageType
 				)
 				// Object.assign(result, roll);
 				// for (let ability of roll) {
@@ -347,7 +351,8 @@ function rollItem(
 					testRolls,
 					treasure,
 					options,
-					rolls
+					rolls,
+					itemDamageType
 				)
 
 				for (let ability of roll) {
@@ -384,6 +389,31 @@ function rollItem(
 					ret.itemType += ', ' + itemTypeExtra
 					ret.id = idOverride
 					ret.itemOverride = itemOverride //might be an issue if there were case in which both ability and extraItemDef(only used for typing bane ability) use it
+				}
+
+				if (
+					magicItemData.damageTypeWhitelist &&
+					itemDamageType.length > 0 &&
+					magicItemData.damageTypeWhitelist.length > 0
+				) {
+					let allowed = false
+					itemDamageType.forEach((dt) => {
+						if (magicItemData.damageTypeWhitelist.includes(dt)) {
+							allowed = true
+						}
+					})
+					if (!allowed) {
+						return rollItem(
+							table,
+							grade,
+							prefix,
+							testRolls,
+							treasure,
+							options,
+							rolls,
+							itemDamageType
+						)
+					}
 				}
 
 				abilities.push(ret)
@@ -575,6 +605,7 @@ export default class TreasureGenerator {
 		for (let item of this._treasure.items) {
 			if (item.id) {
 				if (item.consumableType) {
+					//TODO handle caster Level, not every item has it defined, others have it at 0 when not needed (been added automatically)
 					lastPromise = getItem(item.id)
 						.then((it) => {
 							it.data.data.quantity = item.amount
@@ -956,12 +987,10 @@ function getSelectedNpcs() {
 
 /**
  * Treasure Generator Usage Example
- * @param {Array} ItemRollFudge Overrides rolls maintaining array order, used for automated testing e.g. [1,5,5]
  * @param {Object} options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true }
  */
 // eslint-disable-next-line no-unused-vars
 function genTreasureFromSelectedNpcsCr(
-	ItemRollFudge = [],
 	options = {
 		identified: false,
 		tradeGoodsToGold: false,
@@ -976,11 +1005,7 @@ function genTreasureFromSelectedNpcsCr(
 			TreasureLevels.push(TreasureLevel)
 		})
 
-		let treasure = this.makeTreasureFromCR(
-			TreasureLevels,
-			options,
-			ItemRollFudge
-		)
+		let treasure = this.makeTreasureFromCR(TreasureLevels, options)
 
 		let pikUpStiXModule = game.modules.get('pick-up-stix')
 
