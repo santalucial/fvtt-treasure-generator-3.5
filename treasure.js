@@ -703,11 +703,15 @@ export default class TreasureGenerator {
 	 *
 	 * @param {Array} TreasureLevels Represents the monsters against which to run the generation algorithm e.g. [{
 		cr = 1,
-		moneyMultiplier= 1,
-		goodsMultiplier= 1,
-		itemsMultiplier= 1,
+		moneyMultiplier = 1,
+		goodsMultiplier = 1,
+		itemsMultiplier = 1,
 	}]
-	 * @param {Object} Options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true }
+	 * @param {Object} Options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true },
+	 `identified` specifies wether magic items creted should be marked as identified by default, `tradeGoodsToGold` specifies
+	 wether to make items for trade goods or directly add their gold value to the treasure, `overrideNames` specifies wether
+	 to override the final item name with the name obtained from the tables (some items require it such as *Necklace of fireballs type II*
+	 where the compendium item is *Necklace of fireballs* but there are 7 types)
 	 * @param {Array} ItemRollFudge Overrides rolls maintaining array order, used for automated testing e.g. [1,5,5]
 	 */
 	makeTreasureFromCR(
@@ -716,7 +720,10 @@ export default class TreasureGenerator {
 		ItemRollFudge = []
 	) {
 		TreasureLevels.forEach((TreasureLevel) => {
-			let treasureRow = TreasureTable[TreasureLevel.cr]
+			let treasureRow =
+				TreasureTable[
+					Math.min(Math.max(Math.floor(TreasureLevel.cr), 1), 30) - 1
+				]
 
 			//#region Roll for money
 			times(TreasureLevel.moneyMultiplier).forEach(() => {
@@ -934,7 +941,7 @@ function getActorCrAndMultiplier(actor) {
 	//#endregion
 	//TODO fetch actual multiplier data
 	return {
-		cr: Math.min(Math.max(Math.floor(cr), 1), 30) - 1,
+		cr: cr,
 		moneyMultiplier: 1,
 		goodsMultiplier: 1,
 		itemsMultiplier: 1,

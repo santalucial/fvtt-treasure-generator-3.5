@@ -1,4 +1,3 @@
-//#region dnd 3.5 loot tables
 export const TreasureTable = [
 	{
 		money: [
@@ -19896,4 +19895,3 @@ export const MagicItemTable = [
 		value: 0,
 	},
 ]
-//#endregion
