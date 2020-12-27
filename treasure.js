@@ -485,7 +485,7 @@ export default class TreasureGenerator {
 		return this._treasure
 	}
 
-	ToChat(treasure = this._treasure) {
+	toChat(treasure = this._treasure) {
 		var TreasureString = '<div class="D35E chat-card item-card">'
 		//#region gold section
 		if (treasure.cp + treasure.sp + treasure.gp + treasure.pp > 0) {
@@ -588,7 +588,7 @@ export default class TreasureGenerator {
 		ChatMessage.create({ content: TreasureString })
 	}
 
-	treasureToPuSContainer(position = { gridX: 0, gridY: 0 }) {
+	toPuSContainer(position = { gridX: 0, gridY: 0 }) {
 		let pikUpStiXModule = game.modules.get('pick-up-stix')
 		var treasureErr = {
 			cp: 0,
@@ -1004,8 +1004,8 @@ function genTreasureFromSelectedNpcsCr(
 			let TreasureLevel = getActorCrAndMultiplier(actor)
 			TreasureLevels.push(TreasureLevel)
 		})
-
-		let treasure = this.makeTreasureFromCR(TreasureLevels, options)
+		let treasureGen = new TreasureGenerator()
+		let treasure = treasureGen.makeTreasureFromCR(TreasureLevels, options)
 
 		let pikUpStiXModule = game.modules.get('pick-up-stix')
 
@@ -1016,9 +1016,9 @@ function genTreasureFromSelectedNpcsCr(
 					getSelectedNpcs()[0].data.y -
 					getSelectedNpcs()[0].scene.data.grid,
 			}
-			this.treasureToPuSContainer(treasurePosition)
+			treasureGen.toPuSContainer(treasurePosition)
 		} else {
-			this.treasureToChat(treasure)
+			treasureGen.toChat()
 		}
 		return treasure
 	}
