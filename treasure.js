@@ -925,7 +925,7 @@ export default class TreasureGenerator {
 			}
 			//#endregion
 		})
-		log(treasure)
+		log(this.treasure)
 		return this
 	}
 }
