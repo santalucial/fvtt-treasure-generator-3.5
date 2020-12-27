@@ -1,3 +1,5 @@
+import TreasureGenerator from './treasure'
+
 beforeAll(() => {
 	window.getType = (token) => {
 		const tof = typeof token
@@ -164,7 +166,6 @@ beforeAll(() => {
 		}
 	}
 	window.Roll = Roll
-	require('./treasure.js')
 })
 
 beforeEach(() => {
@@ -173,7 +174,7 @@ beforeEach(() => {
 
 describe('scrolls rolls', () => {
 	it('scroll of antiplant shell', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 9,
@@ -184,7 +185,7 @@ describe('scrolls rolls', () => {
 			],
 			{},
 			[99, 51, 71, 1, 66, 6]
-		)
+		).treasure
 
 		expect(treasure.items).toMatchInlineSnapshot(`
 		Array [
@@ -212,7 +213,7 @@ describe('scrolls rolls', () => {
 	`)
 	})
 	it('scroll of antiplant shell and air walk', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 9,
@@ -223,7 +224,7 @@ describe('scrolls rolls', () => {
 			],
 			{},
 			[99, 51, 71, 2, 66, 6, 66, 1]
-		)
+		).treasure
 
 		expect(treasure.items).toMatchInlineSnapshot(`
 		Array [
@@ -274,7 +275,7 @@ describe('scrolls rolls', () => {
 
 describe('wondowrous items rolls', () => {
 	it('Ioun stone, pink rhomboid', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 9,
@@ -285,7 +286,7 @@ describe('wondowrous items rolls', () => {
 			],
 			{},
 			[99, 92, 10]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -312,7 +313,7 @@ describe('wondowrous items rolls', () => {
 
 describe('wands rolls', () => {
 	it('Wand of Bull’s strength', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 9,
@@ -323,7 +324,7 @@ describe('wands rolls', () => {
 			],
 			{},
 			[99, 69, 10]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -352,7 +353,7 @@ describe('wands rolls', () => {
 
 describe('rods rolls', () => {
 	it('rod of Metamagic, Extend, lesser', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 9,
@@ -363,7 +364,7 @@ describe('rods rolls', () => {
 			],
 			{},
 			[99, 41, 10]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -390,7 +391,7 @@ describe('rods rolls', () => {
 
 describe('staffs rolls', () => {
 	it('Staff of Charming', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 9,
@@ -401,7 +402,7 @@ describe('staffs rolls', () => {
 			],
 			{},
 			[99, 66, 10]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -428,7 +429,7 @@ describe('staffs rolls', () => {
 
 describe('rings rolls', () => {
 	it('Ring of Protection +1', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -439,7 +440,7 @@ describe('rings rolls', () => {
 			],
 			{},
 			[98, 45, 10]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -466,7 +467,7 @@ describe('rings rolls', () => {
 
 describe('potion rolls', () => {
 	it('potion of Protection from good', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -477,7 +478,7 @@ describe('potion rolls', () => {
 			],
 			{},
 			[98, 10, 31, 2]
-		)
+		).treasure
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [],
@@ -504,7 +505,7 @@ describe('potion rolls', () => {
 
 describe('Mundane items rolls', () => {
 	it('3 Smokesticks', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -515,7 +516,7 @@ describe('Mundane items rolls', () => {
 			],
 			{},
 			[72, 1, 25, 3]
-		)
+		).treasure
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [],
@@ -540,7 +541,7 @@ describe('Mundane items rolls', () => {
 
 describe('Magic armor rolls', () => {
 	it('test roll', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -551,7 +552,7 @@ describe('Magic armor rolls', () => {
 			],
 			{},
 			[98, 2, 95, 61, 43, 100, 94, 100, 63, 96]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -593,7 +594,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test roll 2', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -604,7 +605,7 @@ describe('Magic armor rolls', () => {
 			],
 			{},
 			[98, 2, 62, 12]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -629,7 +630,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -640,7 +641,7 @@ describe('Magic armor rolls', () => {
 			],
 			{},
 			[98, 2, 92, 60, 15, 100, 5, 30]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -682,7 +683,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability 2', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -693,7 +694,7 @@ describe('Magic armor rolls', () => {
 			],
 			{},
 			[98, 2, 92, 92, 60, 15, 100, 5, 30, 70]
-		)
+		).treasure
 
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
@@ -743,7 +744,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability 3', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -754,7 +755,7 @@ describe('Magic armor rolls', () => {
 			],
 			{},
 			[98, 2, 96, 100, 89, 59, 25, 70]
-		)
+		).treasure
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [
@@ -795,7 +796,7 @@ describe('Magic armor rolls', () => {
 	})
 
 	it('test double ability 4', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -806,7 +807,7 @@ describe('Magic armor rolls', () => {
 			],
 			{},
 			[98, 2, 96, 100, 89, 49, 1, 1]
-		)
+		).treasure
 		expect(treasure.items[0]).toMatchInlineSnapshot(`
 		Object {
 		  "ability": Array [
@@ -841,7 +842,7 @@ describe('Magic armor rolls', () => {
 	it('full roll magic armor table', async () => {
 		//Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_2) => {
-			window.rollTreasure(
+			new TreasureGenerator().makeTreasureFromCR(
 				[
 					{
 						cr: 1,
@@ -858,7 +859,7 @@ describe('Magic armor rolls', () => {
 
 	it('full roll magic armor abilty table', async () => {
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_5) => {
-			window.rollTreasure(
+			new TreasureGenerator().makeTreasureFromCR(
 				[
 					{
 						cr: 1,
@@ -875,7 +876,7 @@ describe('Magic armor rolls', () => {
 
 	it('full roll magic shield abilty table', async () => {
 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_6) => {
-			window.rollTreasure(
+			new TreasureGenerator().makeTreasureFromCR(
 				[
 					{
 						cr: 1,
@@ -894,14 +895,14 @@ describe('Magic armor rolls', () => {
 	//   //Array.from({length: 10}, (_, i) => i + 1).forEach(t7_2 =>{})
 	//   Array.from({ length: 10 }, (_, i) => i + 1).forEach((t7_2) => {
 	//     window.ItemRollFudge = [98, 2, t7_2];
-	//     window.rollTreasure();
+	//     new TreasureGenerator().makeTreasureFromCR();
 	//   });
 	// });
 })
 
 describe('Magic weapon rolls', () => {
 	it('test magic weapon with bane (fey)', async () => {
-		let treasure = window.rollTreasure(
+		let treasure = new TreasureGenerator().makeTreasureFromCR(
 			[
 				{
 					cr: 1,
@@ -912,7 +913,7 @@ describe('Magic weapon rolls', () => {
 			],
 			{},
 			[98, 5, 100, 1, 99, 1, 2, 26, 1, 28]
-		)
+		).treasure
 		expect(treasure.items).toMatchInlineSnapshot(`
 		Array [
 		  Object {
@@ -962,31 +963,26 @@ describe('Magic weapon rolls', () => {
 	`)
 	})
 
-	it('full roll magic weapon table', async () => {
-		//Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
-		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-			window.rollTreasure(
-				[
-					{
-						cr: 1,
-						moneyMultiplier: 1,
-						goodsMultiplier: 1,
-						itemsMultiplier: 1,
-					},
-				],
-				{},
-				[98, 5, t7_9]
-			)
-		})
-	})
-
-	// it("1000 full roll magic weapon table", async () => {
-	//   //Array.from({length: 100}, (_, i) => i + 1).forEach(t7_2 =>{})
-	//   Array.from({ length: 1000 }, (_, i) => i + 1).forEach((roll) => {
-	//     Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
-	//       window.ItemRollFudge = [98, 5, t7_9];
-	//       window.rollTreasure();
-	//     });
-	//   });
-	// });
+	// it('full roll magic weapon table', async () => {
+	// 	Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_9) => {
+	// 		Array.from({ length: 100 }, (_, i) => i + 1).forEach((t7_10) => {
+	// 			Array.from({ length: 100 }, (_, i) => i + 1).forEach(
+	// 				(t7_11_12_13) => {
+	// 					new TreasureGenerator().makeTreasureFromCR(
+	// 						[
+	// 							{
+	// 								cr: 1,
+	// 								moneyMultiplier: 1,
+	// 								goodsMultiplier: 1,
+	// 								itemsMultiplier: 1,
+	// 							},
+	// 						],
+	// 						{},
+	// 						[98, 5, t7_9, t7_10, t7_11_12_13]
+	// 					)
+	// 				}
+	// 			)
+	// 		})
+	// 	})
+	// })
 })
