@@ -356,7 +356,7 @@ export default class TreasureGenerator {
 
 		this._rolls.push({
 			roll: magicItemRoll,
-			itemType: magicItemData.itemType || 'none',
+			itemType: magicItemData?.itemType || 'undefined',
 		})
 
 		// console.debug(

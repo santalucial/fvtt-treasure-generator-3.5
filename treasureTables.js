@@ -19170,7 +19170,7 @@ export const armorAndShieldsTable = [
 		mediumMin: 64,
 		mediumMax: 100,
 		majorMin: 64,
-		majorMax: 10,
+		majorMax: 100,
 		enhancement: 0,
 		// itemType: 'Specific ability',
 		value: 0,

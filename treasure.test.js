@@ -178,7 +178,7 @@ describe('runs examples', () => {
 	})
 
 	it('runs genWeaponSmithItems', async () => {
-		genWeaponSmithItems()
+		genWeaponSmithItems(null, 10, 5, 2, 1)
 	})
 })
 
