@@ -6167,7 +6167,7 @@ export const scrollsTable = [
 						itemType: 'mage armor',
 						type: 'item',
 						value: 25,
-						id: 'D35E.spells.nY04bv6AvvfsHE0V',
+						id: 'D35E.spells.efxfgetTchHAaRew',
 						consumableType: 'scroll',
 					},
 					{
@@ -13834,7 +13834,7 @@ export const potionsTable = [
 		itemType: 'Potion of Mage armor',
 		type: 'item',
 		value: 50,
-		id: 'D35E.spells.nY04bv6AvvfsHE0V',
+		id: 'D35E.spells.efxfgetTchHAaRew',
 		consumableType: 'potion',
 	},
 	{

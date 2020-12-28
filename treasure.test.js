@@ -1,4 +1,7 @@
-import TreasureGenerator from './treasure'
+import TreasureGenerator, {
+	genTreasureFromSelectedNpcsCr,
+	genWeaponSmithItems,
+} from './treasure'
 import * as Tables from './treasureTables'
 
 beforeAll(() => {
@@ -167,6 +170,16 @@ beforeAll(() => {
 		}
 	}
 	window.Roll = Roll
+})
+
+describe('runs examples', () => {
+	it('runs genTreasureFromSelectedNpcsCr', async () => {
+		genTreasureFromSelectedNpcsCr()
+	})
+
+	it('runs genWeaponSmithItems', async () => {
+		genWeaponSmithItems()
+	})
 })
 
 describe('scrolls rolls', () => {
