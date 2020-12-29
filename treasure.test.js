@@ -197,29 +197,27 @@ describe('scrolls rolls', () => {
 			[99, 51, 71, 1, 66, 6]
 		).treasure
 
-		expect(treasure.items).toMatchInlineSnapshot(`
-		Array [
-		  Object {
-		    "ability": Array [],
-		    "amount": 1,
-		    "casterLevel": 7,
-		    "consumableType": "scroll",
-		    "enhancement": 0,
-		    "id": "D35E.spells.IgINJsUbkdJL066w",
-		    "itemOverride": Object {
+		expect(treasure.items[0]).toMatchInlineSnapshot(`
+		Object {
+		  "ability": Array [],
+		  "amount": 1,
+		  "casterLevel": 7,
+		  "consumableType": "scroll",
+		  "enhancement": 0,
+		  "id": "D35E.spells.IgINJsUbkdJL066w",
+		  "itemOverride": Object {
+		    "data": Object {
 		      "data": Object {
-		        "data": Object {
-		          "identified": false,
-		          "identifiedName": "Scroll of antiplant shell",
-		          "masterwork": true,
-		          "price": 700,
-		        },
+		        "identified": false,
+		        "identifiedName": "Scroll of antiplant shell",
+		        "masterwork": true,
+		        "price": 700,
 		      },
 		    },
-		    "type": "Scroll of antiplant shell",
-		    "value": 700,
 		  },
-		]
+		  "type": "Scroll of antiplant shell",
+		  "value": 700,
+		}
 	`)
 	})
 	it('scroll of antiplant shell and air walk', async () => {
@@ -236,7 +234,7 @@ describe('scrolls rolls', () => {
 			[99, 51, 71, 2, 66, 6, 66, 1]
 		).treasure
 
-		expect(treasure.items).toMatchInlineSnapshot(`
+		expect(treasure.items.slice(0, 2)).toMatchInlineSnapshot(`
 		Array [
 		  Object {
 		    "ability": Array [],

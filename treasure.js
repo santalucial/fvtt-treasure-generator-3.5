@@ -49,23 +49,21 @@ function getItem(link) {
 	return entity
 }
 
-function rollMoney(rollFormula) {
-	return new Roll(rollFormula).roll().total
+function rollDice(formula, enable3DDice = false) {
+	let roll = new Roll(formula).roll()
+	if (enable3DDice) {
+		game.enable3DDice.showForRoll(roll)
+	}
+	return roll.total
 }
 
-function rollTradeGoods(table) {
-	let goodsData = table[Math.floor(Math.random() * table.length)]
-	let goodsValue = new Roll(goodsData.roll).roll().total
-	let goodsType =
-		goodsData.type[Math.floor(Math.random() * goodsData.type.length)]
-	return {
-		value: goodsValue,
-		type: goodsType,
-	}
+function rollMoney(rollFormula, enable3DDice = false) {
+	return rollDice(rollFormula, enable3DDice)
 }
 
 //#endregion
 
+//TODO enable3DDice for the memes game.enable3DDice.showForRoll(roll)
 export default class TreasureGenerator {
 	constructor() {
 		this._treasure = {
@@ -73,8 +71,6 @@ export default class TreasureGenerator {
 			sp: 0,
 			gp: 0,
 			pp: 0,
-			gems: [],
-			arts: [],
 			items: [],
 		}
 		this._treasureErr = {
@@ -82,8 +78,6 @@ export default class TreasureGenerator {
 			sp: 0,
 			gp: 0,
 			pp: 0,
-			gems: [],
-			arts: [],
 			items: [],
 		}
 		this._rolls = []
@@ -132,39 +126,6 @@ export default class TreasureGenerator {
 						treasure.gp +
 						treasure.pp * 10
 				) +
-				' gp</span>'
-		}
-		//#endregion
-
-		//#region goods section
-		if (treasure.gems.length > 0) {
-			let totalValue = 0
-			TreasureString += `<header class="card-header flexrow">
-	<img src="systems/D35E/icons/items/inventory/Quest_102.png" title="Gems" width="36" height="36">
-	<h3 class="item-name">Gems</h3>
-	</header> <div><p>`
-			treasure.gems.forEach((gem) => {
-				totalValue += gem.value
-				TreasureString += `<span class="fontstyle0">${gem.type} (${gem.value} gp) </span><br>`
-			})
-			TreasureString +=
-				'</p></div><hr><span class="fontstyle0">total value = ' +
-				totalValue +
-				' gp</span>'
-		}
-		if (treasure.arts.length > 0) {
-			let totalValue = 0
-			TreasureString += `<header class="card-header flexrow">
-	<img src="systems/D35E/icons/items/inventory/Quest_48.png" title="Arts" width="36" height="36">
-	<h3 class="item-name">Arts</h3>
-	</header> <div><p>`
-			treasure.arts.forEach((art) => {
-				totalValue += art.value
-				TreasureString += `<span class="fontstyle0">${art.type} (${art.value} gp) </span><br>`
-			})
-			TreasureString +=
-				'</p></div><hr><span class="fontstyle0">total value = ' +
-				totalValue +
 				' gp</span>'
 		}
 		//#endregion
@@ -335,7 +296,7 @@ export default class TreasureGenerator {
 		options,
 		itemDamageType = []
 	) {
-		let magicItemRoll = new Roll('1d100').roll().total
+		let magicItemRoll = rollDice('1d100', options.enable3DDice)
 		if (forceRolls && forceRolls.length > 0) {
 			magicItemRoll = forceRolls.shift()
 		}
@@ -390,8 +351,10 @@ export default class TreasureGenerator {
 						damageType: magicItemData.damageType,
 					})
 					if (magicItemData.roll && magicItemData.roll !== '1d1') {
-						let ItemAmount = new Roll(magicItemData.roll).roll()
-							.total
+						let ItemAmount = rollDice(
+							magicItemData.roll,
+							options.enable3DDice
+						)
 						if (forceRolls && forceRolls.length > 0) {
 							ItemAmount = forceRolls.shift()
 						}
@@ -420,6 +383,17 @@ export default class TreasureGenerator {
 						if (magicItemData.itemType === 'Weapons') {
 							valueBonus *= 2
 						}
+					}
+
+					if (magicItemData.valueRoll) {
+						Object.assign(result, {
+							value:
+								result.value +
+								rollDice(
+									magicItemData.valueRoll,
+									options.enable3DDice
+								),
+						})
 					}
 
 					Object.assign(result, {
@@ -495,7 +469,10 @@ export default class TreasureGenerator {
 							' ' +
 							(magicItemData.itemType || '')
 						).trim(),
-						amount: new Roll(magicItemData.roll).roll().total,
+						amount: rollDice(
+							magicItemData.roll,
+							options.enable3DDice
+						),
 						ability: [],
 						enhancement: 0,
 						id: magicItemData.id,
@@ -525,7 +502,10 @@ export default class TreasureGenerator {
 							amountFormula = '1d6'
 							break
 					}
-					let scrollAmountRoll = new Roll(amountFormula).roll().total
+					let scrollAmountRoll = rollDice(
+						amountFormula,
+						options.enable3DDice
+					)
 					if (forceRolls && forceRolls.length > 0) {
 						scrollAmountRoll = forceRolls.shift()
 					}
@@ -729,16 +709,21 @@ export default class TreasureGenerator {
 		goodsMultiplier = 1,
 		itemsMultiplier = 1,
 	}]
-	 * @param {Object} Options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true },
+	 * @param {Object} Options e.g. { identified = false, tradeGoodsToGold = false, overrideNames = true, enable3DDice = false },
 	 `identified` specifies wether magic items creted should be marked as identified by default, `tradeGoodsToGold` specifies
 	 wether to make items for trade goods or directly add their gold value to the treasure, `overrideNames` specifies wether
 	 to override the final item name with the name obtained from the tables (some items require it such as *Necklace of fireballs type II*
-	 where the compendium item is *Necklace of fireballs* but there are 7 types)
+	 where the compendium item is *Necklace of fireballs* but there are 7 types), `enable3DDice` enables visual dice for the memes
 	 * @param {Array} ItemRollFudge Overrides rolls maintaining array order, used for automated testing e.g. [1,5,5]
 	 */
 	makeTreasureFromCR(
 		TreasureLevels,
-		{ identified = false, tradeGoodsToGold = false, overrideNames = true },
+		{
+			identified = false,
+			tradeGoodsToGold = false,
+			overrideNames = true,
+			enable3DDice = false,
+		},
 		ItemRollFudge = []
 	) {
 		TreasureLevels.forEach((TreasureLevel) => {
@@ -749,53 +734,23 @@ export default class TreasureGenerator {
 
 			//#region Roll for money
 			times(TreasureLevel.moneyMultiplier).forEach(() => {
-				let moneyRoll = new Roll('1d100').roll().total
+				let moneyRoll = rollDice('1d100', enable3DDice)
 				let moneyResult = treasureRow.money.find(
 					(r) => r.Min <= moneyRoll && r.Max >= moneyRoll
 				)
 
 				if (moneyResult.type !== 'nothing') {
 					this.treasure[moneyResult.type] += rollMoney(
-						moneyResult.roll
+						moneyResult.roll,
+						enable3DDice
 					)
 				}
 			})
 			//#endregion
 
-			//#region Roll for goods
-			times(TreasureLevel.goodsMultiplier).forEach(() => {
-				let goodsRoll = new Roll('1d100').roll().total
-				let goodsResult = treasureRow.goods.find(
-					(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
-				)
-				let goodsNo = new Roll(goodsResult.roll).roll().total
-				times(goodsNo).forEach(() => {
-					let goods = null
-					switch (goodsResult.type) {
-						case 'nothing':
-							break
-						case 'gems':
-							goods = rollTradeGoods(GemsTable)
-							break
-						case 'arts':
-							goods = rollTradeGoods(ArtsTable)
-
-							break
-					}
-					if (goodsResult.type !== 'nothing') {
-						if (tradeGoodsToGold) {
-							this.treasure.gp += goods.value
-						} else {
-							this.treasure[goodsResult.type].push(goods)
-						}
-					}
-				})
-			})
-			//#endregion
-
 			//#region Roll for items
 			times(TreasureLevel.itemsMultiplier).forEach(() => {
-				let itemsRoll = new Roll('1d100').roll().total
+				let itemsRoll = rollDice('1d100', enable3DDice)
 				if (ItemRollFudge.length > 0) {
 					itemsRoll = ItemRollFudge.shift()
 					// console.debug("fudged Dice roll = " + itemsRoll);
@@ -803,7 +758,7 @@ export default class TreasureGenerator {
 				let itemsResult = treasureRow.items.find(
 					(r) => r.Min <= itemsRoll && r.Max >= itemsRoll
 				)
-				let itemsNo = new Roll(itemsResult.roll).roll().total
+				let itemsNo = rollDice(itemsResult.roll, enable3DDice)
 				times(itemsNo).forEach(() => {
 					switch (itemsResult.type) {
 						case 'nothing':
@@ -887,6 +842,50 @@ export default class TreasureGenerator {
 				})
 			}
 			//#endregion
+
+			//#region Roll for goods
+			times(TreasureLevel.goodsMultiplier).forEach(() => {
+				let goodsRoll = rollDice('1d100', enable3DDice)
+				let goodsResult = treasureRow.goods.find(
+					(r) => r.Min <= goodsRoll && r.Max >= goodsRoll
+				)
+				let goodsNo = rollDice(goodsResult.roll, enable3DDice)
+				times(goodsNo).forEach(() => {
+					let goods = null
+					switch (goodsResult.type) {
+						case 'nothing':
+							break
+						case 'gems':
+							goods = {
+								...this.rollItem(GemsTable, 'mundane', '', [], {
+									identified: true,
+									overrideNames: overrideNames,
+								}),
+								ability: [],
+								enhancement: 0,
+							}
+							break
+						case 'arts':
+							goods = {
+								...this.rollItem(ArtsTable, 'mundane', '', [], {
+									identified: true,
+									overrideNames: overrideNames,
+								}),
+								ability: [],
+								enhancement: 0,
+							}
+							break
+					}
+					if (goodsResult.type !== 'nothing') {
+						if (tradeGoodsToGold) {
+							this.treasure.gp += goods.value
+						} else {
+							this._addItem(goods)
+						}
+					}
+				})
+			})
+			//#endregion
 		})
 		log(this.treasure)
 		return this
@@ -957,7 +956,7 @@ export function genTreasureFromSelectedNpcsCr(
 
 		let pikUpStiXModule = game.modules.get('pick-up-stix')
 
-		if (pikUpStiXModule && pikUpStiXModule.active) {
+		if (pikUpStiXModule?.active) {
 			let treasurePosition = {
 				gridX: getSelectedNpcs()[0].data.x,
 				gridY:
