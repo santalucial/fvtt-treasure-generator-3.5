@@ -563,7 +563,7 @@ export const GemsTable = [
 				itemType: 'Banded eye',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 10,
@@ -571,7 +571,7 @@ export const GemsTable = [
 				itemType: 'Banded moss agate',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 19,
@@ -579,7 +579,7 @@ export const GemsTable = [
 				itemType: 'azurite',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 28,
@@ -587,7 +587,7 @@ export const GemsTable = [
 				itemType: 'blue quartz',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 37,
@@ -595,7 +595,7 @@ export const GemsTable = [
 				itemType: 'hematite',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 46,
@@ -603,7 +603,7 @@ export const GemsTable = [
 				itemType: 'lapis lazuli',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 55,
@@ -611,7 +611,7 @@ export const GemsTable = [
 				itemType: 'malachite',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 64,
@@ -619,7 +619,7 @@ export const GemsTable = [
 				itemType: 'obsidian',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 73,
@@ -627,7 +627,7 @@ export const GemsTable = [
 				itemType: 'rhodochrosite',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 82,
@@ -635,7 +635,7 @@ export const GemsTable = [
 				itemType: 'tiger eye turquoise',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 91,
@@ -643,7 +643,7 @@ export const GemsTable = [
 				itemType: 'freshwater (irregular) pearl',
 				valueRoll: '4d4',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -658,7 +658,7 @@ export const GemsTable = [
 				itemType: 'Bloodstone',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 7,
@@ -666,7 +666,7 @@ export const GemsTable = [
 				itemType: 'carnelian',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 13,
@@ -674,7 +674,7 @@ export const GemsTable = [
 				itemType: 'chalcedony',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 19,
@@ -682,7 +682,7 @@ export const GemsTable = [
 				itemType: 'chrysoprase',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 25,
@@ -690,7 +690,7 @@ export const GemsTable = [
 				itemType: 'citrine',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 31,
@@ -698,7 +698,7 @@ export const GemsTable = [
 				itemType: 'iolite',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 37,
@@ -706,7 +706,7 @@ export const GemsTable = [
 				itemType: 'jasper',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 43,
@@ -714,7 +714,7 @@ export const GemsTable = [
 				itemType: 'moonstone',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 49,
@@ -722,7 +722,7 @@ export const GemsTable = [
 				itemType: 'onyx',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 55,
@@ -730,7 +730,7 @@ export const GemsTable = [
 				itemType: 'peridot',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 61,
@@ -738,7 +738,7 @@ export const GemsTable = [
 				itemType: 'rock crystal (clear quartz)',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -746,7 +746,7 @@ export const GemsTable = [
 				itemType: 'sard',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 73,
@@ -754,7 +754,7 @@ export const GemsTable = [
 				itemType: 'sardonyx',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 79,
@@ -762,7 +762,7 @@ export const GemsTable = [
 				itemType: 'smoky rose quartz',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 85,
@@ -770,7 +770,7 @@ export const GemsTable = [
 				itemType: 'star rose quartz',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 91,
@@ -778,7 +778,7 @@ export const GemsTable = [
 				itemType: 'zircon',
 				valueRoll: '2d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -793,7 +793,7 @@ export const GemsTable = [
 				itemType: 'Amber',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 7,
@@ -801,7 +801,7 @@ export const GemsTable = [
 				itemType: 'amethyst',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 13,
@@ -809,7 +809,7 @@ export const GemsTable = [
 				itemType: 'chrysoberyl',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 19,
@@ -817,7 +817,7 @@ export const GemsTable = [
 				itemType: 'coral',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 25,
@@ -825,7 +825,7 @@ export const GemsTable = [
 				itemType: 'red garnet',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 31,
@@ -833,7 +833,7 @@ export const GemsTable = [
 				itemType: 'brown-green garnet',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 37,
@@ -841,7 +841,7 @@ export const GemsTable = [
 				itemType: 'jade',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 43,
@@ -849,7 +849,7 @@ export const GemsTable = [
 				itemType: 'jet',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 49,
@@ -857,7 +857,7 @@ export const GemsTable = [
 				itemType: 'white',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 55,
@@ -865,7 +865,7 @@ export const GemsTable = [
 				itemType: 'golden',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 61,
@@ -873,7 +873,7 @@ export const GemsTable = [
 				itemType: 'pink pearl',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -881,7 +881,7 @@ export const GemsTable = [
 				itemType: 'silver pearl',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 73,
@@ -889,7 +889,7 @@ export const GemsTable = [
 				itemType: 'red spinel',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 79,
@@ -897,7 +897,7 @@ export const GemsTable = [
 				itemType: 'red-brown spinel',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 85,
@@ -905,7 +905,7 @@ export const GemsTable = [
 				itemType: 'deep green spinel',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 91,
@@ -913,7 +913,7 @@ export const GemsTable = [
 				itemType: 'tourmaline',
 				valueRoll: '4d4*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -928,7 +928,7 @@ export const GemsTable = [
 				itemType: 'Alexandrite',
 				valueRoll: '2d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 17,
@@ -936,7 +936,7 @@ export const GemsTable = [
 				itemType: 'aquamarine',
 				valueRoll: '2d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 33,
@@ -944,7 +944,7 @@ export const GemsTable = [
 				itemType: 'violet garnet',
 				valueRoll: '2d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 49,
@@ -952,7 +952,7 @@ export const GemsTable = [
 				itemType: 'black pearl',
 				valueRoll: '2d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 65,
@@ -960,7 +960,7 @@ export const GemsTable = [
 				itemType: 'deep blue spinel',
 				valueRoll: '2d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 81,
@@ -968,7 +968,7 @@ export const GemsTable = [
 				itemType: 'golden yellow topaz',
 				valueRoll: '2d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -983,7 +983,7 @@ export const GemsTable = [
 				itemType: 'Emerald',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 11,
@@ -991,7 +991,7 @@ export const GemsTable = [
 				itemType: 'white opal',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 21,
@@ -999,7 +999,7 @@ export const GemsTable = [
 				itemType: 'black opal',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 31,
@@ -1007,7 +1007,7 @@ export const GemsTable = [
 				itemType: 'fire opal',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 41,
@@ -1015,7 +1015,7 @@ export const GemsTable = [
 				itemType: 'blue sapphire',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1023,7 +1023,7 @@ export const GemsTable = [
 				itemType: 'fiery yellow corundum',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 61,
@@ -1031,7 +1031,7 @@ export const GemsTable = [
 				itemType: 'rich purple corundum',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 71,
@@ -1039,7 +1039,7 @@ export const GemsTable = [
 				itemType: 'blue star sapphire',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 81,
@@ -1047,7 +1047,7 @@ export const GemsTable = [
 				itemType: 'black star sapphire',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 91,
@@ -1055,7 +1055,7 @@ export const GemsTable = [
 				itemType: 'star ruby',
 				valueRoll: '4d4*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1070,7 +1070,7 @@ export const GemsTable = [
 				itemType: 'Clearest bright green emerald',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 15,
@@ -1078,7 +1078,7 @@ export const GemsTable = [
 				itemType: 'blue-white diamond',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 29,
@@ -1086,7 +1086,7 @@ export const GemsTable = [
 				itemType: 'canary diamond',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 43,
@@ -1094,7 +1094,7 @@ export const GemsTable = [
 				itemType: 'pink diamond',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 57,
@@ -1102,7 +1102,7 @@ export const GemsTable = [
 				itemType: 'brown diamond',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 71,
@@ -1110,7 +1110,7 @@ export const GemsTable = [
 				itemType: 'blue diamond',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 85,
@@ -1118,7 +1118,7 @@ export const GemsTable = [
 				itemType: 'jacinth',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1137,7 +1137,7 @@ export const ArtsTable = [
 				itemType: 'Silver ewer',
 				valueRoll: '1d10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 26,
@@ -1145,7 +1145,7 @@ export const ArtsTable = [
 				itemType: 'carved bone statuette',
 				valueRoll: '1d10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1153,7 +1153,7 @@ export const ArtsTable = [
 				itemType: 'ivory statuette',
 				valueRoll: '1d10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 76,
@@ -1161,7 +1161,7 @@ export const ArtsTable = [
 				itemType: 'finely wrought small gold bracelet',
 				valueRoll: '1d10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1176,7 +1176,7 @@ export const ArtsTable = [
 				itemType: 'Cloth of gold vestments',
 				valueRoll: '3d6*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 34,
@@ -1184,7 +1184,7 @@ export const ArtsTable = [
 				itemType: 'black velvet mask with numerous citrines',
 				valueRoll: '3d6*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -1192,7 +1192,7 @@ export const ArtsTable = [
 				itemType: 'silver chalice with lapis lazuli gems',
 				valueRoll: '3d6*10',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1207,7 +1207,7 @@ export const ArtsTable = [
 				itemType: 'Large well-done wool tapestry',
 				valueRoll: '1d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1215,7 +1215,7 @@ export const ArtsTable = [
 				itemType: 'brass mug with jade inlays',
 				valueRoll: '1d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1230,7 +1230,7 @@ export const ArtsTable = [
 				itemType: 'Silver comb with moonstones',
 				valueRoll: '1d10*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1239,7 +1239,7 @@ export const ArtsTable = [
 					'silver-plated steel longsword with jet jewel in hilt',
 				valueRoll: '1d10*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1255,7 +1255,7 @@ export const ArtsTable = [
 					'Carved harp of exotic wood with ivory inlay and zircon gems',
 				valueRoll: '2d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1263,7 +1263,7 @@ export const ArtsTable = [
 				itemType: 'solid gold idol (10 lb.)',
 				valueRoll: '2d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1278,7 +1278,7 @@ export const ArtsTable = [
 				itemType: 'Gold dragon comb with red garnet eye',
 				valueRoll: '3d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 34,
@@ -1286,7 +1286,7 @@ export const ArtsTable = [
 				itemType: 'gold and topaz bottle stopper cork',
 				valueRoll: '3d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -1295,7 +1295,7 @@ export const ArtsTable = [
 					'ceremonial electrum dagger with a star ruby in the pommel',
 				valueRoll: '3d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1310,7 +1310,7 @@ export const ArtsTable = [
 				itemType: 'Eyepatch with mock eye of sapphire and moonstone',
 				valueRoll: '4d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 34,
@@ -1318,7 +1318,7 @@ export const ArtsTable = [
 				itemType: 'fire opal pendant on a fine gold chain',
 				valueRoll: '4d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -1326,7 +1326,7 @@ export const ArtsTable = [
 				itemType: 'old masterpiece painting',
 				valueRoll: '4d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1342,7 +1342,7 @@ export const ArtsTable = [
 					'Embroidered silk and velvet mantle with numerous moonstones',
 				valueRoll: '5d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1350,7 +1350,7 @@ export const ArtsTable = [
 				itemType: 'sapphire pendant on gold chain',
 				valueRoll: '5d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1365,7 +1365,7 @@ export const ArtsTable = [
 				itemType: 'Embroidered and bejeweled glove',
 				valueRoll: '1d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 34,
@@ -1373,7 +1373,7 @@ export const ArtsTable = [
 				itemType: 'jeweled anklet',
 				valueRoll: '1d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -1381,7 +1381,7 @@ export const ArtsTable = [
 				itemType: 'gold music box',
 				valueRoll: '1d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1396,7 +1396,7 @@ export const ArtsTable = [
 				itemType: 'Golden circlet with four aquamarines',
 				valueRoll: '1d6*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1404,7 +1404,7 @@ export const ArtsTable = [
 				itemType: 'a string of small pink pearls (necklace)',
 				valueRoll: '1d6*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1419,7 +1419,7 @@ export const ArtsTable = [
 				itemType: 'Jeweled gold crown',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 51,
@@ -1427,7 +1427,7 @@ export const ArtsTable = [
 				itemType: 'jeweled electrum ring',
 				valueRoll: '2d4*1000',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
@@ -1442,7 +1442,7 @@ export const ArtsTable = [
 				itemType: 'Gold ring',
 				valueRoll: '2d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 34,
@@ -1450,7 +1450,7 @@ export const ArtsTable = [
 				itemType: 'ruby ring',
 				valueRoll: '2d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 			{
 				Min: 67,
@@ -1458,7 +1458,7 @@ export const ArtsTable = [
 				itemType: 'gold cup set with emeralds',
 				valueRoll: '2d6*100',
 				type: 'item',
-				id: '',
+				id: 'D35E.items.placeHolder',
 			},
 		],
 	},
