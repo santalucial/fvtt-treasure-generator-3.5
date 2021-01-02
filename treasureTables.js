@@ -15908,8 +15908,7 @@ export const baneAbilityTable = [
 		value: 0,
 		enhancement: 0,
 		enhancementLevel: 0,
-		//TODO Missing enhancement
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.WR4UuJblSHkw3P9F',
 	},
 	{
 		Min: 40,
@@ -16306,8 +16305,7 @@ export const meleeWeaponsAbilityTable = [
 		type: 'ability',
 		value: 0,
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.JyH6oNkM7YjO2tYj',
 		enhancement: 1,
 	},
 	{
@@ -18190,8 +18188,7 @@ export const armorAbilityTable = [
 		itemType: 'Glamered',
 		type: 'ability',
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.4H7zIMRG4Stlet5j',
 		value: 2700,
 		enhancement: 0,
 	},
@@ -18401,8 +18398,7 @@ export const armorAbilityTable = [
 		itemType: 'Invulnerability',
 		type: 'ability',
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.mTRqWfCH1G5qWVie',
 		value: 0,
 		enhancement: 3,
 	},
@@ -18444,8 +18440,7 @@ export const armorAbilityTable = [
 		itemType: 'Wild',
 		type: 'ability',
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.zRR8JX67V8HkHFZ8',
 		value: 0,
 		enhancement: 3,
 	},
@@ -18585,8 +18580,7 @@ export const armorAbilityTable = [
 		itemType: 'Etherealness',
 		type: 'ability',
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.wOgrV7Qv5LndyNG3',
 		value: 49000,
 		enhancement: 0,
 	},
@@ -18742,8 +18736,7 @@ export const shieldAbilityTable = [
 		itemType: 'Bashing',
 		type: 'ability',
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.oKhu0fyM7tJeS8GO',
 		value: 0,
 		enhancement: 1,
 	},
@@ -18757,8 +18750,7 @@ export const shieldAbilityTable = [
 		itemType: 'Blinding',
 		type: 'ability',
 		enhancementLevel: 0,
-		//TODO missing enhancements
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.E4kg8L3TojKfZf7O',
 		value: 0,
 		enhancement: 1,
 	},
@@ -18940,7 +18932,7 @@ export const shieldAbilityTable = [
 		itemType: 'Wild',
 		type: 'ability',
 		enhancementLevel: 0,
-		id: 'D35E.enhancements.',
+		id: 'D35E.enhancements.zRR8JX67V8HkHFZ8',
 		value: 0,
 		enhancement: 3,
 	},

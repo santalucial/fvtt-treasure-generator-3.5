@@ -820,7 +820,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.",
+		      "id": "D35E.enhancements.oKhu0fyM7tJeS8GO",
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -881,7 +881,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.",
+		      "id": "D35E.enhancements.oKhu0fyM7tJeS8GO",
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -933,7 +933,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 0,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.",
+		      "id": "D35E.enhancements.4H7zIMRG4Stlet5j",
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
@@ -977,7 +977,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 0,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.",
+		      "id": "D35E.enhancements.4H7zIMRG4Stlet5j",
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
