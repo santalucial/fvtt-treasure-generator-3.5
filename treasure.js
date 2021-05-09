@@ -1108,13 +1108,14 @@ export async function genTreasureFromToken(
 /**
  * Example for generating vendor merchandise, pass vendor and amount of items to generate,
  * it is incomplete, it's missing adding items to vendor inventory.
+ * The avbove function, genTreasureFromToken, is a complete vendor generator.
  * @param {Token} vendorToken
  * @param {int} noMundaneItems
  * @param {int} noMinorItems
  * @param {int} noMediumItems
  * @param {int} noMajorItems
  */
-export function genWeaponSmithItems(
+export async function genWeaponSmithItems(
 	vendorToken,
 	noMundaneItems,
 	noMinorItems,
@@ -1143,16 +1144,11 @@ export function genWeaponSmithItems(
 		overrideNames: true,
 	})
 
-	treasureGen
-		.toItemPfArr()
-		// eslint-disable-next-line no-unused-vars
-		.then((items) => {
-			//TODO add items to vendorToken
-			vendorToken
-		})
-		.catch((err) => {
-			throw err
-		})
+	// eslint-disable-next-line no-unused-vars
+	for await (let it of treasureGen.toItemPfArr()) {
+		//TODO add items to vendorToken
+		vendorToken
+	}
 }
 
 //#endregion

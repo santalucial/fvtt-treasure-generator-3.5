@@ -723,7 +723,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 2,
 		      "enhancementLevel": 1,
-		      "id": "D35E.enhancements.g6afIpui4qfVC96t",
+		      "id": "g6afIpui4qfVC96t",
 		      "itemType": "Spell resistance (13)",
 		      "type": "ability",
 		      "value": 0,
@@ -731,7 +731,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 0,
 		      "enhancementLevel": 1,
-		      "id": "D35E.enhancements.r2I4wKm3NAJKN6sh",
+		      "id": "r2I4wKm3NAJKN6sh",
 		      "itemType": "Shadow",
 		      "type": "ability",
 		      "value": 3750,
@@ -812,7 +812,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.oHoYZizXSauB3UkB",
+		      "id": "oHoYZizXSauB3UkB",
 		      "itemType": "Arrow catching",
 		      "type": "ability",
 		      "value": 0,
@@ -820,7 +820,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.oKhu0fyM7tJeS8GO",
+		      "id": "oKhu0fyM7tJeS8GO",
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -865,7 +865,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 1,
-		      "id": "D35E.enhancements.STDeZl8OzwXSyLTB",
+		      "id": "STDeZl8OzwXSyLTB",
 		      "itemType": "Fortification, light",
 		      "type": "ability",
 		      "value": 0,
@@ -873,7 +873,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.oHoYZizXSauB3UkB",
+		      "id": "oHoYZizXSauB3UkB",
 		      "itemType": "Arrow catching",
 		      "type": "ability",
 		      "value": 0,
@@ -881,7 +881,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 1,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.oKhu0fyM7tJeS8GO",
+		      "id": "oKhu0fyM7tJeS8GO",
 		      "itemType": "Bashing",
 		      "type": "ability",
 		      "value": 0,
@@ -925,7 +925,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 0,
 		      "enhancementLevel": 1,
-		      "id": "D35E.enhancements.r2I4wKm3NAJKN6sh",
+		      "id": "r2I4wKm3NAJKN6sh",
 		      "itemType": "Shadow",
 		      "type": "ability",
 		      "value": 3750,
@@ -933,7 +933,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 0,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.4H7zIMRG4Stlet5j",
+		      "id": "4H7zIMRG4Stlet5j",
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
@@ -977,7 +977,7 @@ describe('Magic armor rolls', () => {
 		    Object {
 		      "enhancement": 0,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.4H7zIMRG4Stlet5j",
+		      "id": "4H7zIMRG4Stlet5j",
 		      "itemType": "Glamered",
 		      "type": "ability",
 		      "value": 2700,
@@ -1075,7 +1075,7 @@ describe('Magic weapon rolls', () => {
 		    Object {
 		      "enhancement": 2,
 		      "enhancementLevel": 0,
-		      "id": "D35E.enhancements.f773ZQN84bkNKxXa",
+		      "id": "f773ZQN84bkNKxXa",
 		      "itemType": "Disruption",
 		      "type": "ability",
 		      "value": 0,
@@ -1136,7 +1136,7 @@ describe('Magic weapon rolls', () => {
 		      Object {
 		        "enhancement": 1,
 		        "enhancementLevel": 0,
-		        "id": "D35E.enhancements.7C6OD57df9VvTuJH",
+		        "id": "7C6OD57df9VvTuJH",
 		        "itemType": "Bane, Fey",
 		        "type": "ability",
 		        "value": 0,
@@ -1157,6 +1157,29 @@ describe('Magic weapon rolls', () => {
 		    },
 		    "type": "Crossbow, light",
 		    "value": 8335,
+		  },
+		  Object {
+		    "ability": Array [],
+		    "amount": 1,
+		    "enhancement": 0,
+		    "id": "D35E.items.ukJMYFrrvECT4dPv",
+		    "itemOverride": Object {
+		      "data": Object {
+		        "data": Object {
+		          "description": Object {
+		            "value": "<p></p>",
+		          },
+		          "identified": true,
+		          "identifiedName": "Large well-done wool tapestry",
+		          "price": 500,
+		          "subType": "tradeGoods",
+		          "weight": 0.1,
+		        },
+		        "img": "systems/D35E/icons/chests/wooden-chest.png",
+		      },
+		    },
+		    "type": "Large well-done wool tapestry",
+		    "value": 500,
 		  },
 		]
 	`)
