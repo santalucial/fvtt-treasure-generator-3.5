@@ -1,3 +1,4 @@
+import { ItemPF } from '../item/entity.js'
 import {
 	TreasureTable,
 	GemsTable,
@@ -5,7 +6,7 @@ import {
 	MagicItemTable,
 	MundaneItemsTable,
 	weaponsTable,
-} from './treasureTables'
+} from './treasureTables.js'
 
 //#region utility functions
 function log(message) {
@@ -24,6 +25,16 @@ function cleanObj(obj) {
 		}
 	})
 	return obj
+}
+
+function execFunctions(obj) {
+	for (let key in obj) {
+		if (typeof obj[key] === 'object') {
+			execFunctions(obj[key])
+		} else if (typeof obj[key] === 'function') {
+			obj[key] = obj[key]()
+		}
+	}
 }
 
 function times(x) {
@@ -159,86 +170,86 @@ export default class TreasureGenerator {
 
 	async _makeItem(item) {
 		if (item.id) {
-			if (item.consumableType) {
-				//TODO handle caster Level, not every item has it defined, others have it at 0 when not needed (been added automatically)
-				try {
-					let it = await getItem(item.id)
+			try {
+				// console.log("fetchin " + item.id);
+				let it = await getItem(item.id)
+				// console.log(it);
+				if (item.consumableType) {
+					//TODO handle caster Level, not every item has it defined, others have it at 0 when not needed (been added automatically)
 					it.data.data.quantity = item.amount
-
-					let consumableItem = ItemPf.toConsumable(
-						it,
+					let consumableItem = await ItemPF.toConsumable(
+						it.data,
 						item.consumableType
 					)
-					if (item.itemOverride) {
-						mergeObject(consumableItem, item.itemOverride)
+					if (consumableItem.data._id) {
+						delete data._id
 					}
-
+					if (item.itemOverride) {
+						mergeObject(consumableItem, item.itemOverride.data)
+					}
 					return consumableItem
-				} catch (err) {
-					console.error(
-						`error fetching item ${item.type} - ${item.id}`
-					)
-					console.error(err)
-					this._treasureErr.items.push(item)
-				}
-			} else if (item.ability.length > 0 || item.enhancement > 0) {
-				let enhancements = []
+				} else if (item.ability.length > 0 || item.enhancement > 0) {
+					let enhancements = []
 
-				if (item.ability.length > 0) {
-					for (let itemAbility of item.ability) {
-						enhancements.push({
-							id: itemAbility.id,
-							enhancement: itemAbility.enhancementLevel,
-						})
+					if (item.ability.length > 0) {
+						for (let itemAbility of item.ability) {
+							enhancements.push({
+								id: itemAbility.id,
+								enhancement: itemAbility.enhancementLevel,
+							})
+						}
 					}
-				}
 
-				if (item.enhancement > 0) {
-					if (item.id.includes('armors-and-shields')) {
-						enhancements.push({
-							id: 'iOhtLsgtgmt2l9CM',
-							enhancement: item.enhancement,
-						})
-					} else {
-						enhancements.push({
-							id: 'Ng5AlRupmkMOgqQi',
-							enhancement: item.enhancement,
-						})
+					if (item.enhancement > 0) {
+						if (item.id.includes('armors-and-shields')) {
+							enhancements.push({
+								id: 'iOhtLsgtgmt2l9CM',
+								enhancement: item.enhancement,
+							})
+						} else {
+							enhancements.push({
+								id: 'Ng5AlRupmkMOgqQi',
+								enhancement: item.enhancement,
+							})
+						}
 					}
-				}
 
-				try {
-					let it = await ItemPF.getMagicItem(item.id, enhancements)
+					it.data.data.enhancements = it.data.data.enhancements || {}
+					it.data.data.enhancements.items =
+						it.data.data.enhancements.items || []
+					for (let enhancement of enhancements) {
+						let enhancementData = await it.addEnhancementFromCompendium(
+							'D35E.enhancements',
+							enhancement.id,
+							enhancement.enhancement
+						)
+						it.data.data.enhancements.items.push(
+							enhancementData['data.enhancements.items'].splice(
+								-1
+							)[0]
+						)
+					}
+
 					it.data.data.quantity = item.amount
 					if (item.itemOverride) {
 						mergeObject(it, item.itemOverride)
 					}
 
-					return it
-				} catch (err) {
-					console.error(
-						`error fetching magic item ${item.type} - ${item.id}`
-					)
-					console.error(err)
-					this._treasureErr.items.push(item)
-				}
-			} else {
-				try {
-					let it = await getItem(item.id)
+					return it.data
+				} else {
 					it.data.data.quantity = item.amount
 
 					if (item.itemOverride) {
+						execFunctions(item.itemOverride)
 						mergeObject(it, item.itemOverride)
 					}
-
-					return it
-				} catch (err) {
-					console.error(
-						`error fetching item ${item.type} - ${item.id}`
-					)
-					console.error(err)
-					this._treasureErr.items.push(item)
+					return it.data
 				}
+			} catch (err) {
+				console.error(`error fetching item ${item.type} - ${item.id}`)
+				console.error(err)
+				console.error(this._rolls)
+				this._treasureErr.items.push(item)
 			}
 		} else {
 			console.error(`no item generated for ${item.type}`)
@@ -246,47 +257,54 @@ export default class TreasureGenerator {
 		}
 	}
 
-	toItemPfArr() {
-		let promises = []
+	// toItemPfArr() {
+	//   let promises = [];
 
+	//   console.log(this._treasure.items)
+	//   for (let item of this._treasure.items) {
+	//     promises.push(this._makeItem(item));
+	//   }
+
+	//   return Promise.all(promises);
+	// }
+
+	async *toItemPfArr() {
 		for (let item of this._treasure.items) {
-			promises.push(this._makeItem(item))
+			yield await this._makeItem(item)
 		}
-
-		return Promise.all(promises)
 	}
 
-	toPuSContainer(position = { gridX: 0, gridY: 0 }) {
-		let pikUpStiXModule = game.modules.get('pick-up-stix')
-		var treasureErr = {
-			cp: 0,
-			sp: 0,
-			gp: 0,
-			pp: 0,
-			gems: [],
-			arts: [],
-			items: [],
-		}
+	// toPuSContainer(position = { gridX: 0, gridY: 0 }) {
+	//   let pikUpStiXModule = game.modules.get("pick-up-stix");
+	//   var treasureErr = {
+	//     cp: 0,
+	//     sp: 0,
+	//     gp: 0,
+	//     pp: 0,
+	//     gems: [],
+	//     arts: [],
+	//     items: [],
+	//   };
 
-		this.toItemPfArr()
-			.then((itemsObjects) => {
-				pikUpStiXModule.apis.makeContainer(
-					itemsObjects.filter((el) => el !== undefined),
-					{
-						cp: this._treasure.cp,
-						sp: this._treasure.sp,
-						gp: this._treasure.gp,
-						pp: this._treasure.pp,
-					},
-					position
-				)
-			})
-			.then(() => {
-				if (treasureErr.items.length > 0) {
-					this.treasureToChat(this._treasureErr)
-				}
-			})
-	}
+	//   this.toItemPfArr()
+	//     .then((itemsObjects) => {
+	//       pikUpStiXModule.apis.makeContainer(
+	//         itemsObjects.filter((el) => el !== undefined),
+	//         {
+	//           cp: this._treasure.cp,
+	//           sp: this._treasure.sp,
+	//           gp: this._treasure.gp,
+	//           pp: this._treasure.pp,
+	//         },
+	//         position
+	//       );
+	//     })
+	//     .then(() => {
+	//       if (treasureErr.items.length > 0) {
+	//         this.treasureToChat(this._treasureErr);
+	//       }
+	//     });
+	// }
 
 	rollItem(
 		table,
@@ -359,6 +377,16 @@ export default class TreasureGenerator {
 							ItemAmount = forceRolls.shift()
 						}
 						result.amount = ItemAmount
+					}
+					if (magicItemData.valueRoll) {
+						Object.assign(result, {
+							value:
+								result.value +
+								rollDice(
+									magicItemData.valueRoll,
+									options.enable3DDice
+								),
+						})
 					}
 					return result
 				case 'roll':
@@ -579,7 +607,9 @@ export default class TreasureGenerator {
 						enhancement: result.enhancement + roll.enhancement,
 						valueBonus: result.valueBonus + roll.valueBonus,
 						type: ((prefix || '') + ' ' + (roll.type || '')).trim(),
-						ability: abilities.concat(roll.ability),
+						ability: JSON.parse(
+							JSON.stringify(abilities.concat(roll.ability))
+						),
 						table: roll.table,
 						id: roll.id,
 						itemOverride: roll.itemOverride,
@@ -596,12 +626,6 @@ export default class TreasureGenerator {
 						options,
 						itemDamageType
 					)
-					// Object.assign(result, roll);
-					// for (let ability of roll) {
-					//   if (abilities.indexOf(ability) === -1) {
-					//     abilities.push(ability);
-					//   }
-					// }
 
 					for (let ability of roll) {
 						if (
@@ -906,6 +930,32 @@ export default class TreasureGenerator {
 			})
 		)
 	}
+
+	genItems(
+		noItems,
+		table,
+		itemType,
+		prefixedRolls,
+		options = {
+			identified: true,
+			masterwork: false,
+			overrideNames: true,
+		}
+	) {
+		times(noItems).forEach(() => {
+			this._addItem({
+				ability: [],
+				enhancement: 0,
+				...this.rollItem(
+					table,
+					itemType,
+					'',
+					JSON.parse(JSON.stringify(prefixedRolls)),
+					options
+				),
+			})
+		})
+	}
 }
 
 //#region example
@@ -971,6 +1021,90 @@ export function genTreasureFromSelectedNpcsCr(
 	}
 }
 
+export async function genTreasureFromToken(
+	token,
+	options = {
+		identified: false,
+		tradeGoodsToGold: false,
+		overrideNames: true,
+	}
+) {
+	// console.log("generating treasure for: ", token.name);
+	let TreasureLevels = []
+	let actor = token.actor
+	let TreasureLevel = getActorCrAndMultiplier(actor)
+	TreasureLevels.push(TreasureLevel)
+	let treasureGen = new TreasureGenerator()
+	let treasure = treasureGen.makeTreasureFromCR(TreasureLevels, options)
+		.treasure
+
+	// debug purposes
+	// treasureGen.toChat();
+
+	if (actor.hasPlayerOwner) {
+		return
+	}
+
+	//restore original npc items items
+	let itemsToDelete = token.actor.data.items
+		.filter(
+			(item) =>
+				!game.actors
+					.get(token.data.actorId)
+					.data.items.map((it) => it._id)
+					.includes(item._id)
+		)
+		.map((it) => it._id)
+	await token.actor.deleteEmbeddedEntity(
+		'OwnedItem',
+		Array.from(itemsToDelete),
+		{ stopUpdates: true }
+	)
+
+	// console.log("actor:", game.actors.get(token.data.actorId));
+	// console.log("items:", game.actors.get(token.data.actorId).data.items);
+
+	//TODO adding items to actor, verify 0.8 compatibility
+	for await (let it of treasureGen.toItemPfArr()) {
+		if (it === null || it === undefined) {
+			continue
+		}
+		let item = await canvas.tokens
+			.get(token.data._id)
+			.actor.createEmbeddedEntity('OwnedItem', it, { stopUpdates: true })
+		// console.log("item: ", item);
+		item = await canvas.tokens.get(token.data._id).actor.items.get(item._id)
+		if (item.type === 'weapon' || item.type === 'equipment') {
+			const updateData = {}
+			let _enhancements = duplicate(
+				getProperty(item.data, `data.enhancements.items`) || []
+			)
+
+			item.updateMagicItemName(updateData, _enhancements, true, true)
+			item.updateMagicItemProperties(updateData, _enhancements, true)
+			await item.update(updateData, { stopUpdates: true })
+		}
+		if (item.type === 'weapon') {
+			await canvas.tokens
+				.get(token.data._id)
+				.actor.createAttackFromWeapon(item)
+		}
+	}
+
+	await canvas.tokens.get(token.data._id).actor.update({
+		'data.currency': {
+			pp: treasure.pp,
+			gp: treasure.gp,
+			sp: treasure.sp,
+			cp: treasure.cp,
+		},
+	})
+
+	// console.log("token after treasure gen:", canvas.tokens.get(token.data._id));
+	// console.log("treasure rolls:", treasureGen._rolls);
+	return treasure
+}
+
 /**
  * Example for generating vendor merchandise, pass vendor and amount of items to generate,
  * it is incomplete, it's missing adding items to vendor inventory.
@@ -989,47 +1123,24 @@ export function genWeaponSmithItems(
 ) {
 	let treasureGen = new TreasureGenerator()
 
-	times(noMundaneItems).forEach(() => {
-		treasureGen._addItem({
-			...treasureGen.rollItem(MundaneItemsTable, 'mundane', '', [51], {
-				//51 forces the first roll to be 51, falling into the weapons section of the MundaneItemsTable, avoiding other mundane items
-				identified: true,
-				masterwork: false,
-				overrideNames: true,
-			}),
-			ability: [],
-			enhancement: 0,
-		})
+	treasureGen.genItems(noMundaneItems, MundaneItemsTable, 'mundane', [51])
+
+	treasureGen.genItems(noMinorItems, weaponsTable, 'minor', [], {
+		identified: true,
+		masterwork: true,
+		overrideNames: true,
 	})
 
-	times(noMinorItems).forEach(() => {
-		treasureGen._addItem(
-			treasureGen.rollItem(weaponsTable, 'medium', '', [], {
-				identified: true,
-				masterwork: true,
-				overrideNames: true,
-			})
-		)
+	treasureGen.genItems(noMediumItems, weaponsTable, 'medium', [], {
+		identified: true,
+		masterwork: true,
+		overrideNames: true,
 	})
 
-	times(noMediumItems).forEach(() => {
-		treasureGen._addItem(
-			treasureGen.rollItem(weaponsTable, 'medium', '', [], {
-				identified: true,
-				masterwork: true,
-				overrideNames: true,
-			})
-		)
-	})
-
-	times(noMajorItems).forEach(() => {
-		treasureGen._addItem(
-			treasureGen.rollItem(weaponsTable, 'major', '', [], {
-				identified: true,
-				masterwork: true,
-				overrideNames: true,
-			})
-		)
+	treasureGen.genItems(noMajorItems, weaponsTable, 'major', [], {
+		identified: true,
+		masterwork: true,
+		overrideNames: true,
 	})
 
 	treasureGen
